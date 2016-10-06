@@ -1,4 +1,4 @@
-package main
+package matmul
 
 import "github.com/k0kubun/pp"
 
@@ -27,25 +27,25 @@ func main() {
 	b3 := [N]float64{7, 8, 9}
 
 	Abs := transpose([N][N]float64{
-		mat_vec(A, b1),
-		mat_vec(A, b2),
-		mat_vec(A, b3),
+		MatVec(A, b1),
+		MatVec(A, b2),
+		MatVec(A, b3),
 	})
 
-	AA := mat_mlt(A, A)
+	AA := MatMlt(A, A)
 
 	pp.Println(Abs)
 	pp.Println(AA)
 
-	AA_b1 := mat_vec(mat_mlt(A, A), b1)
-	A_Ab1 := mat_vec(A, mat_vec(A, b1))
+	AA_b1 := MatVec(MatMlt(A, A), b1)
+	A_Ab1 := MatVec(A, MatVec(A, b1))
 
 	pp.Println(AA_b1)
 	pp.Println(A_Ab1)
 }
 
 // 行列とベクトルを受け取り、ベクトルを返す
-func mat_vec(mat [N][N]float64, vec [N]float64) [N]float64 {
+func MatVec(mat [N][N]float64, vec [N]float64) [N]float64 {
 	var ret_vec [N]float64
 
 	for i := 0; i < N; i++ {
@@ -57,7 +57,7 @@ func mat_vec(mat [N][N]float64, vec [N]float64) [N]float64 {
 }
 
 // 行列と行列を受け取り、行列を返す
-func mat_mlt(mat1 [N][N]float64, mat2 [N][N]float64) [N][N]float64 {
+func MatMlt(mat1 [N][N]float64, mat2 [N][N]float64) [N][N]float64 {
 	var ret_mat [N][N]float64
 
 	for i := 0; i < N; i++ {
