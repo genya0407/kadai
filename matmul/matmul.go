@@ -14,7 +14,7 @@ j = 2
  => 6
 */
 
-const N = 3
+const N = 6
 
 func main() {
 	A := [N][N]float64{
@@ -26,7 +26,7 @@ func main() {
 	b2 := [N]float64{4, 5, 6}
 	b3 := [N]float64{7, 8, 9}
 
-	Abs := transpose([N][N]float64{
+	Abs := Transpose([N][N]float64{
 		MatVec(A, b1),
 		MatVec(A, b2),
 		MatVec(A, b3),
@@ -92,7 +92,7 @@ func fetch_col(mat [N][N]float64, col_ind int) [N]float64 {
 	return col
 }
 
-func transpose(mat [N][N]float64) [N][N]float64 {
+func Transpose(mat [N][N]float64) [N][N]float64 {
 	var ret_mat [N][N]float64
 
 	for i := 0; i < N; i++ {
