@@ -1,7 +1,7 @@
-package main
+package locust
 
 import (
-	"./matmul"
+	"../matmul"
 	"encoding/csv"
 	"fmt"
 	"os"
@@ -23,32 +23,44 @@ const N = matmul.N
 
 func main() {
 	// c = 0.5, s = 0.05
-	res1 := calculation(0.5, 0.05)
+	res1 := Calculation(0.5, 0.05)
 	// c = 0.5, s = 0.15
-	res2 := calculation(0.5, 0.15)
+	res2 := Calculation(0.5, 0.15)
 	// c = 0.5, s = 0.5
-	res3 := calculation(0.5, 0.5)
+	res3 := Calculation(0.5, 0.5)
 
-	writeCSV("0.05", res1)
-	writeCSV("0.15", res2)
-	writeCSV("0.5", res3)
+	WriteCSV("0.05", res1)
+	WriteCSV("0.15", res2)
+	WriteCSV("0.5", res3)
 }
 
-func writeCSV(filename string, resVec [61][N]float64) {
+func WriteCSV(filename string, resVec [61][N]float64) {
 	file, _ := os.Create("res/" + filename + ".csv")
 	writer := csv.NewWriter(file)
-	writer.Write([]string{"t", "point 1", "point 4"})
+	writer.Write([]string{
+		"t",
+		"point 0",
+		"point 1",
+		"point 2",
+		"point 3",
+		"point 4",
+		"point 5",
+	})
 	for i := 0; i <= 60; i++ {
 		writer.Write([]string{
 			fmt.Sprint(i),
+			fmt.Sprint(resVec[i][0]),
 			fmt.Sprint(resVec[i][1]),
+			fmt.Sprint(resVec[i][2]),
+			fmt.Sprint(resVec[i][3]),
 			fmt.Sprint(resVec[i][4]),
+			fmt.Sprint(resVec[i][5]),
 		})
 	}
 	writer.Flush()
 }
 
-func calculation(c float64, s float64) [61][N]float64 {
+func Calculation(c float64, s float64) [61][N]float64 {
 	var probMat [N][N]float64 = getProbMat(c, s)
 
 	var resultVectors [61][N]float64
