@@ -1,0 +1,154 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>~/dev/eec/locust/locust.go.html</title>
+<meta name="Generator" content="Vim/7.4">
+<meta name="plugin-version" content="vim7.4_v2">
+<meta name="syntax" content="go">
+<meta name="settings" content="number_lines,use_css,pre_wrap,no_foldcolumn,expand_tabs,line_ids,prevent_copy=">
+<meta name="colorscheme" content="none">
+<style type="text/css">
+<!--
+pre { white-space: pre-wrap; font-family: monospace; color: #000000; background-color: #ffffff; }
+body { font-family: monospace; color: #000000; background-color: #ffffff; }
+* { font-size: 1em; }
+.Error { color: #ffffff; background-color: #ff6060; padding-bottom: 1px; }
+.Comment { color: #0000c0; }
+.Constant { color: #c00000; }
+.LineNr { color: #af5f00; }
+.Statement { color: #af5f00; }
+.Type { color: #008000; }
+-->
+</style>
+
+<script type='text/javascript'>
+<!--
+
+/* function to open any folds containing a jumped-to line before jumping to it */
+function JumpToLine()
+{
+  var lineNum;
+  lineNum = window.location.hash;
+  lineNum = lineNum.substr(1); /* strip off '#' */
+
+  if (lineNum.indexOf('L') == -1) {
+    lineNum = 'L'+lineNum;
+  }
+  lineElem = document.getElementById(lineNum);
+  /* Always jump to new location even if the line was hidden inside a fold, or
+   * we corrected the raw number to a line ID.
+   */
+  if (lineElem) {
+    lineElem.scrollIntoView(true);
+  }
+  return true;
+}
+if ('onhashchange' in window) {
+  window.onhashchange = JumpToLine;
+}
+
+-->
+</script>
+</head>
+<body onload='JumpToLine();'>
+<pre id='vimCodeElement'>
+<span id="L1" class="LineNr"> 1 </span><span class="Comment">// 後で他のソースコードから関数をモジュールとして参照するので、パッケージをexportしている。</span>
+<span id="L2" class="LineNr"> 2 </span><span class="Comment">// Go言語では、初めの文字が大文字の関数が公開され、小文字の関数は公開されない。</span>
+<span id="L3" class="LineNr"> 3 </span><span class="Statement">package</span> locust
+<span id="L4" class="LineNr"> 4 </span>
+<span id="L5" class="LineNr"> 5 </span><span class="Statement">import</span> (
+<span id="L6" class="LineNr"> 6 </span>    <span class="Constant">&quot;../matmul&quot;</span> <span class="Comment">// MatVec関数, MatMlt関数, Transpose関数, 定数N</span>
+<span id="L7" class="LineNr"> 7 </span>    <span class="Constant">&quot;encoding/csv&quot;</span> <span class="Comment">// 計算結果をCSVに出力するため</span>
+<span id="L8" class="LineNr"> 8 </span>    <span class="Constant">&quot;fmt&quot;</span> <span class="Comment">// Sprint関数を使うため</span>
+<span id="L9" class="LineNr"> 9 </span>    <span class="Constant">&quot;os&quot;</span> <span class="Comment">// 計算結果をCSVに出力するため</span>
+<span id="L10" class="LineNr">10 </span>)
+<span id="L11" class="LineNr">11 </span>
+<span id="L12" class="LineNr">12 </span><span class="Comment">// #define N 3 の代わり。</span>
+<span id="L13" class="LineNr">13 </span><span class="Statement">const</span> N = matmul.N
+<span id="L14" class="LineNr">14 </span>
+<span id="L15" class="LineNr">15 </span><span class="Statement">func</span> main() {
+<span id="L16" class="LineNr">16 </span>    <span class="Comment">// c = 0.5, s = 0.05の場合の、各時刻における各地点の、バッタGの存在確率を計算している</span>
+<span id="L17" class="LineNr">17 </span>    res1 := Calculation(<span class="Constant">0.5</span>, <span class="Constant">0.05</span>)
+<span id="L18" class="LineNr">18 </span>    <span class="Comment">// c = 0.5, s = 0.15の場合の、各時刻における各地点の、バッタGの存在確率を計算している</span>
+<span id="L19" class="LineNr">19 </span>    res2 := Calculation(<span class="Constant">0.5</span>, <span class="Constant">0.15</span>)
+<span id="L20" class="LineNr">20 </span>    <span class="Comment">// c = 0.5, s = 0.5の場合の、各時刻における各地点の、バッタGの存在確率を計算している</span>
+<span id="L21" class="LineNr">21 </span>    res3 := Calculation(<span class="Constant">0.5</span>, <span class="Constant">0.5</span>)
+<span id="L22" class="LineNr">22 </span>
+<span id="L23" class="LineNr">23 </span>    <span class="Comment">// 計算結果をCSVに出力している</span>
+<span id="L24" class="LineNr">24 </span>    WriteCSV(<span class="Constant">&quot;0.05&quot;</span>, res1)
+<span id="L25" class="LineNr">25 </span>    WriteCSV(<span class="Constant">&quot;0.15&quot;</span>, res2)
+<span id="L26" class="LineNr">26 </span>    WriteCSV(<span class="Constant">&quot;0.5&quot;</span>, res3)
+<span id="L27" class="LineNr">27 </span>}
+<span id="L28" class="LineNr">28 </span>
+<span id="L29" class="LineNr">29 </span><span class="Comment">// </span>
+<span id="L30" class="LineNr">30 </span><span class="Statement">func</span> WriteCSV(filename <span class="Type">string</span>, resVec [<span class="Constant">61</span>][N]<span class="Type">float64</span>) {
+<span id="L31" class="LineNr">31 </span>    <span class="Comment">// CSVを書き出すファイルを指定</span>
+<span id="L32" class="LineNr">32 </span>    file, _ := os.Create(<span class="Constant">&quot;res/&quot;</span> + filename + <span class="Constant">&quot;.csv&quot;</span>)
+<span id="L33" class="LineNr">33 </span>    writer := csv.NewWriter(file)
+<span id="L34" class="LineNr">34 </span>    <span class="Comment">// CSVのヘッダーを指定</span>
+<span id="L35" class="LineNr">35 </span>    writer.Write([]<span class="Type">string</span>{
+<span id="L36" class="LineNr">36 </span>        <span class="Constant">&quot;t&quot;</span>,
+<span id="L37" class="LineNr">37 </span>        <span class="Constant">&quot;point 0&quot;</span>,
+<span id="L38" class="LineNr">38 </span>        <span class="Constant">&quot;point 1&quot;</span>,
+<span id="L39" class="LineNr">39 </span>        <span class="Constant">&quot;point 2&quot;</span>,
+<span id="L40" class="LineNr">40 </span>        <span class="Constant">&quot;point 3&quot;</span>,
+<span id="L41" class="LineNr">41 </span>        <span class="Constant">&quot;point 4&quot;</span>,
+<span id="L42" class="LineNr">42 </span>        <span class="Constant">&quot;point 5&quot;</span>,
+<span id="L43" class="LineNr">43 </span>    })
+<span id="L44" class="LineNr">44 </span>    <span class="Statement">for</span> t := <span class="Constant">0</span>; t &lt;= <span class="Constant">60</span>; t++ {
+<span id="L45" class="LineNr">45 </span>        <span class="Comment">// writer.Write 関数はstringのArrayしか受け取らないので、</span>
+<span id="L46" class="LineNr">46 </span>        <span class="Comment">// resVec[t]の各要素をfmt.Sprint関数でstringに変換して、</span>
+<span id="L47" class="LineNr">47 </span>        <span class="Comment">// そのArrayを生成し、それをwriter.Writeに渡している。</span>
+<span id="L48" class="LineNr">48 </span>        writer.Write(
+<span id="L49" class="LineNr">49 </span>            []<span class="Type">string</span>{
+<span id="L50" class="LineNr">50 </span>                fmt.Sprint(t),
+<span id="L51" class="LineNr">51 </span>                fmt.Sprint(resVec[t][<span class="Constant">0</span>]),<span class="Error"> </span>
+<span id="L52" class="LineNr">52 </span>                fmt.Sprint(resVec[t][<span class="Constant">1</span>]),
+<span id="L53" class="LineNr">53 </span>                fmt.Sprint(resVec[t][<span class="Constant">2</span>]),
+<span id="L54" class="LineNr">54 </span>                fmt.Sprint(resVec[t][<span class="Constant">3</span>]),
+<span id="L55" class="LineNr">55 </span>                fmt.Sprint(resVec[t][<span class="Constant">4</span>]),
+<span id="L56" class="LineNr">56 </span>                fmt.Sprint(resVec[t][<span class="Constant">5</span>]),
+<span id="L57" class="LineNr">57 </span>            }
+<span id="L58" class="LineNr">58 </span>        )
+<span id="L59" class="LineNr">59 </span>    }
+<span id="L60" class="LineNr">60 </span>    <span class="Comment">// バッファをファイルへ出力する</span>
+<span id="L61" class="LineNr">61 </span>    writer.Flush()
+<span id="L62" class="LineNr">62 </span>}
+<span id="L63" class="LineNr">63 </span>
+<span id="L64" class="LineNr">64 </span><span class="Comment">// パラメーターcとsを受け取り、0 &lt;= t &lt;= 60の範囲のバッタGの、</span>
+<span id="L65" class="LineNr">65 </span><span class="Comment">// 各地点での存在確率を計算する</span>
+<span id="L66" class="LineNr">66 </span><span class="Statement">func</span> Calculation(c <span class="Type">float64</span>, s <span class="Type">float64</span>) [<span class="Constant">61</span>][N]<span class="Type">float64</span> {
+<span id="L67" class="LineNr">67 </span>    <span class="Comment">// 移動確率を表す行列を計算し、取得する</span>
+<span id="L68" class="LineNr">68 </span>    <span class="Statement">var</span> probMat [N][N]<span class="Type">float64</span> = getProbMat(c, s)
+<span id="L69" class="LineNr">69 </span>
+<span id="L70" class="LineNr">70 </span>    <span class="Statement">var</span> resultVectors [<span class="Constant">61</span>][N]<span class="Type">float64</span> <span class="Comment">// resultVectors[t]: 時刻tに於ける、Gの地点0~5での存在確率を表すベクトル</span>
+<span id="L71" class="LineNr">71 </span>    resultVectors[<span class="Constant">0</span>] = [N]<span class="Type">float64</span>{<span class="Constant">1</span>, <span class="Constant">0</span>, <span class="Constant">0</span>, <span class="Constant">0</span>, <span class="Constant">0</span>, <span class="Constant">0</span>} <span class="Comment">// t = 0のとき、バッタGの地点0~5での存在確率は1,0,0,0,0,0である</span>
+<span id="L72" class="LineNr">72 </span>    <span class="Comment">// t = 1, 2, ... , 60について、</span>
+<span id="L73" class="LineNr">73 </span>    <span class="Comment">// Gの存在確率ベクトルを求める</span>
+<span id="L74" class="LineNr">74 </span>    <span class="Statement">for</span> t := <span class="Constant">1</span>; t &lt;= <span class="Constant">60</span>; t++ {
+<span id="L75" class="LineNr">75 </span>        <span class="Comment">// ある時刻tのGの各地点での存在確率は、</span>
+<span id="L76" class="LineNr">76 </span>        <span class="Comment">// 移動確率を表す行列と、t-1での存在確率ベクトルの、行列ベクトル積である。</span>
+<span id="L77" class="LineNr">77 </span>        resultVectors[t] = matmul.MatVec(probMat, resultVectors[t-<span class="Constant">1</span>])
+<span id="L78" class="LineNr">78 </span>    }
+<span id="L79" class="LineNr">79 </span>    <span class="Statement">return</span> resultVectors
+<span id="L80" class="LineNr">80 </span>}
+<span id="L81" class="LineNr">81 </span>
+<span id="L82" class="LineNr">82 </span><span class="Comment">// パラメーターcとsを受け取り、バッタの移動確率を表す行列の値を計算する</span>
+<span id="L83" class="LineNr">83 </span><span class="Statement">func</span> getProbMat(c <span class="Type">float64</span>, s <span class="Type">float64</span>) [N][N]<span class="Type">float64</span> {
+<span id="L84" class="LineNr">84 </span>    <span class="Comment">// 問に示された「バッタGの振る舞い」行列を転置したものと、</span>
+<span id="L85" class="LineNr">85 </span>    <span class="Comment">// 時刻tでのバッタの存在確率ベクトルとの行列ベクトル積を取ると、</span>
+<span id="L86" class="LineNr">86 </span>    <span class="Comment">// その計算結果が時刻t+1でのバッタの存在確率ベクトルとなっている。</span>
+<span id="L87" class="LineNr">87 </span>    <span class="Statement">return</span> matmul.Transpose([N][N]<span class="Type">float64</span>{
+<span id="L88" class="LineNr">88 </span>        {s + (<span class="Constant">1</span>-s)*(<span class="Constant">1</span>-c), (<span class="Constant">1</span> - s) * c, <span class="Constant">0</span>, <span class="Constant">0</span>, <span class="Constant">0</span>},
+<span id="L89" class="LineNr">89 </span>        {(<span class="Constant">1</span> - s) * (<span class="Constant">1</span> - c), s, (<span class="Constant">1</span> - s) * c, <span class="Constant">0</span>, <span class="Constant">0</span>, <span class="Constant">0</span>},
+<span id="L90" class="LineNr">90 </span>        {<span class="Constant">0</span>, (<span class="Constant">1</span> - s) * (<span class="Constant">1</span> - c), s, (<span class="Constant">1</span> - s) * c, <span class="Constant">0</span>, <span class="Constant">0</span>},
+<span id="L91" class="LineNr">91 </span>        {<span class="Constant">0</span>, <span class="Constant">0</span>, (<span class="Constant">1</span> - s) * c, s, (<span class="Constant">1</span> - s) * (<span class="Constant">1</span> - c), <span class="Constant">0</span>},
+<span id="L92" class="LineNr">92 </span>        {<span class="Constant">0</span>, <span class="Constant">0</span>, <span class="Constant">0</span>, (<span class="Constant">1</span> - s) * c, s, (<span class="Constant">1</span> - s) * (<span class="Constant">1</span> - c)},
+<span id="L93" class="LineNr">93 </span>        {<span class="Constant">0</span>, <span class="Constant">0</span>, <span class="Constant">0</span>, <span class="Constant">0</span>, (<span class="Constant">1</span> - s) * c, s + (<span class="Constant">1</span>-s)*(<span class="Constant">1</span>-c)},
+<span id="L94" class="LineNr">94 </span>    })
+<span id="L95" class="LineNr">95 </span>}
+</pre>
+</body>
+</html>
+<!-- vim: set foldmethod=manual : -->
