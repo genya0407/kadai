@@ -36,68 +36,76 @@
 		この考えに則り、MatVec関数を用いて行列積の計算を行った。
 
 \subsection{バッタGの移動}
-	バッタGが、ある時刻$0 \leq t \leq 60$に地点0,1,2,3,4,5にいる確率を、ソースコード2によって計算した。
-
-	\begin{itemize}
-		\item 時刻 t = 0 においては地点0にいる
-		\item それ以降は、毎時刻ごとに、表1のとおりに確率的に移動する
-	\end{itemize}
-
-	\begin{table}[]
-	\centering
-	\begin{tabular}{|l|l|l|l|l|l|l|}
-	\hline
-    	& \multicolumn{6}{l|}{一秒後にこの地点に移動する確率}                                    \\ \hline
-	現在地 & 地点0          & 地点1        & 地点2    & 地点3    & 地点4        & 地点5          \\ \hline
-	地点0 & s+(1-s)(1-c) & (1-s)c     & 0      & 0      & 0          & 0            \\ \hline
-	地点1 & (1-s)(1-c)   & s          & (1-s)c & 0      & 0          & 0            \\ \hline
-	地点2 & 0            & (1-s)(1-c) & s      & (1-s)c & 0          & 0            \\ \hline
-	地点3 & 0            & 0          & (1-s)c & s      & (1-s)(1-c) & 0            \\ \hline
-	地点4 & 0            & 0          & 0      & (1-s)c & s          & (1-s)(1-c)   \\ \hline
-	地点5 & 0            & 0          & 0      & 0      & (1-s)c     & s+(1-s)(1-c) \\ \hline
-	\end{tabular}
-	\caption{バッタGの振る舞い}
-	\end{table}
-
-	ただしこのとき、パラメーターc,sが、
+	ある時刻tの存在確率ベクトル（地点0,1,2,3,4,5にいる確率を並べたもの）${\bf p}_t$は、
 	\[
-		(c,s) = (0.5, 0.05), (0.5, 0.15), (0.5, 0.5)
+		{\bf p}_t = {\bf A}{\bf p}_{t-1}
 	\]
-	の３つの場合について、それぞれ計算を行った。
+	によって求めることができる。ただし{\bf A}は、表1の数値部分を行列と考え、さらにそれの転置を取ったものである。
+	
+	この考え方に則って、バッタGが、ある時刻$0 \leq t \leq 60$に地点0,1,2,3,4,5にいる確率を計算した(ソースコード2)。
+
+    \begin{table}[]
+        \centering
+        \begin{tabular}{|l|l|l|l|l|l|l|}
+        \hline
+        	& \multicolumn{6}{l|}{一秒後にこの地点に移動する確率}                                    \\ \hline
+        	現在地 & 地点0          & 地点1        & 地点2    & 地点3    & 地点4        & 地点5          \\ \hline
+        	地点0 & s+(1-s)(1-c) & (1-s)c     & 0      & 0      & 0          & 0            \\ \hline
+        	地点1 & (1-s)(1-c)   & s          & (1-s)c & 0      & 0          & 0            \\ \hline
+        	地点2 & 0            & (1-s)(1-c) & s      & (1-s)c & 0          & 0            \\ \hline
+        	地点3 & 0            & 0          & (1-s)c & s      & (1-s)(1-c) & 0            \\ \hline
+        	地点4 & 0            & 0          & 0      & (1-s)c & s          & (1-s)(1-c)   \\ \hline
+        	地点5 & 0            & 0          & 0      & 0      & (1-s)c     & s+(1-s)(1-c) \\ \hline
+        \end{tabular}
+        \caption{バッタGの振る舞い}
+    \end{table}
 
 \subsection{パラメータcによるバッタGの振る舞いの変化}
-	ソースコード3のプログラムを用いて、s=0.15とし、c=0.7,0.5,0.45の３つの場合について、前節と同様に、時刻$0 \leq t \leq 60$において各地点にGがいる確率を計算した。
+	ソースコード3のプログラムを用いて、s=0.15とし、c=0.7,0.5,0.45の３つの場合について、前節と同様の考え方に則り、時刻$0 \leq t \leq 60$において各地点にGがいる確率を計算した。
 
 \subsection{ニュートン法による非線形方程式の解}
 
-以下の２つの非線形方程式について、ソースコード4のプログラムを用いて、ニュートン法によって定められた範囲の解を求めた。
+	以下の２つの非線形方程式について、ソースコード4のプログラムを用いて、ニュートン法によって定められた範囲の解を求めた。
 
-\begin{eqnarray}
+	\begin{eqnarray}
        - 2.2 x^4 + 3.5x^3 + 4.1x^2 + 3.3x - 2.7 & = & 0, (0 \leq x \leq 1) \\
        - {\rm cos}(2x+2) + {\rm exp}(x+1) - 2x -30 & = & 0, (0 \leq x \leq \pi)
-\end{eqnarray}
+	\end{eqnarray}
+	
+	大部分は授業で示されたアルゴリズムを実装しただけである。ただし、終了条件については以下のようにした。
+	
+	\begin{itemize}
+		\item 修正量が$\epsilon$より小さくなり、かつ、${\rm f(x)}$が$\epsion$より小さくなったとき終了
+		\item 上の条件が満たされないまま、$k=10$まで近似解を求めたとき終了
+	\end{itemize}
+	
+	また、$\epsilon$としては、Go言語のfloat64型の中で、最も絶対値が小さい値である math.SmallestNonzeroFloat64 を用いた。
+	これにより、修正量と${\rm f(x)}$の値がどちらも$0$とならない限りは、後者の条件によって終了することになる。
+	
+	前者のような終了条件を設定したのは、片方の条件のみでは収束しているように見えても、もう片方の条件を見ると収束していないような場合があると考えられるからである。
+	また、後者のような終了条件を設定したのは、実際にはどちらの方程式も$k=10$程度までで${\rm x}$の値が収束したからである。
 
 \section{結果}
 \subsection{行列とベクトルの演算を行う関数の実装}
-% needed more information
+	ソースコード1に含まれる動作確認により、MatVec関数とMatMlt関数が正常に動作していそうなことを確認した。
 
 \subsection{バッタGの移動}
-ある時刻tにおいて、地点1, 4にバッタGがいる確率をグラフに描画したのが、図1,2,3である。
+	ある時刻tにおいて、地点1, 4にバッタGがいる確率をグラフに描画したのが、図1,2,3である。
 
-\begin{figure}
-  \includegraphics[width=\textwidth]{fig1.png}
-  \caption{時刻 t における地点1,4でのバッタGの存在確率(s=0.05)}
-\end{figure}
+	\begin{figure}
+  		\includegraphics[width=\textwidth]{fig1.png}
+  		\caption{時刻 t における地点1,4でのバッタGの存在確率(s=0.05)}
+	\end{figure}
 
-\begin{figure}
-  \includegraphics[width=\textwidth]{fig2.png}
-  \caption{時刻 t における地点1,4でのバッタGの存在確率(s=0.15)}
-\end{figure}
+	\begin{figure}
+  		\includegraphics[width=\textwidth]{fig2.png}
+  		\caption{時刻 t における地点1,4でのバッタGの存在確率(s=0.15)}
+	\end{figure}
 
-\begin{figure}
-  \includegraphics[width=\textwidth]{fig3.png}
-  \caption{時刻 t における地点1,4でのバッタGの存在確率(s=0.5)}
-\end{figure}
+	\begin{figure}
+  		\includegraphics[width=\textwidth]{fig3.png}
+  		\caption{時刻 t における地点1,4でのバッタGの存在確率(s=0.5)}
+	\end{figure}
 
 \subsection{パラメータcによるバッタGの振る舞いの変化}
 	$t=60$において各地点にGがいる確率をグラフにしたのが、図4,5,6である。
