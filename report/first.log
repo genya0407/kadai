@@ -1,4 +1,4 @@
-This is LuaTeX, Version 0.95.0 (TeX Live 2016)  (format=lualatex 2016.8.20)  10 NOV 2016 01:00
+This is LuaTeX, Version 0.95.0 (TeX Live 2016)  (format=lualatex 2016.8.20)  10 NOV 2016 03:20
  restricted system commands enabled.
  file:line:error style messages enabled.
 **first.tex
@@ -56,7 +56,7 @@ Inserting `luaotfload.aux.set_capheight' at position 3 in `luaotfload.patch_font
 '.
 Inserting `luaotfload.rewrite_fontname' at position 4 in `luaotfload.patch_font'
 .
-luaotfload | main : initialization completed in 0.126 seconds)
+luaotfload | main : initialization completed in 0.139 seconds)
 (/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
 Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
 )
@@ -1098,22 +1098,22 @@ LaTeX Font Info:    Font shape `JY3/HiraMinProN-W3(0)/m/n' will be
 LaTeX Font Info:    Font shape `JY3/HiraMinProN-W3(0)/m/n' will be
 (Font)              scaled to size 5.54828pt on input line 21.
 LaTeX Font Info:    Font shape `JT3/HiraMinProN-W3(0)/m/n' will be
-(Font)              scaled to size 13.31584pt on input line 27.
+(Font)              scaled to size 13.31584pt on input line 28.
 LaTeX Font Info:    Font shape `JY3/HiraMinProN-W3(0)/m/n' will be
-(Font)              scaled to size 13.31584pt on input line 27.
+(Font)              scaled to size 13.31584pt on input line 28.
 LaTeX Font Info:    Font shape `JT3/HiraKakuProN-W6(0)/m/n' will be
-(Font)              scaled to size 13.31584pt on input line 27.
+(Font)              scaled to size 13.31584pt on input line 28.
 LaTeX Font Info:    Font shape `JY3/HiraKakuProN-W6(0)/m/n' will be
-(Font)              scaled to size 13.31584pt on input line 27.
+(Font)              scaled to size 13.31584pt on input line 28.
 (compiling luc: /usr/local/texlive/2016/texmf-var/luatex-cache/generic/fonts/otl
 /lmsans12-regular.luc)(load luc: /Users/sangenya/Library/texlive/2016/texmf-var/
 luatex-cache/generic/fonts/otl/lmsans12-regular.luc)(load cache: /Users/sangenya
 /Library/texlive/2016/texmf-var/luatexja/extra_lmsans12-regular.luc)
 LaTeX Font Info:    Font shape `JT3/HiraKakuProN-W6(0)/m/n' will be
-(Font)              scaled to size 11.09656pt on input line 28.
+(Font)              scaled to size 11.09656pt on input line 29.
 LaTeX Font Info:    Font shape `JY3/HiraKakuProN-W6(0)/m/n' will be
-(Font)              scaled to size 11.09656pt on input line 28.
-LaTeX Font Info:    Calculating math sizes for size <10.95001> on input line 32.
+(Font)              scaled to size 11.09656pt on input line 29.
+LaTeX Font Info:    Calculating math sizes for size <10.95001> on input line 33.
 
 (compiling luc: /usr/local/texlive/2016/texmf-var/luatex-cache/generic/fonts/otl
 /lmroman7-regular.luc)(load luc: /Users/sangenya/Library/texlive/2016/texmf-var/
@@ -1124,56 +1124,56 @@ gular.luc)(load luc: /Users/sangenya/Library/texlive/2016/texmf-var/luatex-cache
 /generic/fonts/otl/lmroman5-regular.luc)(load cache: /Users/sangenya/Library/tex
 live/2016/texmf-var/luatexja/extra_lmroman5-regular.luc)
 LaTeX Font Info:    Font shape `JY3/HiraMinProN-W3(0)/m/n' will be
-(Font)              scaled to size 6.47295pt on input line 32.
+(Font)              scaled to size 6.47295pt on input line 33.
 LaTeX Font Info:    Font shape `JY3/HiraMinProN-W3(0)/m/n' will be
-(Font)              scaled to size 4.62357pt on input line 32.
+(Font)              scaled to size 4.62357pt on input line 33.
 LaTeX Font Info:    Font shape `JT3/HiraMinProN-W3(0)/bx/n' will be
-(Font)              scaled to size 9.24713pt on input line 41.
+(Font)              scaled to size 9.24713pt on input line 42.
 LaTeX Font Info:    Font shape `JY3/HiraMinProN-W3(0)/bx/n' will be
-(Font)              scaled to size 9.24713pt on input line 41.
+(Font)              scaled to size 9.24713pt on input line 42.
 
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 47.
+               Default added (so using `tbp') on input line 48.
 
 LaTeX Font Info:    Font shape `JT3/HiraMinProN-W3(0)/m/n' will be
-(Font)              scaled to size 8.32242pt on input line 60.
+(Font)              scaled to size 8.32242pt on input line 61.
 LaTeX Font Info:    Font shape `JY3/HiraMinProN-W3(0)/m/n' will be
-(Font)              scaled to size 8.32242pt on input line 60.
+(Font)              scaled to size 8.32242pt on input line 61.
 <fig1.png, id=1, 702.625pt x 451.6875pt>
 File: fig1.png Graphic file (type png)
  <use fig1.png>
-Package luatex.def Info: fig1.png used on input line 64.
+Package luatex.def Info: fig1.png used on input line 65.
 (luatex.def)             Requested size: 445.52753pt x 286.41862pt.
 
 <fig2.png, id=2, 702.625pt x 451.6875pt>
 File: fig2.png Graphic file (type png)
  <use fig2.png>
-Package luatex.def Info: fig2.png used on input line 69.
+Package luatex.def Info: fig2.png used on input line 70.
 (luatex.def)             Requested size: 445.52753pt x 286.41862pt.
 
 <fig3.png, id=3, 702.625pt x 451.6875pt>
 File: fig3.png Graphic file (type png)
  <use fig3.png>
-Package luatex.def Info: fig3.png used on input line 74.
+Package luatex.def Info: fig3.png used on input line 75.
 (luatex.def)             Requested size: 445.52753pt x 286.41862pt.
 
 <fig4.png, id=4, 702.625pt x 451.6875pt>
 File: fig4.png Graphic file (type png)
  <use fig4.png>
-Package luatex.def Info: fig4.png used on input line 82.
+Package luatex.def Info: fig4.png used on input line 83.
 (luatex.def)             Requested size: 445.52753pt x 286.41862pt.
 
 <fig5.png, id=5, 702.625pt x 451.6875pt>
 File: fig5.png Graphic file (type png)
  <use fig5.png>
-Package luatex.def Info: fig5.png used on input line 87.
+Package luatex.def Info: fig5.png used on input line 88.
 (luatex.def)             Requested size: 445.52753pt x 286.41862pt.
 
 <fig6.png, id=6, 702.625pt x 451.6875pt>
 File: fig6.png Graphic file (type png)
  <use fig6.png>
-Package luatex.def Info: fig6.png used on input line 92.
+Package luatex.def Info: fig6.png used on input line 93.
 (luatex.def)             Requested size: 445.52753pt x 286.41862pt.
  [1
 
@@ -1187,11 +1187,11 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Here is how much of LuaTeX's memory you used:
  16700 strings out of 495118
- 156260,383344 words of node,token memory allocated
- 10204 words of node memory still in use:
-   8 hlist, 1 vlist, 5 rule, 313 glue, 57 kern, 1 glyph, 3462 attribute, 44 glue
-_spec, 173 attribute_list, 1 write, 11 user_defined nodes
-   avail lists: 1:4,2:51026,3:361,4:218,5:24,6:1821,7:2140,8:1224,9:334,10:22,11
+ 156254,383344 words of node,token memory allocated
+ 10938 words of node memory still in use:
+   8 hlist, 1 vlist, 5 rule, 355 glue, 57 kern, 1 glyph, 3672 attribute, 44 glue
+_spec, 183 attribute_list, 1 write, 11 user_defined nodes
+   avail lists: 1:5,2:50623,3:363,4:220,5:24,6:1812,7:2066,8:1200,9:333,10:22,11
 :24
  19732 multiletter control sequences out of 65536+600000
  89 fonts using 95253631 bytes
@@ -1207,7 +1207,7 @@ mi10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr1
 0.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pf
 b></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
 
-Output written on first.pdf (5 pages, 223045 bytes).
+Output written on first.pdf (5 pages, 223521 bytes).
 
 PDF statistics: 83 PDF objects out of 1000 (max. 8388607)
  44 compressed objects within 1 object stream
