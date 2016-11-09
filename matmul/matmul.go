@@ -96,15 +96,20 @@ func MatVec(mat [N][N]float64, vec [N]float64) [N]float64 {
 func MatMlt(mat1 [N][N]float64, mat2 [N][N]float64) [N][N]float64 {
 	var ret_mat [N][N]float64
 
-	for i := 0; i < N; i++ {
-		for j := 0; j < N; j++ {
-			// 行列1のi行ベクトルと、行列2のj列ベクトルのベクトル積が、
-			// 返す行列のi行j列成分であることを利用して計算している
-			ret_mat[i][j] = dot(mat1[i], fetch_col(mat2, j))
-		}
+	for k := 0; k < N; k++ {
+		// 行列1と、行列2のj列ベクトルの行列ベクトル積が、
+		// 返す行列のj列成分であることを利用して計算している
+		ret_mat[k] = MatVec(mat1, fetch_col(mat2, k))
 	}
 
-	return ret_mat
+	/*
+		ret_mat[k] = MatVec(mat1, fetch_col(mat2, k))
+		としているので、本来列ベクトルとなるはずのMatVec(mat1, fetch_col(mat2, k))が、
+		行ベクトルとしてret_matに格納されているため、
+		ret_matはこの時点では、求める行列を転置したものである。
+		したがって、計算結果として返却するのは、ret_matの転置を取ったものでなければならない。
+	*/
+	return Transpose(ret_mat)
 }
 
 // ベクトルの内積を取る関数

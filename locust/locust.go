@@ -26,7 +26,8 @@ func main() {
 	WriteCSV("0.5", res3)
 }
 
-// 
+// 書き出すファイル名と、書き出す内容を含んだArrayを受け取り、
+// CSVファイルに書き出す関数
 func WriteCSV(filename string, resVec [61][N]float64) {
 	// CSVを書き出すファイルを指定
 	file, _ := os.Create("res/" + filename + ".csv")
@@ -61,7 +62,7 @@ func WriteCSV(filename string, resVec [61][N]float64) {
 	writer.Flush()
 }
 
-// パラメーターcとsを受け取り、0 <= t <= 60の範囲のバッタGの、
+// パラメーターcとsを受け取り、0 <= t <= 60の範囲のバッタGの
 // 各地点での存在確率を計算する
 func Calculation(c float64, s float64) [61][N]float64 {
 	// 移動確率を表す行列を計算し、取得する
