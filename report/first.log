@@ -1,4 +1,4 @@
-This is LuaTeX, Version 0.95.0 (TeX Live 2016)  (format=lualatex 2016.8.20)  10 NOV 2016 03:20
+This is LuaTeX, Version 0.95.0 (TeX Live 2016)  (format=lualatex 2016.8.20)  10 NOV 2016 03:41
  restricted system commands enabled.
  file:line:error style messages enabled.
 **first.tex
@@ -56,7 +56,7 @@ Inserting `luaotfload.aux.set_capheight' at position 3 in `luaotfload.patch_font
 '.
 Inserting `luaotfload.rewrite_fontname' at position 4 in `luaotfload.patch_font'
 .
-luaotfload | main : initialization completed in 0.139 seconds)
+luaotfload | main : initialization completed in 0.133 seconds)
 (/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
 Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
 )
@@ -1127,90 +1127,88 @@ LaTeX Font Info:    Font shape `JY3/HiraMinProN-W3(0)/m/n' will be
 (Font)              scaled to size 6.47295pt on input line 33.
 LaTeX Font Info:    Font shape `JY3/HiraMinProN-W3(0)/m/n' will be
 (Font)              scaled to size 4.62357pt on input line 33.
-LaTeX Font Info:    Font shape `JT3/HiraMinProN-W3(0)/bx/n' will be
-(Font)              scaled to size 9.24713pt on input line 42.
-LaTeX Font Info:    Font shape `JY3/HiraMinProN-W3(0)/bx/n' will be
-(Font)              scaled to size 9.24713pt on input line 42.
 
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 48.
+               Default added (so using `tbp') on input line 40.
 
 LaTeX Font Info:    Font shape `JT3/HiraMinProN-W3(0)/m/n' will be
-(Font)              scaled to size 8.32242pt on input line 61.
+(Font)              scaled to size 8.32242pt on input line 53.
 LaTeX Font Info:    Font shape `JY3/HiraMinProN-W3(0)/m/n' will be
-(Font)              scaled to size 8.32242pt on input line 61.
-<fig1.png, id=1, 702.625pt x 451.6875pt>
+(Font)              scaled to size 8.32242pt on input line 53.
+[1
+
+{/usr/local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+<fig1.png, id=14, 702.625pt x 451.6875pt>
 File: fig1.png Graphic file (type png)
  <use fig1.png>
-Package luatex.def Info: fig1.png used on input line 65.
+Package luatex.def Info: fig1.png used on input line 82.
 (luatex.def)             Requested size: 445.52753pt x 286.41862pt.
 
-<fig2.png, id=2, 702.625pt x 451.6875pt>
+<fig2.png, id=15, 702.625pt x 451.6875pt>
 File: fig2.png Graphic file (type png)
  <use fig2.png>
-Package luatex.def Info: fig2.png used on input line 70.
+Package luatex.def Info: fig2.png used on input line 87.
 (luatex.def)             Requested size: 445.52753pt x 286.41862pt.
 
-<fig3.png, id=3, 702.625pt x 451.6875pt>
+<fig3.png, id=16, 702.625pt x 451.6875pt>
 File: fig3.png Graphic file (type png)
  <use fig3.png>
-Package luatex.def Info: fig3.png used on input line 75.
+Package luatex.def Info: fig3.png used on input line 92.
 (luatex.def)             Requested size: 445.52753pt x 286.41862pt.
 
-<fig4.png, id=4, 702.625pt x 451.6875pt>
+<fig4.png, id=17, 702.625pt x 451.6875pt>
 File: fig4.png Graphic file (type png)
  <use fig4.png>
-Package luatex.def Info: fig4.png used on input line 83.
+Package luatex.def Info: fig4.png used on input line 100.
 (luatex.def)             Requested size: 445.52753pt x 286.41862pt.
 
-<fig5.png, id=5, 702.625pt x 451.6875pt>
+<fig5.png, id=18, 702.625pt x 451.6875pt>
 File: fig5.png Graphic file (type png)
  <use fig5.png>
-Package luatex.def Info: fig5.png used on input line 88.
+Package luatex.def Info: fig5.png used on input line 105.
 (luatex.def)             Requested size: 445.52753pt x 286.41862pt.
 
-<fig6.png, id=6, 702.625pt x 451.6875pt>
+<fig6.png, id=19, 702.625pt x 451.6875pt>
 File: fig6.png Graphic file (type png)
  <use fig6.png>
-Package luatex.def Info: fig6.png used on input line 93.
+Package luatex.def Info: fig6.png used on input line 110.
 (luatex.def)             Requested size: 445.52753pt x 286.41862pt.
- [1
-
-{/usr/local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2<./fig
-1.png><./fig2.png>]
-[3<./fig3.png><./fig4.png>] [4<./fig5.png><./fig6.png>] [5] (./first.aux)
+ [2] [3<./fig1.png><./fig2.png>] [4<./fig3.png><./fig4.png>] [5<./fig5.png><./fi
+g6.png>] [6]
+(./first.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 )
 
 Here is how much of LuaTeX's memory you used:
- 16700 strings out of 495118
- 156254,383344 words of node,token memory allocated
- 10938 words of node memory still in use:
-   8 hlist, 1 vlist, 5 rule, 355 glue, 57 kern, 1 glyph, 3672 attribute, 44 glue
-_spec, 183 attribute_list, 1 write, 11 user_defined nodes
-   avail lists: 1:5,2:50623,3:363,4:220,5:24,6:1812,7:2066,8:1200,9:333,10:22,11
-:24
- 19732 multiletter control sequences out of 65536+600000
- 89 fonts using 95253631 bytes
+ 16696 strings out of 495118
+ 156259,383344 words of node,token memory allocated
+ 12057 words of node memory still in use:
+   8 hlist, 1 vlist, 5 rule, 408 glue, 57 kern, 1 glyph, 4029 attribute, 44 glue
+_spec, 200 attribute_list, 1 write, 11 user_defined nodes
+   avail lists: 1:8,2:40201,3:285,4:258,5:23,6:1474,7:2014,8:945,9:371,10:22,11:
+24
+ 19730 multiletter control sequences out of 65536+600000
+ 87 fonts using 88639487 bytes
  62i,8n,85p,947b,332s stack positions out of 5000i,500n,10000p,200000b,100000s
 </usr/local/texlive/2016/texmf-dist/fonts/opentype/public/lm/lmroman9-regular.ot
 f></System/Library/Fonts/ヒラギノ角ゴシック W6.ttc></System/Libra
 ry/Fonts/ヒラギノ角ゴシック W6.ttc></usr/local/texlive/2016/texmf
 -dist/fonts/opentype/public/lm/lmsans12-regular.otf></usr/local/texlive/2016/tex
-mf-dist/fonts/opentype/public/lm/lmroman10-regular.otf></System/Library/Fonts/
-ヒラギノ明朝 ProN W3.ttc></System/Library/Fonts/ヒラギノ明朝 P
-roN W3.ttc></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-mi10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr1
-0.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pf
-b></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+mf-dist/fonts/opentype/public/lm/lmroman10-regular.otf></usr/local/texlive/2016/
+texmf-dist/fonts/opentype/public/lm/lmroman12-regular.otf></System/Library/Fonts
+/ヒラギノ明朝 ProN W3.ttc></System/Library/Fonts/ヒラギノ明
+朝 ProN W3.ttc></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmmi10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmr10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+r6.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10
+.pfb>
+Output written on first.pdf (6 pages, 227733 bytes).
 
-Output written on first.pdf (5 pages, 223521 bytes).
-
-PDF statistics: 83 PDF objects out of 1000 (max. 8388607)
- 44 compressed objects within 1 object stream
+PDF statistics: 93 PDF objects out of 1000 (max. 8388607)
+ 50 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 131072)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
