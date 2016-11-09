@@ -3,10 +3,10 @@
 package locust
 
 import (
-	"../matmul" // MatVec関数, MatMlt関数, Transpose関数, 定数N
+	"../matmul"    // MatVec関数, MatMlt関数, Transpose関数, 定数N
 	"encoding/csv" // 計算結果をCSVに出力するため
-	"fmt" // Sprint関数を使うため
-	"os" // 計算結果をCSVに出力するため
+	"fmt"          // Sprint関数を使うため
+	"os"           // 計算結果をCSVに出力するため
 )
 
 // #define N 3 の代わり。
@@ -49,13 +49,13 @@ func WriteCSV(filename string, resVec [61][N]float64) {
 		writer.Write(
 			[]string{
 				fmt.Sprint(t),
-				fmt.Sprint(resVec[t][0]), 
+				fmt.Sprint(resVec[t][0]),
 				fmt.Sprint(resVec[t][1]),
 				fmt.Sprint(resVec[t][2]),
 				fmt.Sprint(resVec[t][3]),
 				fmt.Sprint(resVec[t][4]),
 				fmt.Sprint(resVec[t][5]),
-			}
+			},
 		)
 	}
 	// バッファをファイルへ出力する
@@ -68,7 +68,7 @@ func Calculation(c float64, s float64) [61][N]float64 {
 	// 移動確率を表す行列を計算し、取得する
 	var probMat [N][N]float64 = getProbMat(c, s)
 
-	var resultVectors [61][N]float64 // resultVectors[t]: 時刻tに於ける、Gの地点0~5での存在確率を表すベクトル
+	var resultVectors [61][N]float64                // resultVectors[t]: 時刻tに於ける、Gの地点0~5での存在確率を表すベクトル
 	resultVectors[0] = [N]float64{1, 0, 0, 0, 0, 0} // t = 0のとき、バッタGの地点0~5での存在確率は1,0,0,0,0,0である
 	// t = 1, 2, ... , 60について、
 	// Gの存在確率ベクトルを求める
