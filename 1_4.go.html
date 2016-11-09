@@ -83,7 +83,7 @@ if ('onhashchange' in window) {
 <span id="L28" class="LineNr">28 </span><span class="Comment">//   1. &quot;|x_(k+1) - x_k| &lt; e &amp;&amp; f(x_(k+1)) &lt; e&quot; が初めて満たされたときに、その時点でのk, x, f(x)を終了する。</span>
 <span id="L29" class="LineNr">29 </span><span class="Comment">//   2. &quot;|x_(k+1) - x_k| &lt; e&quot;が満たされたとき、その時点でのk, x, f(x)を表示する。また、表示される行の末尾に&quot;:: delta x &lt; e satisfied&quot;が追加される。</span>
 <span id="L30" class="LineNr">30 </span><span class="Comment">//   3. &quot;|f(x_(k+1))| &lt; e&quot;が満たされたとき、その時点でのk, x, f(x)を表示する。また、表示される行の末尾に&quot;:: f(x) &lt; e satisfied&quot;が追加される。</span>
-<span id="L31" class="LineNr">31 </span><span class="Comment">// なお、ステップの実行回数は100回までとした。</span>
+<span id="L31" class="LineNr">31 </span><span class="Comment">// なお、ステップの実行回数は10回までとした。</span>
 <span id="L32" class="LineNr">32 </span><span class="Statement">func</span> newton(f <span class="Statement">func</span>(<span class="Type">float64</span>) <span class="Type">float64</span>, f_prime <span class="Statement">func</span>(<span class="Type">float64</span>) <span class="Type">float64</span>, e <span class="Type">float64</span>, x0 <span class="Type">float64</span>) {
 <span id="L33" class="LineNr">33 </span>    <span class="Comment">/*</span>
 <span id="L34" class="LineNr">34 </span><span class="Comment">        各ステップでのx_kを表しているのがx_prev変数</span>
@@ -94,7 +94,7 @@ if ('onhashchange' in window) {
 <span id="L39" class="LineNr">39 </span>
 <span id="L40" class="LineNr">40 </span>    k := <span class="Constant">0</span>
 <span id="L41" class="LineNr">41 </span>    x_prev = x0
-<span id="L42" class="LineNr">42 </span>    <span class="Statement">for</span> k &lt; <span class="Constant">100</span> {
+<span id="L42" class="LineNr">42 </span>    <span class="Statement">for</span> k &lt; <span class="Constant">10</span> {
 <span id="L43" class="LineNr">43 </span>        <span class="Comment">// 修正量を計算し、それから反復列の次の近似解を求める</span>
 <span id="L44" class="LineNr">44 </span>        x_next = x_prev - f(x_prev)/f_prime(x_prev)
 <span id="L45" class="LineNr">45 </span>
@@ -116,7 +116,7 @@ if ('onhashchange' in window) {
 <span id="L61" class="LineNr">61 </span>        k++
 <span id="L62" class="LineNr">62 </span>    }
 <span id="L63" class="LineNr">63 </span>    <span class="Comment">// 終了時のk, x, f(x)を表示する</span>
-<span id="L64" class="LineNr">64 </span>    fmt.Printf(<span class="Constant">&quot;finish. k=</span><span class="Special">%v</span><span class="Constant">, x=</span><span class="Special">%v</span><span class="Constant">, f(x)=</span><span class="Special">%v</span><span class="Special">\n</span><span class="Constant">&quot;</span>, k, x_next, f(x_next))
+<span id="L64" class="LineNr">64 </span>    fmt.Printf(<span class="Constant">&quot;k=</span><span class="Special">%v</span><span class="Constant">, x=</span><span class="Special">%v</span><span class="Constant">, f(x)=</span><span class="Special">%v</span><span class="Constant"> :: finish</span><span class="Special">\n</span><span class="Constant">&quot;</span>, k, x_next, f(x_next))
 <span id="L65" class="LineNr">65 </span>}
 <span id="L66" class="LineNr">66 </span>
 <span id="L67" class="LineNr">67 </span><span class="Comment">// 問に挙げられた方程式のうち、4次方程式の方を表す関数</span>

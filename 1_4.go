@@ -28,7 +28,7 @@ func main() {
 //   1. "|x_(k+1) - x_k| < e && f(x_(k+1)) < e" が初めて満たされたときに、その時点でのk, x, f(x)を終了する。
 //   2. "|x_(k+1) - x_k| < e"が満たされたとき、その時点でのk, x, f(x)を表示する。また、表示される行の末尾に":: delta x < e satisfied"が追加される。
 //   3. "|f(x_(k+1))| < e"が満たされたとき、その時点でのk, x, f(x)を表示する。また、表示される行の末尾に":: f(x) < e satisfied"が追加される。
-// なお、ステップの実行回数は100回までとした。
+// なお、ステップの実行回数は10回までとした。
 func newton(f func(float64) float64, f_prime func(float64) float64, e float64, x0 float64) {
 	/*
 		各ステップでのx_kを表しているのがx_prev変数
@@ -39,7 +39,7 @@ func newton(f func(float64) float64, f_prime func(float64) float64, e float64, x
 
 	k := 0
 	x_prev = x0
-	for k < 100 {
+	for k < 10 {
 		// 修正量を計算し、それから反復列の次の近似解を求める
 		x_next = x_prev - f(x_prev)/f_prime(x_prev)
 
@@ -61,7 +61,7 @@ func newton(f func(float64) float64, f_prime func(float64) float64, e float64, x
 		k++
 	}
 	// 終了時のk, x, f(x)を表示する
-	fmt.Printf("finish. k=%v, x=%v, f(x)=%v\n", k, x_next, f(x_next))
+	fmt.Printf("k=%v, x=%v, f(x)=%v :: finish\n", k, x_next, f(x_next))
 }
 
 // 問に挙げられた方程式のうち、4次方程式の方を表す関数
