@@ -56,84 +56,90 @@ if ('onhashchange' in window) {
 <span id="L1" class="LineNr"> 1 </span><span class="Statement">package</span> main
 <span id="L2" class="LineNr"> 2 </span>
 <span id="L3" class="LineNr"> 3 </span><span class="Statement">import</span> (
-<span id="L4" class="LineNr"> 4 </span>    <span class="Constant">&quot;fmt&quot;</span> <span class="Comment">// Println関数</span>
-<span id="L5" class="LineNr"> 5 </span>    <span class="Constant">&quot;math&quot;</span> <span class="Comment">// SmallestNonzeroFloat64定数, </span>
+<span id="L4" class="LineNr"> 4 </span>    <span class="Constant">&quot;fmt&quot;</span>  <span class="Comment">// Println関数</span>
+<span id="L5" class="LineNr"> 5 </span>    <span class="Constant">&quot;math&quot;</span> <span class="Comment">// SmallestNonzeroFloat64定数,</span>
 <span id="L6" class="LineNr"> 6 </span>)
 <span id="L7" class="LineNr"> 7 </span>
 <span id="L8" class="LineNr"> 8 </span><span class="Statement">func</span> main() {
-<span id="L9" class="LineNr"> 9 </span>    fmt.Println(<span class="Constant">&quot;f1&quot;</span>)
-<span id="L10" class="LineNr">10 </span>    newton(f1, f1_prime, math.SmallestNonzeroFloat64, <span class="Constant">0.1</span>)
-<span id="L11" class="LineNr">11 </span>    fmt.Println(<span class="Constant">&quot;f2&quot;</span>)
-<span id="L12" class="LineNr">12 </span>    newton(f2, f2_prime, math.SmallestNonzeroFloat64, <span class="Constant">0.1</span>)
-<span id="L13" class="LineNr">13 </span>}
-<span id="L14" class="LineNr">14 </span>
-<span id="L15" class="LineNr">15 </span><span class="Comment">// newton(f, f_prime, e, x0)の引数</span>
-<span id="L16" class="LineNr">16 </span><span class="Comment">//   f       : 対象関数</span>
-<span id="L17" class="LineNr">17 </span><span class="Comment">//   f_prim  : fの一次導関数</span>
-<span id="L18" class="LineNr">18 </span><span class="Comment">//   e       : &quot;|x_(k+1) - x_k| &lt; e &amp;&amp; f(x_(k+1)) &lt; e&quot; が満たされたときに終了する</span>
-<span id="L19" class="LineNr">19 </span><span class="Comment">//   x0      : x0</span>
-<span id="L20" class="LineNr">20 </span><span class="Comment">// 表示される値</span>
-<span id="L21" class="LineNr">21 </span><span class="Comment">//   k    : 終了条件が満たされた、最初のkの値</span>
-<span id="L22" class="LineNr">22 </span><span class="Comment">//   x    : x_kの値</span>
-<span id="L23" class="LineNr">23 </span><span class="Comment">//   f(x) : f(x_k)の値</span>
-<span id="L24" class="LineNr">24 </span><span class="Comment">// 挙動の解説</span>
-<span id="L25" class="LineNr">25 </span><span class="Comment">//   1. &quot;|x_(k+1) - x_k| &lt; e &amp;&amp; f(x_(k+1)) &lt; e&quot; が初めて満たされたときに、その時点でのk, x, f(x)を終了する。</span>
-<span id="L26" class="LineNr">26 </span><span class="Comment">//   2. &quot;|x_(k+1) - x_k| &lt; e&quot;が満たされたとき、その時点でのk, x, f(x)を表示する。また、表示される行の末尾に&quot;:: delta x &lt; e satisfied&quot;が追加される。</span>
-<span id="L27" class="LineNr">27 </span><span class="Comment">//   3. &quot;|f(x_(k+1))| &lt; e&quot;が満たされたとき、その時点でのk, x, f(x)を表示する。また、表示される行の末尾に&quot;:: f(x) &lt; e satisfied&quot;が追加される。</span>
-<span id="L28" class="LineNr">28 </span><span class="Comment">// なお、ステップの実行回数は100回までとした。</span>
-<span id="L29" class="LineNr">29 </span><span class="Statement">func</span> newton(f <span class="Statement">func</span>(<span class="Type">float64</span>) <span class="Type">float64</span>, f_prime <span class="Statement">func</span>(<span class="Type">float64</span>) <span class="Type">float64</span>, e <span class="Type">float64</span>, x0 <span class="Type">float64</span>) {
-<span id="L30" class="LineNr">30 </span>    <span class="Comment">/*</span>
-<span id="L31" class="LineNr">31 </span><span class="Comment">        各ステップでのx_kを表しているのがx_prev変数</span>
-<span id="L32" class="LineNr">32 </span><span class="Comment">        各ステップでのx_k+1を表しているのがx_next変数</span>
-<span id="L33" class="LineNr">33 </span><span class="Comment">    */</span>
-<span id="L34" class="LineNr">34 </span>    <span class="Statement">var</span> x_prev <span class="Type">float64</span>
-<span id="L35" class="LineNr">35 </span>    <span class="Statement">var</span> x_next <span class="Type">float64</span>
-<span id="L36" class="LineNr">36 </span>
-<span id="L37" class="LineNr">37 </span>    k := <span class="Constant">0</span>
-<span id="L38" class="LineNr">38 </span>    x_prev = x0
-<span id="L39" class="LineNr">39 </span>    <span class="Statement">for</span> k &lt; <span class="Constant">100</span> {
-<span id="L40" class="LineNr">40 </span>        <span class="Comment">// 修正量を計算し、それから反復列の次の近似解を求める</span>
-<span id="L41" class="LineNr">41 </span>        x_next = x_prev - f(x_prev)/f_prime(x_prev)
-<span id="L42" class="LineNr">42 </span>
-<span id="L43" class="LineNr">43 </span>        <span class="Comment">// 途中経過を表示する</span>
-<span id="L44" class="LineNr">44 </span>        <span class="Statement">if</span> math.Abs(f(x_next)) &lt; e {
-<span id="L45" class="LineNr">45 </span>            fmt.Printf(<span class="Constant">&quot;k=</span><span class="Special">%v</span><span class="Constant">, x=</span><span class="Special">%v</span><span class="Constant">, f(x)=</span><span class="Special">%v</span><span class="Constant"> :: f(x) &lt; e satisfied</span><span class="Special">\n</span><span class="Constant">&quot;</span>, k, x_next, f(x_next))
-<span id="L46" class="LineNr">46 </span>        }
-<span id="L47" class="LineNr">47 </span>        <span class="Statement">if</span> math.Abs(x_next-x_prev) &lt; e {
-<span id="L48" class="LineNr">48 </span>            fmt.Printf(<span class="Constant">&quot;k=</span><span class="Special">%v</span><span class="Constant">, x=</span><span class="Special">%v</span><span class="Constant">, f(x)=</span><span class="Special">%v</span><span class="Constant"> :: delta x &lt; e satisfied</span><span class="Special">\n</span><span class="Constant">&quot;</span>, k, x_next, f(x_next))
-<span id="L49" class="LineNr">49 </span>        }
-<span id="L50" class="LineNr">50 </span>
-<span id="L51" class="LineNr">51 </span>        <span class="Comment">// 終了条件を両方共満たしたとき終了する</span>
-<span id="L52" class="LineNr">52 </span>        <span class="Statement">if</span> math.Abs(x_next-x_prev) &lt; e &amp;&amp; math.Abs(f(x_next)) &lt; e {
-<span id="L53" class="LineNr">53 </span>            fmt.Printf(<span class="Constant">&quot;k=</span><span class="Special">%v</span><span class="Constant">, x=</span><span class="Special">%v</span><span class="Constant">, f(x)=</span><span class="Special">%v</span><span class="Special">\n</span><span class="Constant">&quot;</span>, k, x_next, f(x_next))
-<span id="L54" class="LineNr">54 </span>            <span class="Statement">break</span>
-<span id="L55" class="LineNr">55 </span>        }
-<span id="L56" class="LineNr">56 </span>        x_prev = x_next
-<span id="L57" class="LineNr">57 </span>        k++
-<span id="L58" class="LineNr">58 </span>    }
-<span id="L59" class="LineNr">59 </span>}
-<span id="L60" class="LineNr">60 </span>
-<span id="L61" class="LineNr">61 </span><span class="Comment">// 問に挙げられた方程式のうち、4次方程式の方を表す関数</span>
-<span id="L62" class="LineNr">62 </span><span class="Comment">// xを受け取り、関数を評価した値を返す</span>
-<span id="L63" class="LineNr">63 </span><span class="Statement">func</span> f1(x <span class="Type">float64</span>) <span class="Type">float64</span> {
-<span id="L64" class="LineNr">64 </span>    <span class="Statement">return</span> -<span class="Constant">2.2</span>*math.Pow(x, <span class="Constant">4</span>) + <span class="Constant">3.5</span>*math.Pow(x, <span class="Constant">3</span>) + <span class="Constant">4.1</span>*math.Pow(x, <span class="Constant">2</span>) + <span class="Constant">3.3</span>*x - <span class="Constant">2.7</span>
+<span id="L9" class="LineNr"> 9 </span>    <span class="Comment">// math.SmallestNonzeroFloat64は、</span>
+<span id="L10" class="LineNr">10 </span>    <span class="Comment">// 4.940656458412465441765687928682213723651e-324</span>
+<span id="L11" class="LineNr">11 </span>    <span class="Comment">// を表す定数であり、Goのfloat64型の値の中で絶対値が最小のものである</span>
+<span id="L12" class="LineNr">12 </span>    fmt.Println(<span class="Constant">&quot;f1&quot;</span>)
+<span id="L13" class="LineNr">13 </span>    newton(f1, f1_prime, math.SmallestNonzeroFloat64, <span class="Constant">0.1</span>)
+<span id="L14" class="LineNr">14 </span>    fmt.Println(<span class="Constant">&quot;f2&quot;</span>)
+<span id="L15" class="LineNr">15 </span>    newton(f2, f2_prime, math.SmallestNonzeroFloat64, <span class="Constant">0.1</span>)
+<span id="L16" class="LineNr">16 </span>}
+<span id="L17" class="LineNr">17 </span>
+<span id="L18" class="LineNr">18 </span><span class="Comment">// newton(f, f_prime, e, x0)の引数</span>
+<span id="L19" class="LineNr">19 </span><span class="Comment">//   f       : 対象関数</span>
+<span id="L20" class="LineNr">20 </span><span class="Comment">//   f_prim  : fの一次導関数</span>
+<span id="L21" class="LineNr">21 </span><span class="Comment">//   e       : &quot;|x_(k+1) - x_k| &lt; e &amp;&amp; f(x_(k+1)) &lt; e&quot; が満たされたときに終了する</span>
+<span id="L22" class="LineNr">22 </span><span class="Comment">//   x0      : x0</span>
+<span id="L23" class="LineNr">23 </span><span class="Comment">// 表示される値</span>
+<span id="L24" class="LineNr">24 </span><span class="Comment">//   k    : 終了条件が満たされた、最初のkの値</span>
+<span id="L25" class="LineNr">25 </span><span class="Comment">//   x    : x_kの値</span>
+<span id="L26" class="LineNr">26 </span><span class="Comment">//   f(x) : f(x_k)の値</span>
+<span id="L27" class="LineNr">27 </span><span class="Comment">// 挙動の解説</span>
+<span id="L28" class="LineNr">28 </span><span class="Comment">//   1. &quot;|x_(k+1) - x_k| &lt; e &amp;&amp; f(x_(k+1)) &lt; e&quot; が初めて満たされたときに、その時点でのk, x, f(x)を終了する。</span>
+<span id="L29" class="LineNr">29 </span><span class="Comment">//   2. &quot;|x_(k+1) - x_k| &lt; e&quot;が満たされたとき、その時点でのk, x, f(x)を表示する。また、表示される行の末尾に&quot;:: delta x &lt; e satisfied&quot;が追加される。</span>
+<span id="L30" class="LineNr">30 </span><span class="Comment">//   3. &quot;|f(x_(k+1))| &lt; e&quot;が満たされたとき、その時点でのk, x, f(x)を表示する。また、表示される行の末尾に&quot;:: f(x) &lt; e satisfied&quot;が追加される。</span>
+<span id="L31" class="LineNr">31 </span><span class="Comment">// なお、ステップの実行回数は100回までとした。</span>
+<span id="L32" class="LineNr">32 </span><span class="Statement">func</span> newton(f <span class="Statement">func</span>(<span class="Type">float64</span>) <span class="Type">float64</span>, f_prime <span class="Statement">func</span>(<span class="Type">float64</span>) <span class="Type">float64</span>, e <span class="Type">float64</span>, x0 <span class="Type">float64</span>) {
+<span id="L33" class="LineNr">33 </span>    <span class="Comment">/*</span>
+<span id="L34" class="LineNr">34 </span><span class="Comment">        各ステップでのx_kを表しているのがx_prev変数</span>
+<span id="L35" class="LineNr">35 </span><span class="Comment">        各ステップでのx_k+1を表しているのがx_next変数</span>
+<span id="L36" class="LineNr">36 </span><span class="Comment">    */</span>
+<span id="L37" class="LineNr">37 </span>    <span class="Statement">var</span> x_prev <span class="Type">float64</span>
+<span id="L38" class="LineNr">38 </span>    <span class="Statement">var</span> x_next <span class="Type">float64</span>
+<span id="L39" class="LineNr">39 </span>
+<span id="L40" class="LineNr">40 </span>    k := <span class="Constant">0</span>
+<span id="L41" class="LineNr">41 </span>    x_prev = x0
+<span id="L42" class="LineNr">42 </span>    <span class="Statement">for</span> k &lt; <span class="Constant">100</span> {
+<span id="L43" class="LineNr">43 </span>        <span class="Comment">// 修正量を計算し、それから反復列の次の近似解を求める</span>
+<span id="L44" class="LineNr">44 </span>        x_next = x_prev - f(x_prev)/f_prime(x_prev)
+<span id="L45" class="LineNr">45 </span>
+<span id="L46" class="LineNr">46 </span>        <span class="Comment">// 途中経過を表示する</span>
+<span id="L47" class="LineNr">47 </span>        <span class="Statement">if</span> math.Abs(f(x_next)) &lt; e {
+<span id="L48" class="LineNr">48 </span>            <span class="Comment">// k, x, f(x)を表示する</span>
+<span id="L49" class="LineNr">49 </span>            fmt.Printf(<span class="Constant">&quot;k=</span><span class="Special">%v</span><span class="Constant">, x=</span><span class="Special">%v</span><span class="Constant">, f(x)=</span><span class="Special">%v</span><span class="Constant"> :: f(x) &lt; e satisfied</span><span class="Special">\n</span><span class="Constant">&quot;</span>, k, x_next, f(x_next))
+<span id="L50" class="LineNr">50 </span>        }
+<span id="L51" class="LineNr">51 </span>        <span class="Statement">if</span> math.Abs(x_next-x_prev) &lt; e {
+<span id="L52" class="LineNr">52 </span>            <span class="Comment">// k, x, f(x)を表示する</span>
+<span id="L53" class="LineNr">53 </span>            fmt.Printf(<span class="Constant">&quot;k=</span><span class="Special">%v</span><span class="Constant">, x=</span><span class="Special">%v</span><span class="Constant">, f(x)=</span><span class="Special">%v</span><span class="Constant"> :: delta x &lt; e satisfied</span><span class="Special">\n</span><span class="Constant">&quot;</span>, k, x_next, f(x_next))
+<span id="L54" class="LineNr">54 </span>        }
+<span id="L55" class="LineNr">55 </span>
+<span id="L56" class="LineNr">56 </span>        <span class="Comment">// 終了条件を両方共満たしたとき終了する</span>
+<span id="L57" class="LineNr">57 </span>        <span class="Statement">if</span> math.Abs(x_next-x_prev) &lt; e &amp;&amp; math.Abs(f(x_next)) &lt; e {
+<span id="L58" class="LineNr">58 </span>            <span class="Statement">break</span>
+<span id="L59" class="LineNr">59 </span>        }
+<span id="L60" class="LineNr">60 </span>        x_prev = x_next
+<span id="L61" class="LineNr">61 </span>        k++
+<span id="L62" class="LineNr">62 </span>    }
+<span id="L63" class="LineNr">63 </span>    <span class="Comment">// 終了時のk, x, f(x)を表示する</span>
+<span id="L64" class="LineNr">64 </span>    fmt.Printf(<span class="Constant">&quot;finish. k=</span><span class="Special">%v</span><span class="Constant">, x=</span><span class="Special">%v</span><span class="Constant">, f(x)=</span><span class="Special">%v</span><span class="Special">\n</span><span class="Constant">&quot;</span>, k, x_next, f(x_next))
 <span id="L65" class="LineNr">65 </span>}
 <span id="L66" class="LineNr">66 </span>
-<span id="L67" class="LineNr">67 </span><span class="Comment">// f1の一次導関数を表す</span>
-<span id="L68" class="LineNr">68 </span><span class="Statement">func</span> f1_prime(x <span class="Type">float64</span>) <span class="Type">float64</span> {
-<span id="L69" class="LineNr">69 </span>    <span class="Statement">return</span> -<span class="Constant">8.8</span>*math.Pow(x, <span class="Constant">3</span>) + <span class="Constant">10.5</span>*math.Pow(x, <span class="Constant">2</span>) + <span class="Constant">8.2</span>*x + <span class="Constant">3.3</span>
-<span id="L70" class="LineNr">70 </span>}
-<span id="L71" class="LineNr">71 </span>
-<span id="L72" class="LineNr">72 </span><span class="Comment">// 問に挙げられた方程式のうち、余弦関数を含む方を表す関数</span>
-<span id="L73" class="LineNr">73 </span><span class="Comment">// xを受け取り、関数を評価した値を返す</span>
-<span id="L74" class="LineNr">74 </span><span class="Statement">func</span> f2(x <span class="Type">float64</span>) <span class="Type">float64</span> {
-<span id="L75" class="LineNr">75 </span>    <span class="Statement">return</span> -<span class="Constant">3</span>*math.Cos(<span class="Constant">2</span>*x+<span class="Constant">2</span>) + math.Exp(x+<span class="Constant">1</span>) - <span class="Constant">2</span>*x - <span class="Constant">30</span>
+<span id="L67" class="LineNr">67 </span><span class="Comment">// 問に挙げられた方程式のうち、4次方程式の方を表す関数</span>
+<span id="L68" class="LineNr">68 </span><span class="Comment">// xを受け取り、関数を評価した値を返す</span>
+<span id="L69" class="LineNr">69 </span><span class="Statement">func</span> f1(x <span class="Type">float64</span>) <span class="Type">float64</span> {
+<span id="L70" class="LineNr">70 </span>    <span class="Statement">return</span> -<span class="Constant">2.2</span>*math.Pow(x, <span class="Constant">4</span>) + <span class="Constant">3.5</span>*math.Pow(x, <span class="Constant">3</span>) + <span class="Constant">4.1</span>*math.Pow(x, <span class="Constant">2</span>) + <span class="Constant">3.3</span>*x - <span class="Constant">2.7</span>
+<span id="L71" class="LineNr">71 </span>}
+<span id="L72" class="LineNr">72 </span>
+<span id="L73" class="LineNr">73 </span><span class="Comment">// f1の一次導関数を表す</span>
+<span id="L74" class="LineNr">74 </span><span class="Statement">func</span> f1_prime(x <span class="Type">float64</span>) <span class="Type">float64</span> {
+<span id="L75" class="LineNr">75 </span>    <span class="Statement">return</span> -<span class="Constant">8.8</span>*math.Pow(x, <span class="Constant">3</span>) + <span class="Constant">10.5</span>*math.Pow(x, <span class="Constant">2</span>) + <span class="Constant">8.2</span>*x + <span class="Constant">3.3</span>
 <span id="L76" class="LineNr">76 </span>}
 <span id="L77" class="LineNr">77 </span>
-<span id="L78" class="LineNr">78 </span><span class="Comment">// f2の一次導関数を表す</span>
-<span id="L79" class="LineNr">79 </span><span class="Statement">func</span> f2_prime(x <span class="Type">float64</span>) <span class="Type">float64</span> {
-<span id="L80" class="LineNr">80 </span>    <span class="Statement">return</span> <span class="Constant">6</span>*math.Sin(<span class="Constant">2</span>*x+<span class="Constant">2</span>) + math.Exp(x+<span class="Constant">1</span>) - <span class="Constant">2</span>
-<span id="L81" class="LineNr">81 </span>}
+<span id="L78" class="LineNr">78 </span><span class="Comment">// 問に挙げられた方程式のうち、余弦関数を含む方を表す関数</span>
+<span id="L79" class="LineNr">79 </span><span class="Comment">// xを受け取り、関数を評価した値を返す</span>
+<span id="L80" class="LineNr">80 </span><span class="Statement">func</span> f2(x <span class="Type">float64</span>) <span class="Type">float64</span> {
+<span id="L81" class="LineNr">81 </span>    <span class="Statement">return</span> -<span class="Constant">3</span>*math.Cos(<span class="Constant">2</span>*x+<span class="Constant">2</span>) + math.Exp(x+<span class="Constant">1</span>) - <span class="Constant">2</span>*x - <span class="Constant">30</span>
+<span id="L82" class="LineNr">82 </span>}
+<span id="L83" class="LineNr">83 </span>
+<span id="L84" class="LineNr">84 </span><span class="Comment">// f2の一次導関数を表す</span>
+<span id="L85" class="LineNr">85 </span><span class="Statement">func</span> f2_prime(x <span class="Type">float64</span>) <span class="Type">float64</span> {
+<span id="L86" class="LineNr">86 </span>    <span class="Statement">return</span> <span class="Constant">6</span>*math.Sin(<span class="Constant">2</span>*x+<span class="Constant">2</span>) + math.Exp(x+<span class="Constant">1</span>) - <span class="Constant">2</span>
+<span id="L87" class="LineNr">87 </span>}
 </pre>
 </body>
 </html>

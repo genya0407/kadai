@@ -1,11 +1,14 @@
 package main
 
 import (
-	"fmt" // Println関数
-	"math" // SmallestNonzeroFloat64定数, 
+	"fmt"  // Println関数
+	"math" // SmallestNonzeroFloat64定数,
 )
 
 func main() {
+	// math.SmallestNonzeroFloat64は、
+	// 4.940656458412465441765687928682213723651e-324
+	// を表す定数であり、Goのfloat64型の値の中で絶対値が最小のものである
 	fmt.Println("f1")
 	newton(f1, f1_prime, math.SmallestNonzeroFloat64, 0.1)
 	fmt.Println("f2")
@@ -42,20 +45,23 @@ func newton(f func(float64) float64, f_prime func(float64) float64, e float64, x
 
 		// 途中経過を表示する
 		if math.Abs(f(x_next)) < e {
+			// k, x, f(x)を表示する
 			fmt.Printf("k=%v, x=%v, f(x)=%v :: f(x) < e satisfied\n", k, x_next, f(x_next))
 		}
 		if math.Abs(x_next-x_prev) < e {
+			// k, x, f(x)を表示する
 			fmt.Printf("k=%v, x=%v, f(x)=%v :: delta x < e satisfied\n", k, x_next, f(x_next))
 		}
 
 		// 終了条件を両方共満たしたとき終了する
 		if math.Abs(x_next-x_prev) < e && math.Abs(f(x_next)) < e {
-			fmt.Printf("k=%v, x=%v, f(x)=%v\n", k, x_next, f(x_next))
 			break
 		}
 		x_prev = x_next
 		k++
 	}
+	// 終了時のk, x, f(x)を表示する
+	fmt.Printf("finish. k=%v, x=%v, f(x)=%v\n", k, x_next, f(x_next))
 }
 
 // 問に挙げられた方程式のうち、4次方程式の方を表す関数
