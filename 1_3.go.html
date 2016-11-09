@@ -55,25 +55,24 @@ if ('onhashchange' in window) {
 <span id="L2" class="LineNr"> 2 </span>
 <span id="L3" class="LineNr"> 3 </span><span class="Statement">import</span> (
 <span id="L4" class="LineNr"> 4 </span>    <span class="Constant">&quot;./locust&quot;</span> <span class="Comment">// Calculation関数, WriteCSV関数</span>
-<span id="L5" class="LineNr"> 5 </span>    <span class="Constant">&quot;fmt&quot;</span> <span class="Comment">// Sprint関数</span>
-<span id="L6" class="LineNr"> 6 </span>)
-<span id="L7" class="LineNr"> 7 </span>
-<span id="L8" class="LineNr"> 8 </span><span class="Statement">func</span> main() {
-<span id="L9" class="LineNr"> 9 </span>    <span class="Comment">// s=0.15, c=0.7, 0.5, 0.45</span>
-<span id="L10" class="LineNr">10 </span>    <span class="Comment">// の各場合について、バッタGの移動確率を求めている</span>
-<span id="L11" class="LineNr">11 </span>    locust.WriteCSV(
-<span id="L12" class="LineNr">12 </span>        <span class="Constant">&quot;c_0.7&quot;</span>,
-<span id="L13" class="LineNr">13 </span>        locust.Calculation(<span class="Constant">0.7</span>, <span class="Constant">0.15</span>)
-<span id="L14" class="LineNr">14 </span>    )
-<span id="L15" class="LineNr">15 </span>    locust.WriteCSV(
-<span id="L16" class="LineNr">16 </span>        <span class="Constant">&quot;c_0.5&quot;</span>,
-<span id="L17" class="LineNr">17 </span>        locust.Calculation(<span class="Constant">0.5</span>, <span class="Constant">0.15</span>)
-<span id="L18" class="LineNr">18 </span>    )
-<span id="L19" class="LineNr">19 </span>    locust.WriteCSV(
-<span id="L20" class="LineNr">20 </span>        <span class="Constant">&quot;c_0.45&quot;</span>,
-<span id="L21" class="LineNr">21 </span>        locust.Calculation(<span class="Constant">0.45</span>, <span class="Constant">0.15</span>)
-<span id="L22" class="LineNr">22 </span>    )
-<span id="L23" class="LineNr">23 </span>}
+<span id="L5" class="LineNr"> 5 </span>)
+<span id="L6" class="LineNr"> 6 </span>
+<span id="L7" class="LineNr"> 7 </span><span class="Statement">func</span> main() {
+<span id="L8" class="LineNr"> 8 </span>    <span class="Comment">// s=0.15, c=0.7, 0.5, 0.45</span>
+<span id="L9" class="LineNr"> 9 </span>    <span class="Comment">// の各場合について、バッタGの移動確率を求めている</span>
+<span id="L10" class="LineNr">10 </span>    locust.WriteCSV(
+<span id="L11" class="LineNr">11 </span>        <span class="Constant">&quot;c_0.7&quot;</span>,
+<span id="L12" class="LineNr">12 </span>        locust.Calculation(<span class="Constant">0.7</span>, <span class="Constant">0.15</span>),
+<span id="L13" class="LineNr">13 </span>    )
+<span id="L14" class="LineNr">14 </span>    locust.WriteCSV(
+<span id="L15" class="LineNr">15 </span>        <span class="Constant">&quot;c_0.5&quot;</span>,
+<span id="L16" class="LineNr">16 </span>        locust.Calculation(<span class="Constant">0.5</span>, <span class="Constant">0.15</span>),
+<span id="L17" class="LineNr">17 </span>    )
+<span id="L18" class="LineNr">18 </span>    locust.WriteCSV(
+<span id="L19" class="LineNr">19 </span>        <span class="Constant">&quot;c_0.45&quot;</span>,
+<span id="L20" class="LineNr">20 </span>        locust.Calculation(<span class="Constant">0.45</span>, <span class="Constant">0.15</span>),
+<span id="L21" class="LineNr">21 </span>    )
+<span id="L22" class="LineNr">22 </span>}
 </pre>
 </body>
 </html>

@@ -13,7 +13,6 @@
 pre { white-space: pre-wrap; font-family: monospace; color: #000000; background-color: #ffffff; }
 body { font-family: monospace; color: #000000; background-color: #ffffff; }
 * { font-size: 1em; }
-.Error { color: #ffffff; background-color: #ff6060; padding-bottom: 1px; }
 .Comment { color: #0000c0; }
 .Constant { color: #c00000; }
 .LineNr { color: #af5f00; }
@@ -58,10 +57,10 @@ if ('onhashchange' in window) {
 <span id="L3" class="LineNr"> 3 </span><span class="Statement">package</span> locust
 <span id="L4" class="LineNr"> 4 </span>
 <span id="L5" class="LineNr"> 5 </span><span class="Statement">import</span> (
-<span id="L6" class="LineNr"> 6 </span>    <span class="Constant">&quot;../matmul&quot;</span> <span class="Comment">// MatVec関数, MatMlt関数, Transpose関数, 定数N</span>
+<span id="L6" class="LineNr"> 6 </span>    <span class="Constant">&quot;../matmul&quot;</span>    <span class="Comment">// MatVec関数, MatMlt関数, Transpose関数, 定数N</span>
 <span id="L7" class="LineNr"> 7 </span>    <span class="Constant">&quot;encoding/csv&quot;</span> <span class="Comment">// 計算結果をCSVに出力するため</span>
-<span id="L8" class="LineNr"> 8 </span>    <span class="Constant">&quot;fmt&quot;</span> <span class="Comment">// Sprint関数を使うため</span>
-<span id="L9" class="LineNr"> 9 </span>    <span class="Constant">&quot;os&quot;</span> <span class="Comment">// 計算結果をCSVに出力するため</span>
+<span id="L8" class="LineNr"> 8 </span>    <span class="Constant">&quot;fmt&quot;</span>          <span class="Comment">// Sprint関数を使うため</span>
+<span id="L9" class="LineNr"> 9 </span>    <span class="Constant">&quot;os&quot;</span>           <span class="Comment">// 計算結果をCSVに出力するため</span>
 <span id="L10" class="LineNr">10 </span>)
 <span id="L11" class="LineNr">11 </span>
 <span id="L12" class="LineNr">12 </span><span class="Comment">// #define N 3 の代わり。</span>
@@ -104,13 +103,13 @@ if ('onhashchange' in window) {
 <span id="L49" class="LineNr">49 </span>        writer.Write(
 <span id="L50" class="LineNr">50 </span>            []<span class="Type">string</span>{
 <span id="L51" class="LineNr">51 </span>                fmt.Sprint(t),
-<span id="L52" class="LineNr">52 </span>                fmt.Sprint(resVec[t][<span class="Constant">0</span>]),<span class="Error"> </span>
+<span id="L52" class="LineNr">52 </span>                fmt.Sprint(resVec[t][<span class="Constant">0</span>]),
 <span id="L53" class="LineNr">53 </span>                fmt.Sprint(resVec[t][<span class="Constant">1</span>]),
 <span id="L54" class="LineNr">54 </span>                fmt.Sprint(resVec[t][<span class="Constant">2</span>]),
 <span id="L55" class="LineNr">55 </span>                fmt.Sprint(resVec[t][<span class="Constant">3</span>]),
 <span id="L56" class="LineNr">56 </span>                fmt.Sprint(resVec[t][<span class="Constant">4</span>]),
 <span id="L57" class="LineNr">57 </span>                fmt.Sprint(resVec[t][<span class="Constant">5</span>]),
-<span id="L58" class="LineNr">58 </span>            }
+<span id="L58" class="LineNr">58 </span>            },
 <span id="L59" class="LineNr">59 </span>        )
 <span id="L60" class="LineNr">60 </span>    }
 <span id="L61" class="LineNr">61 </span>    <span class="Comment">// バッファをファイルへ出力する</span>
@@ -123,7 +122,7 @@ if ('onhashchange' in window) {
 <span id="L68" class="LineNr">68 </span>    <span class="Comment">// 移動確率を表す行列を計算し、取得する</span>
 <span id="L69" class="LineNr">69 </span>    <span class="Statement">var</span> probMat [N][N]<span class="Type">float64</span> = getProbMat(c, s)
 <span id="L70" class="LineNr">70 </span>
-<span id="L71" class="LineNr">71 </span>    <span class="Statement">var</span> resultVectors [<span class="Constant">61</span>][N]<span class="Type">float64</span> <span class="Comment">// resultVectors[t]: 時刻tに於ける、Gの地点0~5での存在確率を表すベクトル</span>
+<span id="L71" class="LineNr">71 </span>    <span class="Statement">var</span> resultVectors [<span class="Constant">61</span>][N]<span class="Type">float64</span>                <span class="Comment">// resultVectors[t]: 時刻tに於ける、Gの地点0~5での存在確率を表すベクトル</span>
 <span id="L72" class="LineNr">72 </span>    resultVectors[<span class="Constant">0</span>] = [N]<span class="Type">float64</span>{<span class="Constant">1</span>, <span class="Constant">0</span>, <span class="Constant">0</span>, <span class="Constant">0</span>, <span class="Constant">0</span>, <span class="Constant">0</span>} <span class="Comment">// t = 0のとき、バッタGの地点0~5での存在確率は1,0,0,0,0,0である</span>
 <span id="L73" class="LineNr">73 </span>    <span class="Comment">// t = 1, 2, ... , 60について、</span>
 <span id="L74" class="LineNr">74 </span>    <span class="Comment">// Gの存在確率ベクトルを求める</span>
