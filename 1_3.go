@@ -1,13 +1,23 @@
 package main
 
 import (
-	"./locust"
-	"fmt"
+	"./locust" // Calculation関数, WriteCSV関数
+	"fmt" // Sprint関数
 )
 
 func main() {
-	for _, c := range [3]float64{0.7, 0.5, 0.45} {
-		res := locust.Calculation(c, 0.15)
-		locust.WriteCSV("c_"+fmt.Sprint(c), res)
-	}
+	// s=0.15, c=0.7, 0.5, 0.45
+	// の各場合について、バッタGの移動確率を求めている
+	locust.WriteCSV(
+		"c_0.7",
+		locust.Calculation(0.7, 0.15)
+	)
+	locust.WriteCSV(
+		"c_0.5",
+		locust.Calculation(0.5, 0.15)
+	)
+	locust.WriteCSV(
+		"c_0.45",
+		locust.Calculation(0.45, 0.15)
+	)
 }
