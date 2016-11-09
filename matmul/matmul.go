@@ -5,8 +5,10 @@ package matmul
 // Println関数を使うためにパッケージをimportしている。
 import "fmt"
 
-// #define N 3 の代わり
-const N = 3
+// #define N 6 の代わり
+// main関数内の動作確認を作動させるためにはN=3で十分だが、
+// 後のバッタGの移動に際してはN=6である必要があるため、ここではN=6としている。
+const N = 6
 
 /* これ以降、行列の添字としては、行 => i, 列 => jを用いる。
 	ex:)
@@ -61,6 +63,7 @@ func main() {
 
 	// Goの==は、Arrayに適用された場合は、
 	// ２つのArrayの対応する要素の値がすべて等しいときにtrueを返す。
+	// 参考： https://golang.org/ref/spec#Comparison_operators
 	if (AA == Abs) {
 		fmt.Println("AA == Abs")
 	}
