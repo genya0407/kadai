@@ -10,17 +10,18 @@ func main() {
 		{-3, -3, 2},
 		{-6, -8, 5},
 	}
-	b := [N]float64{9, -1, 2}
-
 	L, U := LuDecomp(A)
-	y := Forward(L, b)
-	x := Backward(U, y)
-	fmt.Println("x:")
-	PrintVector(x)
+	fmt.Println("L")
+	PrintMatrix(L)
+	fmt.Println("U")
+	PrintMatrix(U)
 }
 
-func PrintVector(vector [N]float64) {
+func PrintMatrix(matrix [N][N]float64) {
 	for i := 0; i <= N-1; i++ {
-		fmt.Printf("%3.3f\n", vector[i])
+		for j := 0; j <= N-1; j++ {
+			fmt.Printf("%3.3f\t", matrix[i][j])
+		}
+		fmt.Printf("\n")
 	}
 }
