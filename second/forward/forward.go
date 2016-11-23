@@ -46,6 +46,7 @@ func main() {
 	pp.Println(y)
 }
 
+// y := Forward(L, b)
 func Forward(L [N][N]float64, b [N]float64) [N]float64 {
 	// 方程式の解
 	var y [N]float64

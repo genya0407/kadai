@@ -16,6 +16,7 @@ func main() {
 	pp.Println(x)
 }
 
+// x := Backward(U, c)
 func Backward(U [N][N]float64, c [N]float64) [N]float64 {
 	// 解を表すベクトル
 	var x [N]float64
