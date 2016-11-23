@@ -1,11 +1,8 @@
-package main
+package lu
 
 import "fmt"
 
 const N = 3
-
-type Matrix [N][N]float64
-type Vector [N]float64
 
 type Tuple struct {
 	I int
@@ -13,14 +10,14 @@ type Tuple struct {
 }
 
 // 内部的にはLとUを連想配列として持つ
-// LuDecomp関数から値を返すときに初めてMatrixにする
+// LuDecomp関数から値を返すときに初めて[N][N]float64にする
 // Tuple{i,j}が、i行j列目の要素のkeyだと考える
 var _L map[Tuple]float64
 var _U map[Tuple]float64
-var _A Matrix
+var _A [N][N]float64
 
 func main() {
-	A := Matrix{
+	A := [N][N]float64{
 		{3, 1, -3},
 		{-3, -3, 2},
 		{-6, -8, 5},
@@ -32,7 +29,7 @@ func main() {
 	PrintMatrix(U)
 }
 
-func PrintMatrix(matrix Matrix) {
+func PrintMatrix(matrix [N][N]float64) {
 	for i := 0; i <= N-1; i++ {
 		for j := 0; j <= N-1; j++ {
 			fmt.Printf("%3.3f\t", matrix[i][j])
@@ -42,7 +39,7 @@ func PrintMatrix(matrix Matrix) {
 }
 
 // L, U := LuDecomp(A)
-func LuDecomp(A Matrix) (Matrix, Matrix) {
+func LuDecomp(A [N][N]float64) ([N][N]float64, [N][N]float64) {
 	// _Lと_Uと_Aを初期化
 	_L = map[Tuple]float64{}
 	_U = map[Tuple]float64{}
@@ -54,8 +51,8 @@ func LuDecomp(A Matrix) (Matrix, Matrix) {
 		_U[Tuple{0, j}] = _A[0][j]
 	}
 
-	var retL Matrix
-	var retU Matrix
+	var retL [N][N]float64
+	var retU [N][N]float64
 
 	for i := 0; i <= N-1; i++ {
 		for j := 0; j <= N-1; j++ {
