@@ -1,5 +1,6 @@
 package main
 
+// 配列の内容などを標準出力に表示するライブラリ
 import "github.com/k0kubun/pp"
 
 // 行列・ベクトルの長さ
