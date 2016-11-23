@@ -11,10 +11,8 @@ func main() {
 		{-6, -8, 5},
 	}
 	b := [N]float64{9, -1, 2}
+	x := Solve(A, b)
 
-	L, U := LuDecomp(A)
-	y := Forward(L, b)
-	x := Backward(U, y)
 	fmt.Println("x:")
 	PrintVector(x)
 }
