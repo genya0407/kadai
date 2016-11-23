@@ -1,4 +1,4 @@
-package forward
+package main
 
 // 配列の内容などを標準出力に表示するライブラリ
 import "github.com/k0kubun/pp"
@@ -44,27 +44,4 @@ func main() {
 	b := [N]float64{9, -1, 2}
 	y := Forward(L, b)
 	pp.Println(y)
-}
-
-// y := Forward(L, b)
-func Forward(L [N][N]float64, b [N]float64) [N]float64 {
-	// 方程式の解
-	var y [N]float64
-
-	// yを求めるループ
-	for i := 0; i < N; i++ {
-
-		//sumは
-		//	yi = bi - sum
-		//と置いたときのsum
-		sum := 0.0
-		// sumの値を求めるループ
-		for k := 0; k <= i-1; k++ {
-			sum += L[i][k] * y[k]
-		}
-
-		y[i] = b[i] - sum
-	}
-
-	return y
 }

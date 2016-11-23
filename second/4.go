@@ -1,9 +1,6 @@
 package main
 
 import "fmt"
-import "./forward"
-import "./backward"
-import "./lu"
 
 const N = 3
 
@@ -15,9 +12,9 @@ func main() {
 	}
 	b := [N]float64{9, -1, 2}
 
-	L, U := lu.LuDecomp(A)
-	y := forward.Forward(L, b)
-	x := backward.Backward(U, y)
+	L, U := LuDecomp(A)
+	y := Forward(L, b)
+	x := Backward(U, y)
 	fmt.Println("x:")
 	PrintVector(x)
 }
