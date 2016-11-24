@@ -1,3 +1,3 @@
 package main
 
-const N = 6
+const N = 50

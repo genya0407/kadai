@@ -9,7 +9,7 @@ func Inverse(A [N][N]float64) [N][N]float64 {
 
 	var xs Matrix
 	for k := 0; k <= N-1; k++ {
-		x := Solve(A, bs[k])
+		x := Solve(NewTargetMatrix(A), bs[k])
 		xs.setCol(k, x)
 	}
 	return xs
