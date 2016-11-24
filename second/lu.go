@@ -1,94 +1,48 @@
 package main
 
-type Tuple struct {
-	I int
-	J int
-}
+// inverse.goと同様に、"インスタンスメソッド"を定義している
 
-// 内部的にはLとUを連想配列として持つ
-// LuDecomp関数から値を返すときに初めて[N][N]float64にする
-// Tuple{i,j}が、i行j列目の要素のkeyだと考える
-var _L map[Tuple]float64
-var _U map[Tuple]float64
-var _A [N][N]float64
+type TargetMatrix [N][N]float64
 
-// L, U := LuDecomp(A)
-func LuDecomp(A [N][N]float64) ([N][N]float64, [N][N]float64) {
-	// _Lと_Uと_Aを初期化
-	_L = map[Tuple]float64{}
-	_U = map[Tuple]float64{}
-	_A = A
-	for i := 0; i <= N-1; i++ {
-		_L[Tuple{i, i}] = 1
-	}
-	for j := 0; j <= N-1; j++ {
-		_U[Tuple{0, j}] = _A[0][j]
-	}
-
-	var retL [N][N]float64
-	var retU [N][N]float64
-
+// L, U := A.Decomp()
+// L: 下三角行列, U: 上三角行列
+func (a TargetMatrix) Decomp() ([N][N]float64, [N][N]float64) {
+	var retL, retU [N][N]float64
 	for i := 0; i <= N-1; i++ {
 		for j := 0; j <= N-1; j++ {
-			index := Tuple{i, j}
-			retL[i][j] = calcL(index)
-			retU[i][j] = calcU(index)
+			retL[i][j] = a.lower(i, j)
+			retU[i][j] = a.upper(i, j)
 		}
 	}
-
 	return retL, retU
 }
 
-// tupleの値に対応する_Lの値を返す
-// _Lにその値が格納されていなかった場合、
-// 同時に_Lにその値を格納する
-func calcL(tuple Tuple) float64 {
-	value, ok := _L[tuple]
-	if ok {
-		return value
-	} else {
-		// tuple.I, tuple.Jと毎回書くと読みづらいので
-		i := tuple.I
-		j := tuple.J
-
-		l := 0.0
-		if i > j {
-			sum := 0.0
-			for k := 0; k <= j-1; k++ {
-				sum += calcL(Tuple{i, k}) * calcU(Tuple{k, j})
-			}
-			l = (1.0 / calcU(Tuple{j, j})) * (_A[i][j] - sum)
-		} else {
-			l = 0.0
+// A.lower(i, j)
+// 下三角行列のi行j列要素を計算する
+func (a TargetMatrix) lower(i int, j int) float64 {
+	if i > j {
+		sum := 0.0
+		for k := 0; k <= j-1; k++ {
+			sum += a.lower(i, k) * a.upper(k, j)
 		}
-		_L[tuple] = l
-		return l
+		return (1.0 / a.upper(j, j)) * (a[i][j] - sum)
+	} else if i == j {
+		return 1.0
+	} else {
+		return 0.0
 	}
 }
 
-// tupleの値に対応する_Uの値を返す
-// _Uにその値が格納されていなかった場合、
-// 同時に_Uにその値を格納する
-func calcU(tuple Tuple) float64 {
-	value, ok := _U[tuple]
-	if ok {
-		return value
-	} else {
-		// tuple.I, tuple.Jと毎回書くと読みづらいので
-		i := tuple.I
-		j := tuple.J
-
-		u := 0.0
-		if i <= j {
-			sum := 0.0
-			for k := 0; k <= i-1; k++ {
-				sum += calcL(Tuple{i, k}) * calcU(Tuple{k, j})
-			}
-			u = _A[i][j] - sum
-		} else {
-			u = 0.0
+// A.upper(i, j)
+// 上三角行列のi行j列要素を計算する
+func (a TargetMatrix) upper(i int, j int) float64 {
+	if i <= j {
+		sum := 0.0
+		for k := 0; k <= i-1; k++ {
+			sum += a.lower(i, k) * a.upper(k, j)
 		}
-		_U[tuple] = u
-		return u
+		return (a[i][j] - sum)
+	} else {
+		return 0.0
 	}
 }
