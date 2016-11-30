@@ -1,4 +1,4 @@
-This is LuaTeX, Version 0.95.0 (TeX Live 2016)  (format=lualatex 2016.8.20)  30 NOV 2016 23:39
+This is LuaTeX, Version 0.95.0 (TeX Live 2016)  (format=lualatex 2016.8.20)  30 NOV 2016 23:58
  restricted system commands enabled.
  file:line:error style messages enabled.
 **main.tex
@@ -56,7 +56,7 @@ Inserting `luaotfload.aux.set_capheight' at position 3 in `luaotfload.patch_font
 '.
 Inserting `luaotfload.rewrite_fontname' at position 4 in `luaotfload.patch_font'
 .
-luaotfload | main : initialization completed in 0.125 seconds)
+luaotfload | main : initialization completed in 0.138 seconds)
 (/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
 Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
 )
@@ -1176,7 +1176,7 @@ LaTeX Font Info:    Font shape `JY3/HiraKakuProN-W6(0)/m/n' will be
 LaTeX Font Info:    Font shape `JY3/HiraKakuProN-W6(0)/m/n' will be
 (Font)              scaled to size 6.65793pt on input line 232.
  [5]
-[6] (./main.aux)
+[6] [7] (./main.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
@@ -1188,10 +1188,10 @@ LaTeX Warning: There were undefined references.
 Here is how much of LuaTeX's memory you used:
  16746 strings out of 495118
  125006,383344 words of node,token memory allocated
- 20549 words of node memory still in use:
-   8 hlist, 1 vlist, 5 rule, 892 glue, 57 kern, 1 glyph, 6465 attribute, 44 glue
-_spec, 316 attribute_list, 1 write, 11 user_defined nodes
-   avail lists: 1:4,2:29804,3:261,4:208,5:65,6:1451,7:1490,8:801,9:413,10:12,11:
+ 24265 words of node memory still in use:
+   8 hlist, 1 vlist, 5 rule, 1096 glue, 57 kern, 1 glyph, 7557 attribute, 44 glu
+e_spec, 368 attribute_list, 1 write, 11 user_defined nodes
+   avail lists: 1:4,2:28660,3:267,4:217,5:69,6:1451,7:1286,8:801,9:413,10:14,11:
 17
  19771 multiletter control sequences out of 65536+600000
  111 fonts using 110018055 bytes
@@ -1212,10 +1212,10 @@ i6.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.
 pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb>
 </usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></
 usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb>
-Output written on main.pdf (6 pages, 160899 bytes).
+Output written on main.pdf (7 pages, 168023 bytes).
 
-PDF statistics: 104 PDF objects out of 1000 (max. 8388607)
- 66 compressed objects within 1 object stream
+PDF statistics: 107 PDF objects out of 1000 (max. 8388607)
+ 68 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 131072)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
