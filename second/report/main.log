@@ -1,4 +1,4 @@
-This is LuaTeX, Version 0.95.0 (TeX Live 2016)  (format=lualatex 2016.8.20)  30 NOV 2016 21:40
+This is LuaTeX, Version 0.95.0 (TeX Live 2016)  (format=lualatex 2016.8.20)  30 NOV 2016 22:08
  restricted system commands enabled.
  file:line:error style messages enabled.
 **main.tex
@@ -56,7 +56,7 @@ Inserting `luaotfload.aux.set_capheight' at position 3 in `luaotfload.patch_font
 '.
 Inserting `luaotfload.rewrite_fontname' at position 4 in `luaotfload.patch_font'
 .
-luaotfload | main : initialization completed in 0.129 seconds)
+luaotfload | main : initialization completed in 0.131 seconds)
 (/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
 Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
 )
@@ -920,33 +920,38 @@ Removing  `luatexja.beginpar.np_info_after' from `luatexja.jfmglue.whatsit_after
 Inserting `luatexja.ruby.np_info_after' at position 1 in `luatexja.jfmglue.whats
 it_after'.
 Inserting `luatexja.beginpar.np_info_after' at position 2 in `luatexja.jfmglue.w
-hatsit_after'.) (./main.aux)
+hatsit_after'.) (/usr/local/texlive/2016/texmf-dist/tex/latex/comment/comment.s
+ty
+\CommentStream=\write3
+
+Excluding comment 'comment') Excluding 'comment' comment. (./main.aux)
 \openout1 = main.aux
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for JY3/mc/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for JT3/mc/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for EU2/lmr/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for T3/cmr/m/n on input line 35.
-LaTeX Font Info:    Try loading font information for T3+cmr on input line 35.
- (/usr/local/texlive/2016/texmf-dist/tex/latex/tipa/t3cmr.fd
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 58.
+LaTeX Font Info:    ... okay on input line 58.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 58.
+LaTeX Font Info:    ... okay on input line 58.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 58.
+LaTeX Font Info:    ... okay on input line 58.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 58.
+LaTeX Font Info:    ... okay on input line 58.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 58.
+LaTeX Font Info:    ... okay on input line 58.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 58.
+LaTeX Font Info:    ... okay on input line 58.
+LaTeX Font Info:    Checking defaults for JY3/mc/m/n on input line 58.
+LaTeX Font Info:    ... okay on input line 58.
+LaTeX Font Info:    Checking defaults for JT3/mc/m/n on input line 58.
+LaTeX Font Info:    ... okay on input line 58.
+LaTeX Font Info:    Checking defaults for EU2/lmr/m/n on input line 58.
+LaTeX Font Info:    ... okay on input line 58.
+LaTeX Font Info:    Checking defaults for T3/cmr/m/n on input line 58.
+LaTeX Font Info:    Try loading font information for T3+cmr on input line 58.
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/tipa/t3cmr.fd
 File: t3cmr.fd 2001/12/31 TIPA font definitions
 )
-LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    ... okay on input line 58.
 
 (/usr/local/texlive/2016/texmf-dist/tex/luatex/luatexja/patches/lltjp-fontspec.
 sty
@@ -965,7 +970,7 @@ ther characters in Unicode lower plane
 ))
 \AtBeginShipoutBox=\box59
  ABD: EverySelectfont initializing macros
-LaTeX Info: Redefining \selectfont on input line 35.
+LaTeX Info: Redefining \selectfont on input line 58.
 
 (/usr/local/texlive/2016/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -1016,74 +1021,74 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 .................................................
 \symlegacymaths=\mathgroup5
 LaTeX Font Info:    Overwriting symbol font `legacymaths' in version `bold'
-(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 35.
-LaTeX Font Info:    Redeclaring math accent \acute on input line 35.
-LaTeX Font Info:    Redeclaring math accent \grave on input line 35.
-LaTeX Font Info:    Redeclaring math accent \ddot on input line 35.
-LaTeX Font Info:    Redeclaring math accent \tilde on input line 35.
-LaTeX Font Info:    Redeclaring math accent \bar on input line 35.
-LaTeX Font Info:    Redeclaring math accent \breve on input line 35.
-LaTeX Font Info:    Redeclaring math accent \check on input line 35.
-LaTeX Font Info:    Redeclaring math accent \hat on input line 35.
-LaTeX Font Info:    Redeclaring math accent \dot on input line 35.
-LaTeX Font Info:    Redeclaring math accent \mathring on input line 35.
-LaTeX Font Info:    Redeclaringmathsymbol\colon on input line 35.
-LaTeX Font Info:    Redeclaringmathsymbol\Gamma on input line 35.
-LaTeX Font Info:    Redeclaringmathsymbol\Delta on input line 35.
-LaTeX Font Info:    Redeclaringmathsymbol\Theta on input line 35.
-LaTeX Font Info:    Redeclaringmathsymbol\Lambda on input line 35.
-LaTeX Font Info:    Redeclaringmathsymbol\Xi on input line 35.
-LaTeX Font Info:    Redeclaringmathsymbol\Pi on input line 35.
-LaTeX Font Info:    Redeclaringmathsymbol\Sigma on input line 35.
-LaTeX Font Info:    Redeclaringmathsymbol\Upsilon on input line 35.
-LaTeX Font Info:    Redeclaringmathsymbol\Phi on input line 35.
-LaTeX Font Info:    Redeclaringmathsymbol\Psi on input line 35.
-LaTeX Font Info:    Redeclaringmathsymbol\Omega on input line 35.
-LaTeX Font Info:    Redeclaringmathsymbol\mathdollar on input line 35.
-LaTeX Font Info:    Redeclaring symbol font `operators' on input line 35.
+(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 58.
+LaTeX Font Info:    Redeclaring math accent \acute on input line 58.
+LaTeX Font Info:    Redeclaring math accent \grave on input line 58.
+LaTeX Font Info:    Redeclaring math accent \ddot on input line 58.
+LaTeX Font Info:    Redeclaring math accent \tilde on input line 58.
+LaTeX Font Info:    Redeclaring math accent \bar on input line 58.
+LaTeX Font Info:    Redeclaring math accent \breve on input line 58.
+LaTeX Font Info:    Redeclaring math accent \check on input line 58.
+LaTeX Font Info:    Redeclaring math accent \hat on input line 58.
+LaTeX Font Info:    Redeclaring math accent \dot on input line 58.
+LaTeX Font Info:    Redeclaring math accent \mathring on input line 58.
+LaTeX Font Info:    Redeclaringmathsymbol\colon on input line 58.
+LaTeX Font Info:    Redeclaringmathsymbol\Gamma on input line 58.
+LaTeX Font Info:    Redeclaringmathsymbol\Delta on input line 58.
+LaTeX Font Info:    Redeclaringmathsymbol\Theta on input line 58.
+LaTeX Font Info:    Redeclaringmathsymbol\Lambda on input line 58.
+LaTeX Font Info:    Redeclaringmathsymbol\Xi on input line 58.
+LaTeX Font Info:    Redeclaringmathsymbol\Pi on input line 58.
+LaTeX Font Info:    Redeclaringmathsymbol\Sigma on input line 58.
+LaTeX Font Info:    Redeclaringmathsymbol\Upsilon on input line 58.
+LaTeX Font Info:    Redeclaringmathsymbol\Phi on input line 58.
+LaTeX Font Info:    Redeclaringmathsymbol\Psi on input line 58.
+LaTeX Font Info:    Redeclaringmathsymbol\Omega on input line 58.
+LaTeX Font Info:    Redeclaringmathsymbol\mathdollar on input line 58.
+LaTeX Font Info:    Redeclaring symbol font `operators' on input line 58.
 LaTeX Font Info:    Encoding `OT1' has changed to `EU2' for symbol font
-(Font)              `operators' in the math version `normal' on input line 35.
+(Font)              `operators' in the math version `normal' on input line 58.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmr/m/n --> EU2/lmr/m/n on input line 35.
+(Font)                  OT1/cmr/m/n --> EU2/lmr/m/n on input line 58.
 LaTeX Font Info:    Encoding `OT1' has changed to `EU2' for symbol font
-(Font)              `operators' in the math version `bold' on input line 35.
+(Font)              `operators' in the math version `bold' on input line 58.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmr/bx/n --> EU2/lmr/m/n on input line 35.
+(Font)                  OT1/cmr/bx/n --> EU2/lmr/m/n on input line 58.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  EU2/lmr/m/n --> EU2/lmr/m/n on input line 35.
+(Font)                  EU2/lmr/m/n --> EU2/lmr/m/n on input line 58.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/cmr/m/it --> EU2/lmr/m/it on input line 35.
+(Font)                  OT1/cmr/m/it --> EU2/lmr/m/it on input line 58.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/cmr/bx/n --> EU2/lmr/bx/n on input line 35.
+(Font)                  OT1/cmr/bx/n --> EU2/lmr/bx/n on input line 58.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> EU2/lmss/m/n on input line 35.
+(Font)                  OT1/cmss/m/n --> EU2/lmss/m/n on input line 58.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> EU2/lmtt/m/n on input line 35.
+(Font)                  OT1/cmtt/m/n --> EU2/lmtt/m/n on input line 58.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  EU2/lmr/m/n --> EU2/lmr/bx/n on input line 35.
+(Font)                  EU2/lmr/m/n --> EU2/lmr/bx/n on input line 58.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmr/bx/it --> EU2/lmr/bx/it on input line 35.
+(Font)                  OT1/cmr/bx/it --> EU2/lmr/bx/it on input line 58.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> EU2/lmss/bx/n on input line 35.
+(Font)                  OT1/cmss/bx/n --> EU2/lmss/bx/n on input line 58.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> EU2/lmtt/bx/n on input line 35.
+(Font)                  OT1/cmtt/m/n --> EU2/lmtt/bx/n on input line 58.
 (compiling luc: /usr/local/texlive/2016/texmf-var/luatex-cache/generic/fonts/otl
 /lmroman17-regular.luc)(load luc: /Users/sangenya/Library/texlive/2016/texmf-var
 /luatex-cache/generic/fonts/otl/lmroman17-regular.luc)(load cache: /Users/sangen
 ya/Library/texlive/2016/texmf-var/luatexja/extra_lmroman17-regular.luc)
 LaTeX Font Info:    Font shape `JT3/HiraMinProN-W3(0)/m/n' will be
-(Font)              scaled to size 15.97903pt on input line 36.
+(Font)              scaled to size 15.97903pt on input line 59.
 LaTeX Font Info:    Font shape `JY3/HiraMinProN-W3(0)/m/n' will be
-(Font)              scaled to size 15.97903pt on input line 36.
+(Font)              scaled to size 15.97903pt on input line 59.
 (compiling luc: /usr/local/texlive/2016/texmf-var/luatex-cache/generic/fonts/otl
 /lmroman12-regular.luc)(load luc: /Users/sangenya/Library/texlive/2016/texmf-var
 /luatex-cache/generic/fonts/otl/lmroman12-regular.luc)(load cache: /Users/sangen
 ya/Library/texlive/2016/texmf-var/luatexja/extra_lmroman12-regular.luc)
 LaTeX Font Info:    Font shape `JT3/HiraMinProN-W3(0)/m/n' will be
-(Font)              scaled to size 11.09656pt on input line 36.
+(Font)              scaled to size 11.09656pt on input line 59.
 LaTeX Font Info:    Font shape `JY3/HiraMinProN-W3(0)/m/n' will be
-(Font)              scaled to size 11.09656pt on input line 36.
-LaTeX Font Info:    Calculating math sizes for size <13.14001> on input line 36.
+(Font)              scaled to size 11.09656pt on input line 59.
+LaTeX Font Info:    Calculating math sizes for size <13.14001> on input line 59.
 
 (compiling luc: /usr/local/texlive/2016/texmf-var/luatex-cache/generic/fonts/otl
 /lmroman8-regular.luc)(load luc: /Users/sangenya/Library/texlive/2016/texmf-var/
@@ -1094,48 +1099,86 @@ gular.luc)(load luc: /Users/sangenya/Library/texlive/2016/texmf-var/luatex-cache
 /generic/fonts/otl/lmroman6-regular.luc)(load cache: /Users/sangenya/Library/tex
 live/2016/texmf-var/luatexja/extra_lmroman6-regular.luc)
 LaTeX Font Info:    Font shape `JY3/HiraMinProN-W3(0)/m/n' will be
-(Font)              scaled to size 7.76755pt on input line 36.
+(Font)              scaled to size 7.76755pt on input line 59.
 LaTeX Font Info:    Font shape `JY3/HiraMinProN-W3(0)/m/n' will be
-(Font)              scaled to size 5.54828pt on input line 36.
+(Font)              scaled to size 5.54828pt on input line 59.
 LaTeX Font Info:    Font shape `JT3/HiraMinProN-W3(0)/m/n' will be
-(Font)              scaled to size 13.31584pt on input line 38.
+(Font)              scaled to size 13.31584pt on input line 61.
 LaTeX Font Info:    Font shape `JY3/HiraMinProN-W3(0)/m/n' will be
-(Font)              scaled to size 13.31584pt on input line 38.
+(Font)              scaled to size 13.31584pt on input line 61.
 LaTeX Font Info:    Font shape `JT3/HiraKakuProN-W6(0)/m/n' will be
-(Font)              scaled to size 13.31584pt on input line 38.
+(Font)              scaled to size 13.31584pt on input line 61.
 LaTeX Font Info:    Font shape `JY3/HiraKakuProN-W6(0)/m/n' will be
-(Font)              scaled to size 13.31584pt on input line 38.
+(Font)              scaled to size 13.31584pt on input line 61.
 (compiling luc: /usr/local/texlive/2016/texmf-var/luatex-cache/generic/fonts/otl
 /lmsans12-regular.luc)(load luc: /Users/sangenya/Library/texlive/2016/texmf-var/
 luatex-cache/generic/fonts/otl/lmsans12-regular.luc)(load cache: /Users/sangenya
-/Library/texlive/2016/texmf-var/luatexja/extra_lmsans12-regular.luc) [1
+/Library/texlive/2016/texmf-var/luatexja/extra_lmsans12-regular.luc)
+LaTeX Font Info:    Font shape `JT3/HiraKakuProN-W6(0)/m/n' will be
+(Font)              scaled to size 11.09656pt on input line 62.
+LaTeX Font Info:    Font shape `JY3/HiraKakuProN-W6(0)/m/n' will be
+(Font)              scaled to size 11.09656pt on input line 62.
+LaTeX Font Info:    Calculating math sizes for size <10.95001> on input line 63.
 
-{/usr/local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2] (./
-main.aux)
+(compiling luc: /usr/local/texlive/2016/texmf-var/luatex-cache/generic/fonts/otl
+/lmroman7-regular.luc)(load luc: /Users/sangenya/Library/texlive/2016/texmf-var/
+luatex-cache/generic/fonts/otl/lmroman7-regular.luc)(load cache: /Users/sangenya
+/Library/texlive/2016/texmf-var/luatexja/extra_lmroman7-regular.luc)(compiling l
+uc: /usr/local/texlive/2016/texmf-var/luatex-cache/generic/fonts/otl/lmroman5-re
+gular.luc)(load luc: /Users/sangenya/Library/texlive/2016/texmf-var/luatex-cache
+/generic/fonts/otl/lmroman5-regular.luc)(load cache: /Users/sangenya/Library/tex
+live/2016/texmf-var/luatexja/extra_lmroman5-regular.luc)
+LaTeX Font Info:    Font shape `JY3/HiraMinProN-W3(0)/m/n' will be
+(Font)              scaled to size 6.47295pt on input line 63.
+LaTeX Font Info:    Font shape `JY3/HiraMinProN-W3(0)/m/n' will be
+(Font)              scaled to size 4.62357pt on input line 63.
+LaTeX Font Info:    Font shape `JT3/HiraKakuProN-W6(0)/m/n' will be
+(Font)              scaled to size 9.24713pt on input line 70.
+LaTeX Font Info:    Font shape `JY3/HiraKakuProN-W6(0)/m/n' will be
+(Font)              scaled to size 9.24713pt on input line 70.
+
+
+LaTeX Warning: Command \b invalid in math mode on input line 93.
+
+Missing character: There is no ̲ (U+0332) in font cmmi10!
+[1
+
+{/usr/local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+[2] (./main.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 )
 
 Here is how much of LuaTeX's memory you used:
- 16608 strings out of 495118
+ 16690 strings out of 495118
  100000,383344 words of node,token memory allocated
- 6912 words of node memory still in use:
-   8 hlist, 1 vlist, 5 rule, 153 glue, 45 kern, 1 glyph, 2454 attribute, 44 glue
-_spec, 125 attribute_list, 1 write, 11 user_defined nodes
-   avail lists: 1:2,2:14541,3:99,4:94,5:43,6:673,7:456,8:75,9:114,10:11,11:24
- 19687 multiletter control sequences out of 65536+600000
- 66 fonts using 67587103 bytes
- 62i,6n,85p,946b,295s stack positions out of 5000i,500n,10000p,200000b,100000s
-</usr/local/texlive/2016/texmf-dist/fonts/opentype/public/lm/lmroman10-regular.o
-tf></usr/local/texlive/2016/texmf-dist/fonts/opentype/public/lm/lmsans12-regular
-.otf></usr/local/texlive/2016/texmf-dist/fonts/opentype/public/lm/lmroman12-regu
-lar.otf></System/Library/Fonts/ヒラギノ明朝 ProN W3.ttc></System/Librar
-y/Fonts/ヒラギノ明朝 ProN W3.ttc>
-Output written on main.pdf (2 pages, 20450 bytes).
+ 7926 words of node memory still in use:
+   8 hlist, 1 vlist, 5 rule, 193 glue, 51 kern, 1 glyph, 2790 attribute, 44 glue
+_spec, 141 attribute_list, 1 write, 11 user_defined nodes
+   avail lists: 1:2,2:19282,3:215,4:170,5:34,6:790,7:1002,8:437,9:231,10:11,11:1
+6
+ 19742 multiletter control sequences out of 65536+600000
+ 86 fonts using 88507807 bytes
+ 62i,7n,85p,946b,295s stack positions out of 5000i,500n,10000p,200000b,100000s
+</usr/local/texlive/2016/texmf-dist/fonts/opentype/public/lm/lmsans10-regular.ot
+f></usr/local/texlive/2016/texmf-dist/fonts/opentype/public/lm/lmroman10-regular
+.otf></System/Library/Fonts/ヒラギノ角ゴシック W6.ttc></System/Li
+brary/Fonts/ヒラギノ角ゴシック W6.ttc></usr/local/texlive/2016/te
+xmf-dist/fonts/opentype/public/lm/lmsans12-regular.otf></usr/local/texlive/2016/
+texmf-dist/fonts/opentype/public/lm/lmroman12-regular.otf></System/Library/Fonts
+/ヒラギノ明朝 ProN W3.ttc></System/Library/Fonts/ヒラギノ明
+朝 ProN W3.ttc></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmex10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmmi10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/c
+mmi6.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr1
+0.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pf
+b></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+</usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb>
+Output written on main.pdf (2 pages, 99820 bytes).
 
-PDF statistics: 39 PDF objects out of 1000 (max. 8388607)
- 22 compressed objects within 1 object stream
+PDF statistics: 81 PDF objects out of 1000 (max. 8388607)
+ 51 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 131072)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

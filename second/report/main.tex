@@ -39,12 +39,17 @@
     	\subsection{採用したアルゴリズム}
 		\subsection{プログラムに関する情報}
 			\begin{description}
-	        	\item[ファイル名]
+	        	\item[ファイル名]\mbox{}
+					\begin{itemize}
+						\item
+					\end{itemize}
 				\item[コンパイルコマンド]
 			\end{description}
 			\subsubsection*{作成した主な関数}
-				%名前
-				%機能
+				\begin{description}
+					\item[名前] \mbox{}\\
+						機能
+				\end{description}
 		\subsection{結果}
 		\subsection{考察}
 
@@ -52,4 +57,58 @@
 
 \begin{document}
     \maketitle
+
+    \section{前進代入}
+    	\subsection{採用したアルゴリズム}
+			\[
+				y_i = b_i - \sum_{k=0}^{i-1}l_{ik}y_k
+			\]
+			として、$y_i$を求めた。
+
+		\subsection{プログラムに関する情報}
+			\begin{description}
+	        	\item[ファイル名] \mbox{}
+					\begin{itemize}
+						\item 1.go
+						\item forward.go
+						\item print.go
+					\end{itemize}
+				\item[コンパイルコマンド] go run 1.go print.go forward.go
+			\end{description}
+
+			\subsubsection*{作成した主な関数}
+				\begin{description}
+					\item[PrintVector] \mbox{}\\
+						ベクトル(１次元配列)を表示する関数。引数としてベクトルを渡す。
+					\item[PrintMatrix] \mbox{}\\
+						行列(２次元配列)を表示する関数。引数としてベクトルを渡す。
+					\item[Forward] \mbox{}\\
+						前進代入法によって方程式の解を求める関数。
+						第一引数として行列（下三角行列）を、第二引数としてベクトル（$b=Lx$のときの$b$）を渡すと、方程式の解をベクトルとして返す。
+				\end{description}
+
+		\subsection{結果}
+			手計算の結果は、
+			\[
+				{\b y} = \left(
+					\begin{array}{c}
+						9 \\
+						8 \\
+						-4
+					\end{array}
+				\right)
+			\]
+			であった。また、プログラムによる数値解は、
+			\[
+				{\b y} = \left(
+					\begin{array}{c}
+						9.000 \\
+						8.000 \\
+						-4.000
+					\end{array}
+				\right)
+			\]
+			であった。
+		\subsection{考察}
+			手計算と数値解は一致していた。
 \end{document}
