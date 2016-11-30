@@ -396,6 +396,144 @@
 		\subsection{考察}
 			式（\ref{eq3}）の解は、要素がすべて3のベクトルになるので、得られた数値解はどちらも妥当であると考えられる。
 
+    \section{逆行列を求めるアルゴリズム}
+    	\subsection{採用したアルゴリズム}
+			\begin{eqnarray*}
+				{\bf b_0} &=& \left(
+					\begin{array}{c}
+						1\\
+						0\\
+						0
+					\end{array}
+				\right)\\
+				{\bf b_1} &=& \left(
+					\begin{array}{c}
+						0\\
+						1\\
+						0
+					\end{array}
+				\right)\\
+				{\bf b_2} &=& \left(
+					\begin{array}{c}
+						0\\
+						0\\
+						1
+					\end{array}
+				\right)
+			\end{eqnarray*}
+			として、
+			\begin{eqnarray*}
+				{\bf Ax_0} &=& {\bf b_0}\\
+				{\bf Ax_1} &=& {\bf b_1}\\
+				{\bf Ax_2} &=& {\bf b_2}\\
+			\end{eqnarray*}
+			を満たす${\bf x_0,x_1,x_2}$を求める。このとき、
+			\[
+				{\bf A^{-1} = \left( 
+					\begin{array}{ccc}
+						x_0 & x_1 & x_2
+					\end{array}
+				\right)}
+			\]
+			によって、$A^{-1}$を求める。
+
+		\subsection{プログラムに関する情報}
+			\begin{description}
+	        	\item[ファイル名]\mbox{}
+					\begin{itemize}
+						\item inverse.go
+					\end{itemize}
+			\end{description}
+
+			\subsubsection*{作成した主な関数}
+				\begin{description}
+					\item[Inverse] \mbox{}\\
+						引数として行列を与えると、その逆行列を返す関数。
+					\item[setCol] \mbox{}\\
+						matrix.setCol(j, vector)などと実行する。\\
+						第一引数には列番号を、第二引数にはその列に代入する列ベクトルを与える。\\
+						この関数を実行すると、呼び出し元の行列(上の例ではmatrix変数)の、j列目が、vectorになる。
+					\item[idMatrix] \mbox{}\\
+						引数無しで実行され、N行N列の単位行列を返す関数。
+				\end{description}
+
+    \section{逆行列を計算する}
+    	\subsection{採用したアルゴリズム}
+			問７で示したアルゴリズムを採用して逆行列を求める。
+
+		\subsection{プログラムに関する情報}
+			8\_1.go及び8\_2.goはNの値を与えているだけである。本質的な実装は8.goにある。
+
+			また、出力される行列はそれぞれ、
+			\begin{eqnarray*}
+				I1 & = & HH^{-1}\\
+				I2 & = & H^{-1}H
+			\end{eqnarray*}
+			を示している。
+
+			\begin{description}
+	        	\item[ファイル名]\mbox{}
+					\begin{itemize}
+						\item 8\_1.go
+						\item 8\_2.go
+						\item 8.go
+					\end{itemize}
+				\item[コンパイルコマンド]\mbox{}
+					\begin{description}
+						\item [$N=3$の場合]\mbox{}\\
+							go run 8\_1.go print.go 8.go inverse.go solve.go lu.go forward.go backward.go
+						\item [$N=6$の場合]\mbox{}\\
+							go run 8\_2.go print.go 8.go inverse.go solve.go lu.go forward.go backward.go
+					\end{description}
+			\end{description}
+
+			\subsubsection*{作成した主な関数}
+				\begin{description}
+					\item[MatMul] \mbox{}\\
+						第一引数と第二引数に行列をとり、その２つの行列の行列積を返す関数。
+				\end{description}
+
+		\subsection{結果}
+			プログラムによるI1,I2の計算結果は以下のようであった。
+			
+			$N=3$のとき、
+			\begin{eqnarray*}
+				I1 & = & \left( \begin{array}{ccc}
+					1.000 & -0.000 & 0.000\\
+					0.000 & 1.000 & 0.000\\
+					0.000 & 0.000 & 1.000
+				\end{array} \right)\\
+				I2 & = & \left( \begin{array}{ccc}
+					1.000 & 0.000 & 0.000\\
+					-0.000 & 1.000 & 0.000\\
+					0.000 & 0.000 & 1.000
+				\end{array} \right)
+			\end{eqnarray*}
+			
+			$N=6$のとき、
+			\begin{eqnarray*}
+				I1 & = & \left( \begin{array}{cccccc}
+					1.000 & -0.000 & -0.000 & -0.000 & -0.000 & 0.000\\
+					0.000 & 1.000 & -0.000 & -0.000 & -0.000 & 0.000\\
+					0.000 & 0.000 & 1.000 & -0.000 & -0.000 & 0.000\\
+					0.000 & 0.000 & 0.000 & 1.000 & -0.000 & 0.000\\
+					0.000 & 0.000 & 0.000 & 0.000 & 1.000 & 0.000\\
+					0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 1.000
+				\end{array} \right)\\
+				I2 & = & \left( \begin{array}{cccccc}
+					1.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000\\
+					-0.000 & 1.000 & 0.000 & 0.000 & 0.000 & 0.000\\
+					-0.000 & -0.000 & 1.000 & 0.000 & 0.000 & 0.000\\
+					-0.000 & -0.000 & -0.000 & 1.000 & 0.000 & 0.000\\
+					-0.000 & -0.000 & -0.000 & -0.000 & 1.000 & 0.000\\
+					0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 1.000
+				\end{array} \right)
+			\end{eqnarray*}
+			
+		\subsection{考察}
+			$N=3,N=6$のいずれの場合についても、$I1,I2$は、「対角成分は1.000、それ以外の要素は0.000または-0.000」の行列となった。
+			-0.000となっている要素は、計算の過程で生まれた誤差によって、絶対値のごく小さい負の値をとっていると考えられる。
+
 \end{document}
 
 \begin{comment}
