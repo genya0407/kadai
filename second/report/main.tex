@@ -69,7 +69,7 @@
 		\subsection{結果}
 			手計算の結果は、
 			\[
-				{\b y} = \left(
+				{\bf y} = \left(
 					\begin{array}{c}
 						9 \\
 						8 \\
@@ -79,7 +79,7 @@
 			\]
 			であった。また、プログラムによる数値解は、
 			\[
-				{\b y} = \left(
+				{\bf y} = \left(
 					\begin{array}{c}
 						9.000 \\
 						8.000 \\
@@ -119,7 +119,7 @@
 		\subsection{結果}
 			手計算の結果は、
 			\[
-				{\b y} = \left(
+				{\bf y} = \left(
 					\begin{array}{c}
 						2 \\
 						-3 \\
@@ -129,7 +129,7 @@
 			\]
 			であった。また、プログラムによる数値解は、
 			\[
-				{\b y} = \left(
+				{\bf y} = \left(
 					\begin{array}{c}
 						2.000 \\
 						-3.000 \\
@@ -228,6 +228,108 @@
 			これにより、一度計算した要素を計算し直すことがなくなり、計算量は大幅に減る。
 			
 			実際、問8のプログラムの実行に、メモ化なしの場合は$N=12$のとき25秒ほどかかっていたが、メモ化をした場合は$N=50$のときでも10秒ほどで終了した。
+
+    \section{$n$元連立一次方程式の解放}
+    	\subsection{採用したアルゴリズム}
+			以下の手順により、$n$元連立１次方程式${\bf Ax} = {\bf b}$の解${\bf x}$を求める。
+			
+			まず、
+			\[
+				{\bf A} = {\bf LU}
+			\]
+			のようにLU分解する。
+			
+			次に、
+			\begin{equation}
+				{\bf Ux} = {\bf y} \label{eq2}
+			\end{equation}
+			と置く。
+			
+			これにより、
+			\[
+				{\bf Ly} = {\bf b}
+			\]
+			が成立する。これを、前進代入法によって、${\bf y}$について解く。
+			
+			最後に、この${\bf y}$の値を用いて、式（\ref{eq2}）を${\bf x}$について解く。
+
+		\subsection{プログラムに関する情報}
+			\begin{description}
+	        	\item[ファイル名]\mbox{}
+					\begin{itemize}
+						\item solve.go
+					\end{itemize}
+				\item[コンパイルコマンド]\mbox{}\\
+					go run 5.go print.go solve.go lu.go forward.go backward.go
+			\end{description}
+
+			\subsubsection*{作成した主な関数}
+				\begin{description}
+					\item[Solve] \mbox{}\\
+						第一引数として行列${\bf A}$を、第二引数としてベクトル{\bf b}を渡すと、${\bf Ax} = {\bf b}$の解ベクトル${\bf x}$を返す関数。
+						内部では、問４にて作成したDecomp関数、問１で作成したForward関数、問２で作成したBackward関数を利用している。
+				\end{description}
+
+		\subsection{結果}
+			以下の３元連立一次方程式の解をプログラムにより計算した。
+			\[
+				\left(
+					\begin{array}{ccc}
+						3 & 1 & -3 \\
+						-3 & -3 & 2 \\
+						-6 & -8 & 5
+					\end{array}
+				\right)
+				{\bf x}
+					=
+				\left(
+					\begin{array}{ccc}
+						9.0\\
+						-1.0\\
+						2.0
+					\end{array}
+				\right)
+			\]
+			その結果は、
+			\[
+				{\bf x} =
+					\left(
+						\begin{array}{ccc}
+							2.000\\
+							-3.000\\
+							-2.000
+						\end{array}
+					\right)
+			\]
+			となった。
+		
+		\subsection{考察}
+			上記で求めた解を、問の式に代入して計算すると、
+			\[
+				\left(
+					\begin{array}{ccc}
+						3 & 1 & -3 \\
+						-3 & -3 & 2 \\
+						-6 & -8 & 5
+					\end{array}
+				\right)
+				\left(
+					\begin{array}{ccc}
+						2.000\\
+						-3.000\\
+						-2.000
+					\end{array}
+				\right)
+					=
+				\left(
+					\begin{array}{ccc}
+						9.0\\
+						-1.0\\
+						2.0
+					\end{array}
+				\right)
+			\]
+			となり、確かに解である事がわかる。
 
 \end{document}
 
