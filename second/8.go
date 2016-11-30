@@ -1,7 +1,7 @@
 package main
 
-import "fmt"
 import "math"
+import "fmt"
 
 func main() {
 	var H [N][N]float64
@@ -29,13 +29,4 @@ func MatMul(A [N][N]float64, B [N][N]float64) [N][N]float64 {
 		}
 	}
 	return retMatrix
-}
-
-func PrintMatrix(matrix [N][N]float64) {
-	for i := 0; i <= N-1; i++ {
-		for j := 0; j <= N-1; j++ {
-			fmt.Printf("%3.3f\t", matrix[i][j])
-		}
-		fmt.Printf("\n")
-	}
 }

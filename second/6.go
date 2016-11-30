@@ -1,7 +1,6 @@
 package main
 
 import "math"
-import "fmt"
 
 func main() {
 	var H [N][N]float64
@@ -18,10 +17,4 @@ func main() {
 
 	x := Solve(H, b)
 	PrintVector(x)
-}
-
-func PrintVector(vector [N]float64) {
-	for i := 0; i <= N-1; i++ {
-		fmt.Printf("%3.3f\n", vector[i])
-	}
 }
