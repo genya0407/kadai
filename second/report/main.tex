@@ -1,0 +1,55 @@
+\documentclass[11pt]{ltjsarticle}
+
+\usepackage{fontspec}
+\usepackage{luatexja-fontspec}
+\usepackage[hiragino-pron]{luatexja-preset}
+\usepackage{luatexja-ruby}
+\usepackage{graphicx}
+\usepackage{comment}
+
+\title{電気電子計算工学及演習}
+\author{三軒家 佑將（さんげんや ゆうすけ） \\ ３回生 \\ 1026-26-5817 \\ a0146089}
+\date{}
+
+\newcommand{\fg}[3]{ % \fg{label}{path}{caption},
+	\begin{figure}
+		\includegraphics[width=\textwidth]{#2}
+		\caption{#3}
+		\label{#1}
+	\end{figure}
+}
+
+\newcommand{\tab}[3]{ % \tab{label}{csv-path}{caption}
+	\begin{table}[htb]
+  		\begin{center}
+			%\input{#2}
+			\csvautotabular{#2}
+    		\caption{#3}
+			\label{#1}
+  		\end{center}
+	\end{table}
+}
+
+\newcommand{\fr}[1]{図\ref{#1}}
+\newcommand{\tr}[1]{表\ref{#1}}
+
+\begin{comment}
+
+    \section{}
+    	\subsection{採用したアルゴリズム}
+		\subsection{プログラムに関する情報}
+			\begin{description}
+	        	\item[ファイル名]
+				\item[コンパイルコマンド]
+			\end{description}
+			\subsubsection*{作成した主な関数}
+				%名前
+				%機能
+		\subsection{結果}
+		\subsection{考察}
+
+\end{comment}
+
+\begin{document}
+    \maketitle
+\end{document}
