@@ -1,0 +1,8 @@
+PWD /Users/sangenya/dev/eec/second/report
+INPUT /usr/local/texlive/2016/texmf.cnf
+INPUT /usr/local/texlive/2016/texmf-dist/web2c/texmf.cnf
+INPUT /usr/local/texlive/2016/texmf-var/web2c/pdftex/pdflatex.fmt
+INPUT main.tex
+OUTPUT main.log
+INPUT /usr/local/texlive/2016/texmf-dist/tex/platex/jsclasses/jsarticle.cls
+INPUT /usr/local/texlive/2016/texmf-dist/tex/platex/jsclasses/jsarticle.cls
