@@ -229,7 +229,7 @@
 			
 			実際、問8のプログラムの実行に、メモ化なしの場合は$N=12$のとき25秒ほどかかっていたが、メモ化をした場合は$N=50$のときでも10秒ほどで終了した。
 
-    \section{$n$元連立一次方程式の解放}
+    \section{$n$元連立一次方程式の解法}
     	\subsection{採用したアルゴリズム}
 			以下の手順により、$n$元連立１次方程式${\bf Ax} = {\bf b}$の解${\bf x}$を求める。
 			
@@ -257,6 +257,7 @@
 			\begin{description}
 	        	\item[ファイル名]\mbox{}
 					\begin{itemize}
+						\item 5.go
 						\item solve.go
 					\end{itemize}
 				\item[コンパイルコマンド]\mbox{}\\
@@ -331,6 +332,70 @@
 			\]
 			となり、確かに解である事がわかる。
 
+    \section{$n$元連立一次方程式の解を求める}
+    	\subsection{採用したアルゴリズム}
+			問５と同様のアルゴリズムを採用する。
+
+		\subsection{プログラムに関する情報}
+			6\_1.go及び6\_2.goはNの値を与えているだけである。本質的な実装は6.goにある。
+
+			\begin{description}
+	        	\item[ファイル名]\mbox{}
+					\begin{itemize}
+						\item 6\_1.go
+						\item 6\_2.go
+						\item 6.go
+					\end{itemize}
+				\item[コンパイルコマンド]\mbox{}\\
+					\begin{description}
+						\item [$N=3$の場合] go run 6\_1.go print.go 6.go solve.go lu.go forward.go backward.go
+						\item [$N=6$の場合] go run 6\_2.go print.go 6.go solve.go lu.go forward.go backward.go
+					\end{description}
+			\end{description}
+		
+			\subsubsection*{作成した主な関数}
+				\begin{description}
+					\item[main] \mbox{}\\
+						内部で行列${\bf H}$とベクトル${\bf b}$を計算している。
+				\end{description}
+
+		\subsection{結果}
+			$h_{ij} = 0.25^{|i-j|}$を要素とした行列${\bf H}$と、$b_i = 5.0 - 4.0^{i-n+1} - 4.0^{-i}$を要素とするベクトル${\bf b}$を用いて、
+			\begin{equation}
+				{\bf Hx} = {\bf b} \label{eq3}
+			\end{equation}
+			と表されるN元連立一次方程式の数値解${\bf x}$を、$N=3,6$の場合についてそれぞれプログラムで求めた。
+			
+			その結果は、$N=3$のとき、
+			\[
+				{\bf x} =
+				\left(
+					\begin{array}{c}
+						3.000\\
+						3.000\\
+						3.000
+					\end{array}
+				\right)
+			\]
+			となり、$N=6$のとき、
+			\[
+				{\bf x} =
+				\left(
+					\begin{array}{c}
+						3.000\\
+						3.000\\
+						3.000\\
+						3.000\\
+						3.000\\
+						3.000
+					\end{array}
+				\right)
+			\]
+			となった。
+
+		\subsection{考察}
+			式（\ref{eq3}）の解は、要素がすべて3のベクトルになるので、得られた数値解はどちらも妥当であると考えられる。
+
 \end{document}
 
 \begin{comment}
@@ -341,7 +406,7 @@
 			\begin{description}
 	        	\item[ファイル名]\mbox{}
 					\begin{itemize}
-						\item
+						\item 
 					\end{itemize}
 				\item[コンパイルコマンド]\mbox{}\\
 			\end{description}
