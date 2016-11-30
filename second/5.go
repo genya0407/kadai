@@ -13,7 +13,6 @@ func main() {
 	b := [N]float64{9, -1, 2}
 	x := Solve(A, b)
 
-	fmt.Println("x:")
 	PrintVector(x)
 }
 

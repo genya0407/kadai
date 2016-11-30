@@ -1,3 +1,4 @@
+#! /bin/bash -x
 go run 1.go forward.go
 go run 2.go backward.go
 go run 4.go lu.go

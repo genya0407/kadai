@@ -45,7 +45,7 @@ func (m *Matrix) setCol(j int, vector [N]float64) {
 // I = idMatrix()
 func idMatrix() [N][N]float64 {
 	var im [N][N]float64
-	// imは、初期状態ですべての要素が0.0なので、
+	// [N][N]float64は、初期状態ですべての要素が0.0なので、
 	// 対角成分以外は操作する必要はない。
 	for k := 0; k <= N-1; k++ {
 		im[k][k] = 1.0
