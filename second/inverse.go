@@ -15,21 +15,7 @@ func Inverse(A [N][N]float64) [N][N]float64 {
 	return xs
 }
 
-/*
-func (v SomeType) FuncName(ArgType) ReturnType {
-	v.someTypeFunc() // vは関数読み出し元のオブジェクト
-	...
-}
-
-と書くと、SomeType型の"インスタンス"に関数を生やす事ができる。
-
-a := SomeType{}
-a.FuncName(arg)
-
-すなわち、いわゆる"インスタンスメソッド"の定義ができる。
-ただし、golangでは、組み込み型に新たに関数を生やすことができないので、
-ここではMatrixという型を新たに定義し、その型に関数を生やしている。
-*/
+// lu.goと同様に、"インスタンスメソッド"を定義している
 
 type Matrix [N][N]float64
 

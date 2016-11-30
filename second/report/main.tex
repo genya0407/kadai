@@ -33,28 +33,6 @@
 \newcommand{\fr}[1]{図\ref{#1}}
 \newcommand{\tr}[1]{表\ref{#1}}
 
-\begin{comment}
-
-    \section{}
-    	\subsection{採用したアルゴリズム}
-		\subsection{プログラムに関する情報}
-			\begin{description}
-	        	\item[ファイル名]\mbox{}
-					\begin{itemize}
-						\item
-					\end{itemize}
-				\item[コンパイルコマンド]\mbox{}\\
-			\end{description}
-			\subsubsection*{作成した主な関数}
-				\begin{description}
-					\item[名前] \mbox{}\\
-						機能
-				\end{description}
-		\subsection{結果}
-		\subsection{考察}
-
-\end{comment}
-
 \begin{document}
     \maketitle
 
@@ -162,4 +140,116 @@
 			であった。
 		\subsection{考察}
 			手計算による解とプログラムによる数値解は一致していた。
+
+    \section{行列の計算}
+		\subsection{結果}
+			手計算により、
+			\begin{equation}
+				\left(
+					\begin{array}{ccc}
+						a_{00} & a_{01} & a_{02} \\
+						a_{10} & a_{11} & a_{12} \\
+						a_{20} & a_{21} & a_{22}
+					\end{array}
+				\right)
+					=
+				\left(
+					\begin{array}{ccc}
+						3 & 1 & -3 \\
+						-3 & -3 & 2 \\
+						-6 & -8 & 5
+					\end{array}
+				\right) \label{eq1}
+			\end{equation}
+			と求められた。
+
+    \section{LU分解}
+    	\subsection{採用したアルゴリズム}
+			\begin{eqnarray*}
+				u_{ij} &=& a_{ij} - \sum_{k=0}^{i-1} \\
+				l_{ij} &=& \frac{1}{u_{jj}}\left( a_{ij} - \sum_{k=0}^{j-1} l_{jk}u{kj} \right)
+			\end{eqnarray*}
+			として、$u_{ij}, l_{ij}$を求めた。
+			
+			このとき、問に与えられた順序に従って計算するのは面倒なので、添字から$u_{ij}, l_{ij}$を計算する関数をそれぞれ用意し、内部的に再帰呼び出しするように実装した。
+			
+		\subsection{プログラムに関する情報}
+			\begin{description}
+	        	\item[ファイル名]\mbox{}
+					\begin{itemize}
+						\item 4.go
+						\item lu.go
+					\end{itemize}
+				\item[コンパイルコマンド]\mbox{}\\
+					go run 4.go print.go lu.go
+			\end{description}
+
+			\subsubsection*{作成した主な関数}
+				\begin{description}
+					\item[Decomp] \mbox{}\\
+						matrix.Decomp\(\)のように呼び出すと、上三角行列と下三角行列を返す関数。
+						内部的にlower関数とupper関数を呼び出し、２次元配列に入れて、それを返すだけの関数。
+					\item[upper] \mbox{}\\
+						matrix.upper(i,j)のように呼び出すと、添字（$i$と$j$）に対応する上三角行列の要素を返す関数。
+						内部的にlower関数を呼び出している。
+					\item[lower] \mbox{}\\
+						matrix.upper(i,j)のように呼び出すと、添字（$i$と$j$）に対応する下三角行列の要素を返す関数。
+						内部的にupper関数を呼び出している。
+				\end{description}
+
+		\subsection{結果}
+			式（\ref{}）をDecomp関数によりLU分解した結果、
+			\begin{eqnarray*}
+				L &=& \left(
+					\begin{array}{ccc}
+						1.000 & 0.000 & 0.000 \\
+						-1.000 & 1.000 & 0.000 \\
+						-2.000 & 3.000 & 1.000
+					\end{array}
+				\right) \\
+				U &=& \left(
+					\begin{array}{ccc}
+						3.000 & 1.000 & -3.000 \\
+						0.000 & -2.000 & -1.000 \\
+						0.000 & 0.000 & 2.000
+					\end{array}
+				\right)
+			\end{eqnarray*}
+			となった。
+		\subsection{考察}
+			LU分解の結果は、式（\ref{eq1}）の計算前の式と一致しているため、妥当であると考えられる。
+			
+			今回作成したプログラムは、lower関数とupper関数が呼び出されるたびに、大量の計算が発生する。
+			$N=11$程度まではすぐに計算が終了したが、それより$N$が大きくなると、プログラムはなかなか終了しなくなった。
+			$N=12$以上のケースに対応するには、メモ化が必要である。
+			
+			この場合は、lower関数とupper関数の計算結果を、それぞれ「添字→計算結果」のハッシュに格納し、
+			すでに計算済みの要素に関しては、ハッシュに格納されている値を返すようにする。
+			これにより、一度計算した要素を計算し直すことがなくなり、計算量は大幅に減る。
+			
+			実際、問8のプログラムの実行に、メモ化なしの場合は$N=12$のとき25秒ほどかかっていたが、メモ化をした場合は$N=50$のときでも10秒ほどで終了した。
+
 \end{document}
+
+\begin{comment}
+
+    \section{}
+    	\subsection{採用したアルゴリズム}
+		\subsection{プログラムに関する情報}
+			\begin{description}
+	        	\item[ファイル名]\mbox{}
+					\begin{itemize}
+						\item
+					\end{itemize}
+				\item[コンパイルコマンド]\mbox{}\\
+			\end{description}
+			\subsubsection*{作成した主な関数}
+				\begin{description}
+					\item[名前] \mbox{}\\
+						機能
+				\end{description}
+		\subsection{結果}
+		\subsection{考察}
+
+\end{comment}
+
