@@ -46,7 +46,7 @@ class Array
   end
 end
 
-# 問題で与えられた微分方程式を、関数にしたもの
+# 問題で与えられた微分方程式を、関数にしたもの。ある点xでの、"傾き"を返す。
 # dx/dt = f(x)
 # x = (r v)
 def f(x)
@@ -66,6 +66,8 @@ end
 # rc -> 数値計算から求めたrの値(tsに対応する時刻)
 # ra -> 解析解から求めたrの値(tsに対応する時刻)
 # err -> 各時刻での、数値計算による解と解析解の誤差([e_r(0), e_r(dt), e_r(dt*2), ... , e_r(max_t - dt)])
+#
+# アルゴリズムを表すブロックは、tsとdtを受け取り、各時刻(0, dt, 2dt, 3dt, ...)でのyの値を表す配列を返すものとする
 def calculate(dt, max_t, &ys_block)
   ts = (0..Float::INFINITY).lazy.map{ |i| i * dt }.take_while { |t| t < max_t }.to_a
 

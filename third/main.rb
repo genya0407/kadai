@@ -1,13 +1,16 @@
+# common.rbを読み込む
 require './common'
 
+# 一周期の長さを適当に6.4秒とする
 period = 6.4
 
-# オイラー法
+# オイラー法にて数値計算
 ts, rc, ra, err, p_err = all_calculations(period, period*5) do |ts, dt|
   ys = []
   ts.each_with_index do |t, i|
     if i == 0
-      yn =[-1.0, 0, 0, 1.0].to_v # 初期値
+      # 初期値を与える
+      yn =[-1.0, 0, 0, 1.0].to_v
     else
       yn = ys.last + f(ys.last) * dt
     end
@@ -17,7 +20,7 @@ ts, rc, ra, err, p_err = all_calculations(period, period*5) do |ts, dt|
 end
 draw_graphs(ts, rc, ra, err, p_err, 'euler')
 
-# ホイン法
+# ホイン法にて数値計算
 ts, rc, ra, err, p_err = all_calculations(period, period*5) do |ts, dt|
   ys = []
   ts.each_with_index do |t, i|
@@ -25,7 +28,7 @@ ts, rc, ra, err, p_err = all_calculations(period, period*5) do |ts, dt|
       yn = [-1.0, 0, 0, 1.0].to_v
     else
       ys_1 = ys.last + f(ys.last) * dt
-      yn = ys.last + (f(ys_1) + f(ys.last)) * (1.0/2) * dt
+      yn = ys.last + (f(ys_1) + f(ys.last)) / 2.to_f * dt
     end
     ys.push(yn)
   end
@@ -33,7 +36,7 @@ ts, rc, ra, err, p_err = all_calculations(period, period*5) do |ts, dt|
 end
 draw_graphs(ts, rc, ra, err, p_err, 'heun')
 
-# ルンゲ・クッタ法
+# 4次のルンゲ・クッタ法にて数値計算
 ts, rc, ra, err, p_err = all_calculations(period, period*5) do |ts, dt|
   ys = []
   ts.each_with_index do |t, i|
