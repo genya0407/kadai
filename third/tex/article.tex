@@ -4,10 +4,11 @@
 %\usepackage{xcolor}
 %\usepackage{textcomp}
 %\usepackage[utf8]{inputenc}
-\usepackage{graphicx}
-%\usepackage{comment}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{comment}
 \usepackage{listings, jlisting}
 %\usepackage{listings-golang}
+\usepackage{amsmath}
 
 \title{電気電子計算工学及演習 課題3}
 \author{三軒家 佑將（さんげんや ゆうすけ） \\ ３回生 \\ 1026-26-5817 \\ a0146089}
@@ -38,6 +39,7 @@
 
 \newcommand{\fr}[1]{図\ref{#1}}
 \newcommand{\tr}[1]{表\ref{#1}}
+\newcommand{\er}[1]{式(\ref{#1})}
 
 \begin{document}
     \maketitle
@@ -91,26 +93,119 @@
             \subsubsection*{main.rb}
                 上記で述べた関数を利用して、実際にオイラー法・ホイン法・四次のルンゲ-クッタ法にて、微分方程式の数値解を求める。
 
+                関数fは、与えられた微分方程式を関数にしたものである。すなわち、
+                \[
+                    \frac{d{\bf x}}{dt} = {\bf f} \label{eq2}
+                \]
+                である。
+
     \section{課題3.1}
-        % アルゴリズムの解説
-        % 結果（グラフを貼り付ける、傾きに関しては標準出力からの出力であることを明記する）
-        % 考察（計算方法に関する考察、得られた結果の精度、うまく行かなかったと思われる点、その他、気付いた点や考えたことについて）
-    
+        与えられた微分方程式
+        \begin{eqnarray}
+        \begin{split}
+            \frac{d{\bf r}}{dt} & = & {\bf v}\\
+            \frac{d{\bf v}}{dt} & = & \frac{q}{m}\left( {\bf v} \times {\bf B} \right)
+        \end{split}
+            \label{eq1}
+        \end{eqnarray}
+        の数値解を、オイラー法を用いて求めた。
+
+        ただし、数値解を求める範囲は$0 \leq t \leq 6.4 * 5$とし、微小時間は${\rm dt} = 0.1$秒とした。これは、課題3.3, 3.4においても同様である。
+
+        \subsection{オイラー法}
+            オイラー法は、各時刻での各ベクトルの要素の傾きから、次の時刻での位置を計算することを繰り返す手法である。
+            すなわち、ある時刻$n$での位置${\bf x}_n$は、ある微小時間${\rm dt}$を用いて、以下のように計算される。
+            \begin{eqnarray*}
+                {\bf x}_n = {\bf x}_{n-1} + {\bf f}({\bf x}_{n-1}) {\rm dt}
+            \end{eqnarray*}
+            ただし、${\bf f}$は\er{eq2}による。
+        
+        \subsection{結果}
+            \fg{fig1}{graphs/euler/rc_ra.eps}{解析解と数値解の比較} 
+
+            \fr{fig1}は、\er{eq1}の解析解と数値解のそれぞれについて、${\bf r}$の軌跡をプロットしたものである。
+            時間の経過に従って、数値解の差が大きくなっていることがわかる。
+
+            \fg{fig2}{graphs/euler/error_by_time.eps}{誤差の時間発展}
+
+            また、\fr{fig2}は、\er{eq1}の解析解と数値解の誤差を、時間に沿ってプロットしたものである。
+            時間の経過に従って、誤差が二次関数的に増加しているように見える。
+
     \section{課題3.2}
-        % アルゴリズムの解説
-        % 結果（グラフを貼り付ける、傾きに関しては標準出力からの出力であることを明記する）
-        % 考察（計算方法に関する考察、得られた結果の精度、うまく行かなかったと思われる点、その他、気付いた点や考えたことについて）
+        ${\rm dt} = 6.4 * 2^{-p} (p = 3,4,..,18)$として、$0 \leq t \leq 6.4$の範囲でオイラー法による数値解を計算し、
+        各$p$に対して最大誤差$E_r = \max|e_r(t)|$を求めた。
+
+        \subsection{結果}
+            \fg{fig3}{graphs/euler/error_by_p.eps}{微小時間の大きさに対する誤差の大きさ}
+
+            \fr{fig3}は、各$p$に対する${\rm log}_2E_r$をグラフにプロットしたものである。
+            $p$の増加に伴い、一次関数的に最大誤差が減少していることがわかる。
+
+            また、このグラフの傾きは、標準出力の表示によると、
+            \[
+                b_e = -1.0461609925464084
+            \]
+            であった。
 
     \section{課題3.3}
-        % アルゴリズムの解説
-        % 結果（グラフを貼り付ける、傾きに関しては標準出力からの出力であることを明記する）
-        % 考察（計算方法に関する考察、得られた結果の精度、うまく行かなかったと思われる点、その他、気付いた点や考えたことについて）
+        \er{eq1}の数値解を、ホイン法を用いて計算した。
+        また、課題3.2と同様に、各$p$に対して最大誤差$E_r = \max|e_r(t)|$を求めた。
+
+        \subsection{ホイン法}
+            ホイン法は、以下の手順で${\bf x}_{n}$を順次求める手法である。
+
+            \begin{enumerate}
+                \item オイラー法により${\bf x}_{n-1}$から、仮の${\bf x}_{n}$を求める。
+                \item ${\bf k} = \frac{{\bf f}({\bf x}_{n-1}) + {\bf f}({\bf x}_{n})}{2}$とする。
+                \item ${\bf x}_{n} = {\bf x}_{n-1} + {\bf k} * {\rm dt}$とする。
+            \end{enumerate}
+
+        \subsection{結果}
+            \fg{fig4}{graphs/heun/rc_ra.eps}{解析解と数値解の比較} 
+
+            \fr{fig4}は、\er{eq1}の解析解と数値解のそれぞれについて、${\bf r}$の軌跡をプロットしたものである。
+            目視では違いが見られないほど、高い精度で数値解が求められていることがわかる。
+
+            \fg{fig5}{graphs/heun/error_by_time.eps}{誤差の時間発展}
+
+            また、\fr{fig5}は、\er{eq1}の解析解と数値解の誤差を、時間に沿ってプロットしたものである。
+            時間の経過に従って、誤差が一次関数的に増加していることがわかる。
+
+            \fg{fig6}{graphs/heun/error_by_p.eps}{微小時間の大きさに対する誤差の大きさ}
+
+            \fr{fig6}は、各$p$に対する${\rm log}_2E_r$をグラフにプロットしたものである。
+            $p$の増加に伴い、一次関数的に最大誤差が減少していることがわかる。
+
+            また、このグラフの傾きは、標準出力の表示によると、
+            \[
+                b_e = -1.9974708704503414
+            \]
+            であった。
 
     \section{課題3.4}
-        % アルゴリズムの解説
+        \er{eq1}の数値解を、４次のルンゲ-クッタ法を用いて計算した。
+        また、課題3.2と同様に、各$p$に対して最大誤差$E_r = \max|e_r(t)|$を求めた。
+
+        \subsection{４次のルンゲ-クッタ法}
+            ４次のルンゲ-クッタ法は、以下の手順で${\bf x}_{n}$を順次求める手法である。
+
+            \begin{enumerate}
+                \item オイラー法により${\bf x}_{n-1}$から、仮の${\bf x}_{n}$を求める。
+                \item ${\bf k} = \frac{{\bf f}({\bf x}_{n-1}) + {\bf f}({\bf x}_{n})}{2}$とする。
+                \item ${\bf x}_{n} = {\bf x}_{n-1} + {\bf k} * {\rm dt}$とする。
+            \end{enumerate}
         % 結果（グラフを貼り付ける、傾きに関しては標準出力からの出力であることを明記する）
+
+    \section{考察}
         % 考察（計算方法に関する考察、得られた結果の精度、うまく行かなかったと思われる点、その他、気付いた点や考えたことについて）
 
     \section{付録}
         % 実行結果のコピー
+
+    \section{参考文献}
+        \begin{enumerate}
+            \item オイラー法 - Wikipedia (https://goo.gl/sKVLx1)
+            \item Heun法 - [物理のかぎしっぽ] (https://goo.gl/0DH44q)
+            \item Runge-Kutta法 - [物理のかぎしっぽ] (https://goo.gl/raIx64)
+        \end{enumerate}
 \end{document}

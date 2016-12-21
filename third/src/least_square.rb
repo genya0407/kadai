@@ -6,5 +6,5 @@ def least_square(xs, ys)
     xs.to_vector(:scale),
     ys.to_vector(:scale)
   )
-  return mlr
+  return mlr.b
 end

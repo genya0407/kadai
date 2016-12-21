@@ -31,8 +31,8 @@ ts, rc, ra, err, p_err = all_calculations(period, period*5) do |ts, dt|
   xs
 end
 draw_graphs(ts, rc, ra, err, p_err, 'euler')
-mlr = least_square(p_err.transpose[0], p_err.transpose[1].map { |elem| Math.log2(elem) })
-puts "オイラー法での傾き: #{mlr.b}"
+b = least_square(p_err.transpose[0], p_err.transpose[1].map { |elem| Math.log2(elem) })
+puts "オイラー法での傾き: #{b}"
 
 # ホイン法にて数値計算
 ts, rc, ra, err, p_err = all_calculations(period, period*5) do |ts, dt|
@@ -49,8 +49,8 @@ ts, rc, ra, err, p_err = all_calculations(period, period*5) do |ts, dt|
   xs
 end
 draw_graphs(ts, rc, ra, err, p_err, 'heun')
-mlr = least_square(p_err.transpose[0], p_err.transpose[1].map { |elem| Math.log2(elem) })
-puts "ホイン法での傾き: #{mlr.b}"
+b = least_square(p_err.transpose[0], p_err.transpose[1].map { |elem| Math.log2(elem) })
+puts "ホイン法での傾き: #{b}"
 
 # 4次のルンゲ・クッタ法にて数値計算
 ts, rc, ra, err, p_err = all_calculations(period, period*5) do |ts, dt|
@@ -72,5 +72,5 @@ ts, rc, ra, err, p_err = all_calculations(period, period*5) do |ts, dt|
 end
 draw_graphs(ts, rc, ra, err, p_err, 'runge_kutta')
 p_err = p_err.select { | p, err | p <= 12 }
-mlr = least_square(p_err.transpose[0], p_err.transpose[1].map { |elem| Math.log2(elem) })
-puts "4次のルンゲ・クッタ法での傾き: #{mlr.b}"
+b = least_square(p_err.transpose[0], p_err.transpose[1].map { |elem| Math.log2(elem) })
+puts "4次のルンゲ・クッタ法での傾き: #{b}"
