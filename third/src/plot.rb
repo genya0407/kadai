@@ -31,7 +31,6 @@ def draw_graphs(ts, rc, ra, err, p_err, name)
   save_graphs(datasets, File.expand_path("../../graphs/#{name}/rc_ra.png", __FILE__), {title: 'rc_ra', ylabel: 'y', xlabel: 'x'})
 
   dataset = Gnuplot::DataSet.new([ts, err]) do |ds|
-    ds.with = 'lines'
     ds.notitle
   end
   save_graphs([dataset], File.expand_path("../../graphs/#{name}/error_by_time.png", __FILE__), {title: 'error by time', ylabel: 'e_r(t)', xlabel: 't'})
@@ -39,7 +38,6 @@ def draw_graphs(ts, rc, ra, err, p_err, name)
   x = p_err.transpose[0]
   y = p_err.transpose[1]
   dataset = Gnuplot::DataSet.new([x, y.map { |elem| Math.log2(elem) }]) do |ds|
-    #ds.with = 'lines'
     ds.notitle
   end
   save_graphs([dataset], File.expand_path("../../graphs/#{name}/error_by_p.png", __FILE__), {title: 'error by p', ylabel: 'Er', xlabel: 'p'})
