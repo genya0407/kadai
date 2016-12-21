@@ -1,4 +1,4 @@
-This is e-pTeX, Version 3.14159265-p3.7-160201-2.6 (utf8.euc) (TeX Live 2016) (preloaded format=platex 2016.8.20)  22 DEC 2016 06:39
+This is e-pTeX, Version 3.14159265-p3.7-160201-2.6 (utf8.euc) (TeX Live 2016) (preloaded format=platex 2016.8.20)  22 DEC 2016 07:17
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -244,17 +244,17 @@ LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
 
 ]
 LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
-(Font)              scaled to size 6.72699pt on input line 103.
+(Font)              scaled to size 6.72699pt on input line 101.
 LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
-(Font)              scaled to size 4.805pt on input line 103.
+(Font)              scaled to size 4.805pt on input line 101.
  [2]
 File: graphs/euler/rc_ra.eps Graphic file (type eps)
 
 <graphs/euler/rc_ra.eps>
 LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
-(Font)              scaled to size 8.64899pt on input line 156.
+(Font)              scaled to size 8.64899pt on input line 154.
 LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
-(Font)              scaled to size 8.64899pt on input line 156.
+(Font)              scaled to size 8.64899pt on input line 154.
 File: graphs/euler/error_by_time.eps Graphic file (type eps)
  <graphs/euler/error_by_time.eps> [3] [4]
 File: graphs/euler/error_by_p.eps Graphic file (type eps)
@@ -276,17 +276,17 @@ File: graphs/runge_kutta/error_by_p.eps Graphic file (type eps)
 
 <graphs/runge_kutta/error_by_p.eps>
 LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
-(Font)              scaled to size 7.68799pt on input line 260.
+(Font)              scaled to size 7.68799pt on input line 258.
 LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
-(Font)              scaled to size 5.76599pt on input line 260.
+(Font)              scaled to size 5.76599pt on input line 258.
  [8] [9] [10] [11] (./article.aux) ) 
 Here is how much of TeX's memory you used:
- 3126 strings out of 493683
- 40357 string characters out of 6149658
- 128476 words of memory out of 5000000
- 6666 multiletter control sequences out of 15000+600000
+ 3122 strings out of 493683
+ 40321 string characters out of 6149658
+ 128559 words of memory out of 5000000
+ 6662 multiletter control sequences out of 15000+600000
  20698 words of font info for 94 fonts, out of 8000000 for 9000
  934 hyphenation exceptions out of 8191
  32i,12n,51p,233b,1228s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on article.dvi (11 pages, 19816 bytes).
+Output written on article.dvi (11 pages, 19864 bytes).

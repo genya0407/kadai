@@ -29,17 +29,17 @@ def draw_graphs(ts, rc, ra, err, p_err, name)
       ds.title = trace[:name]
     end
   end
-  save_graphs(datasets, File.expand_path("../../tex/graphs/#{name}/rc_ra.eps", __FILE__), {title: 'rc_ra', ylabel: 'y', xlabel: 'x'})
+  save_graphs(datasets, File.expand_path("../../graphs/#{name}/rc_ra.eps", __FILE__), {title: 'rc_ra', ylabel: 'y', xlabel: 'x'})
 
   dataset = Gnuplot::DataSet.new([ts, err]) do |ds|
     ds.notitle
   end
-  save_graphs([dataset], File.expand_path("../../tex/graphs/#{name}/error_by_time.eps", __FILE__), {title: 'error by time', ylabel: 'e_r(t)', xlabel: 't'})
+  save_graphs([dataset], File.expand_path("../../graphs/#{name}/error_by_time.eps", __FILE__), {title: 'error by time', ylabel: 'e_r(t)', xlabel: 't'})
   
   x = p_err.transpose[0]
   y = p_err.transpose[1]
   dataset = Gnuplot::DataSet.new([x, y.map { |elem| Math.log2(elem) }]) do |ds|
     ds.notitle
   end
-  save_graphs([dataset], File.expand_path("../../tex/graphs/#{name}/error_by_p.eps", __FILE__), {title: 'error by p', ylabel: 'Er', xlabel: 'p'})
+  save_graphs([dataset], File.expand_path("../../graphs/#{name}/error_by_p.eps", __FILE__), {title: 'error by p', ylabel: 'Er', xlabel: 'p'})
 end
