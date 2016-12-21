@@ -1,0 +1,115 @@
+\documentclass[11pt]{jsarticle}
+
+%\usepackage{color}
+%\usepackage{xcolor}
+%\usepackage{textcomp}
+%\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+%\usepackage{comment}
+\usepackage{listings, jlisting}
+%\usepackage{listings-golang}
+
+\title{電気電子計算工学及演習 課題3}
+\author{三軒家 佑將（さんげんや ゆうすけ） \\ ３回生 \\ 1026-26-5817 \\ a0146089}
+\date{}
+
+\newcommand{\fg}[3]{ % \fg{label}{path}{caption},
+	\begin{figure}
+		\includegraphics[width=\textwidth]{#2}
+		\caption{#3}
+		\label{#1}
+	\end{figure}
+}
+
+\newcommand{\tab}[3]{ % \tab{label}{csv-path}{caption}
+	\begin{table}[htb]
+  		\begin{center}
+			%\input{#2}
+			\csvautotabular{#2}
+    		\caption{#3}
+			\label{#1}
+  		\end{center}
+	\end{table}
+}
+
+\newcommand{\code}[2]{
+	\lstinputlisting[title={ソースコード： #2（#1）}]{ ../#2 }
+}
+
+\newcommand{\fr}[1]{図\ref{#1}}
+\newcommand{\tr}[1]{表\ref{#1}}
+
+\begin{document}
+    \maketitle
+    
+    \section{プログラムの説明}
+        \subsection{概要}
+            本レポートにおいては、プログラム言語としてRubyを採用した。
+
+            プログラムを実行する手順は、以下のとおりである。以下の手順に従うことで、課題3.1, 3.2, 3.3, 3.4の４つ全てに関して、結果をグラフにした画像がgraphsディレクトリ以下に出力される。
+            \begin{lstlisting}[language=bash]
+    ?> cd src
+    ?> bundle install --path vendor/bin
+    ?> bundle exec ruby main.rb 2> /dev/null
+            \end{lstlisting}
+            二行目で、依存ライブラリのインストールを行っている。また、三行目は、プログラムを実行するコマンドである。
+            エラー出力を/dev/nullにリダイレクトしているのは、線形回帰に用いたライブラリの警告メッセージを表示しないためである。
+            リダイレクトを行わなくても、プログラムは問題なく実行される。
+
+        \subsection{各機能・関数の説明}
+            プログラムを作成するにあたって、見通しを良くするために、プログラムを複数のファイルに分割している。
+            ここでは、各ファイルごとに、そのファイルの担う機能と、そのファイル内にある関数の機能などについて簡単に説明する。
+
+            各関数の詳しい使用方法などは、プログラム内のコメントにて示したので、そちらも参照されたい。
+
+            \subsubsection*{calculation.rb}
+                各課題の数値計算を行なう部分のうち、共通する部分を切り出したものである。calculate関数とall\_calculations関数を含む。
+
+                calculate関数は、渡された各種パラメーターと、渡されたブロックで表されたアルゴリズムに基づいて、数値計算を行なう。
+
+                all\_calculations関数は、渡された各種パラメーターと、渡されたブロックで表されたアルゴリズムに基づいて、calculate関数を内部で複数回呼び出し、課題3.1と3.2に示された各種数値計算を行なう。
+
+            \subsubsection*{vector.rb}
+                一次元のベクトルを表すMyVectorクラスを定義している。
+
+                MyVectorクラスは、Rubyの組み込みクラスであるArrayクラスを継承して定義した。
+                Arrayクラスの機能に加えて、ベクトル間の加算(+)・減算(-)と、ベクトル-スカラー間の乗算(*)・除算(/)を定義している。
+                また、MyVectorクラスには、ベクトルの大きさ(二乗和平方根)を求めるnormメソッドと、要素の合計を求めるsumメソッドを定義した。
+                さらに、MyVectorクラスのインスタンスを簡単に生成するために、Arrayクラスに、to\_vメソッドを追加した。
+
+            \subsubsection*{plot.rb}
+                グラフを描画し、ファイルに出力する機能を担う。gnuplotのラッパーを利用している。
+
+                draw\_graphs関数に各種パラメーターを渡すことで、graphsディレクトリ以下にグラフの画像が出力される。save\_graphs関数は、draw\_graphs関数に呼び出され、実際にグラフを出力する処理を行なう。
+
+            \subsubsection*{least\_square.rb}
+                線形回帰を行って、一次関数の係数を求める機能を担う。statsampleというライブラリを利用している。
+
+                least\_square関数が定義されており、xの配列とyの配列を与えると、その２つのデータの間に$y=a+bx$の関係があると考え、$a$と$b$の値を求める。
+
+            \subsubsection*{main.rb}
+                上記で述べた関数を利用して、実際にオイラー法・ホイン法・四次のルンゲ-クッタ法にて、微分方程式の数値解を求める。
+
+    \section{課題3.1}
+        % アルゴリズムの解説
+        % 結果（グラフを貼り付ける、傾きに関しては標準出力からの出力であることを明記する）
+        % 考察（計算方法に関する考察、得られた結果の精度、うまく行かなかったと思われる点、その他、気付いた点や考えたことについて）
+    
+    \section{課題3.2}
+        % アルゴリズムの解説
+        % 結果（グラフを貼り付ける、傾きに関しては標準出力からの出力であることを明記する）
+        % 考察（計算方法に関する考察、得られた結果の精度、うまく行かなかったと思われる点、その他、気付いた点や考えたことについて）
+
+    \section{課題3.3}
+        % アルゴリズムの解説
+        % 結果（グラフを貼り付ける、傾きに関しては標準出力からの出力であることを明記する）
+        % 考察（計算方法に関する考察、得られた結果の精度、うまく行かなかったと思われる点、その他、気付いた点や考えたことについて）
+
+    \section{課題3.4}
+        % アルゴリズムの解説
+        % 結果（グラフを貼り付ける、傾きに関しては標準出力からの出力であることを明記する）
+        % 考察（計算方法に関する考察、得られた結果の精度、うまく行かなかったと思われる点、その他、気付いた点や考えたことについて）
+
+    \section{付録}
+        % 実行結果のコピー
+\end{document}
