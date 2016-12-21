@@ -1,4 +1,4 @@
-This is e-pTeX, Version 3.14159265-p3.7-160201-2.6 (utf8.euc) (TeX Live 2016) (preloaded format=platex 2016.8.20)  22 DEC 2016 04:05
+This is e-pTeX, Version 3.14159265-p3.7-160201-2.6 (utf8.euc) (TeX Live 2016) (preloaded format=platex 2016.8.20)  22 DEC 2016 05:47
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -154,6 +154,16 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 635.
 LaTeX Info: Redefining \[ on input line 2739.
 LaTeX Info: Redefining \] on input line 2740.
 )
+(/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\symAMSa=\mathgroup5
+\symAMSb=\mathgroup6
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+))
 (./article.aux)
 \openout1 = `article.aux'.
 
@@ -184,6 +194,14 @@ LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
 (Font)              scaled to size 11.53198pt on input line 50.
 LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
 (Font)              scaled to size 5.76599pt on input line 50.
+LaTeX Font Info:    Try loading font information for U+msa on input line 50.
+ (/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 50.
+(/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
 LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
 (Font)              scaled to size 13.83836pt on input line 52.
 LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
@@ -238,20 +256,20 @@ LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
 LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
 (Font)              scaled to size 8.64899pt on input line 156.
 File: graphs/euler/error_by_time.eps Graphic file (type eps)
- <graphs/euler/error_by_time.eps> [3]
+ <graphs/euler/error_by_time.eps> [3] [4]
 File: graphs/euler/error_by_p.eps Graphic file (type eps)
 
-<graphs/euler/error_by_p.eps> [4]
+<graphs/euler/error_by_p.eps> [5]
 File: graphs/heun/rc_ra.eps Graphic file (type eps)
  <graphs/heun/rc_ra.eps>
 File: graphs/heun/error_by_time.eps Graphic file (type eps)
 
-<graphs/heun/error_by_time.eps> [5]
+<graphs/heun/error_by_time.eps>
 File: graphs/heun/error_by_p.eps Graphic file (type eps)
- <graphs/heun/error_by_p.eps> [6]
+ <graphs/heun/error_by_p.eps> [6] [7]
 File: graphs/runge_kutta/rc_ra.eps Graphic file (type eps)
 
-<graphs/runge_kutta/rc_ra.eps> [7]
+<graphs/runge_kutta/rc_ra.eps>
 File: graphs/runge_kutta/error_by_time.eps Graphic file (type eps)
  <graphs/runge_kutta/error_by_time.eps>
 File: graphs/runge_kutta/error_by_p.eps Graphic file (type eps)
@@ -261,14 +279,14 @@ LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
 (Font)              scaled to size 7.68799pt on input line 260.
 LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
 (Font)              scaled to size 5.76599pt on input line 260.
- [8] [9] [10] [11] [12] (./article.aux) ) 
+ [8] [9] [10] [11] (./article.aux) ) 
 Here is how much of TeX's memory you used:
- 2834 strings out of 493683
- 37089 string characters out of 6149658
- 127926 words of memory out of 5000000
- 6393 multiletter control sequences out of 15000+600000
- 18218 words of font info for 82 fonts, out of 8000000 for 9000
+ 3126 strings out of 493683
+ 40357 string characters out of 6149658
+ 128476 words of memory out of 5000000
+ 6666 multiletter control sequences out of 15000+600000
+ 20698 words of font info for 94 fonts, out of 8000000 for 9000
  934 hyphenation exceptions out of 8191
  32i,12n,51p,233b,1228s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on article.dvi (12 pages, 18008 bytes).
+Output written on article.dvi (11 pages, 19580 bytes).
