@@ -18,7 +18,7 @@ def calculate(dt, max_t, &ys_block)
   ys = ys_block.call(ts, dt)
 
   rc = [ ys.transpose[0], ys.transpose[1] ]
-  ra = [ ts.map{ |t| - Math.cos(t) }, ts.map{ |t| Math.sin(t) } ]
+  ra = [ ts.map{ |t| - Math.cos(t) }, ts.map{ |t| Math.sin(t) } ] # 解析解を求める
   err = (rc.transpose).zip(ra.transpose).map { |_rc, _ra| (_rc.to_v - _ra.to_v).norm }
 
   return ts, rc, ra, err
