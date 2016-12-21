@@ -4,6 +4,7 @@ require 'gnuplot'
 def save_graphs(datasets, filename, opts = {})
   Gnuplot.open do |gp|
     Gnuplot::Plot.new(gp) do |plot|
+      plot.grid
       plot.terminal 'postscript eps enhanced color'
       plot.output filename
 

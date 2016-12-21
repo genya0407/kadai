@@ -1,9 +1,9 @@
 # Fdb version 3
-["dvipdf"] 1482339519 "article.dvi" "article.pdf" "article" 1482339520
-  "article.dvi" 1482339519 14612 ddff1e282f006d6d8587aca02463bac6 "latex"
+["dvipdf"] 1482342884 "article.dvi" "article.pdf" "article" 1482342886
+  "article.dvi" 1482342884 17088 dfd5a1cfa5f68c5d6b4d60e7055177cd "latex"
   (generated)
   "article.pdf"
-["latex"] 1482339519 "article.tex" "article.dvi" "article" 1482339520
+["latex"] 1482342884 "article.tex" "article.dvi" "article" 1482342886
   "/usr/local/texlive/2016/texmf-dist/tex/latex/amsmath/amsbsy.sty" 1456875012 2210 5c54ab129b848a5071554186d0168766 ""
   "/usr/local/texlive/2016/texmf-dist/tex/latex/amsmath/amsgen.sty" 1456875012 4160 c115536cf8d4ff25aa8c1c9bc4ecb79a ""
   "/usr/local/texlive/2016/texmf-dist/tex/latex/amsmath/amsmath.sty" 1467147727 82033 ff9a037b5bad3f86db2c1a9e5c8160c3 ""
@@ -23,14 +23,17 @@
   "/usr/local/texlive/2016/texmf-dist/tex/latex/listings/lstlang1.sty" 1434304428 93445 48e5be20ba2d0a2ca5c4ce7e292a4bbc ""
   "/usr/local/texlive/2016/texmf-dist/tex/latex/listings/lstmisc.sty" 1434304428 77028 c3eb00afb55a32bc13ca8da7f5234377 ""
   "/usr/local/texlive/2016/texmf-dist/tex/platex/jsclasses/jsarticle.cls" 1400831602 55132 1568ea7ebb5ed2b2ea63f45c633eadda ""
-  "article.aux" 1482339519 2097 871d8019d0bb90ac1474053ce7c451ca ""
-  "article.tex" 1482339518 11492 29c3bde63f57d243072af6716e6ee1e4 ""
-  "graphs/euler/error_by_p.eps" 1482337314 22449 fe400222e7ca51783012e2fecb220fe7 ""
-  "graphs/euler/error_by_time.eps" 1482337314 26425 ac620fde8257132e865d88449c93087a ""
-  "graphs/euler/rc_ra.eps" 1482337314 28847 554e85bd600256d6fdfb8da9aead19de ""
-  "graphs/heun/error_by_p.eps" 1482337322 22174 f5c1c6778f0a0f823900ffdfc5983230 ""
-  "graphs/heun/error_by_time.eps" 1482337322 26197 4fa62db193923e65107f0f2262bf4852 ""
-  "graphs/heun/rc_ra.eps" 1482337322 28388 9e0d3e1f70886aaa780be4e40216638c ""
+  "article.aux" 1482342884 2559 3a666e6d00a9e5404da3bed4566c43e0 ""
+  "article.tex" 1482342883 13917 17d22e1698f2ed76f00703119aac4f3f ""
+  "graphs/euler/error_by_p.eps" 1482339970 24061 4d33c08127ce205ef94de508e8d12d94 ""
+  "graphs/euler/error_by_time.eps" 1482339970 27867 b42417b2e17611a1ae0ea9ef045ea981 ""
+  "graphs/euler/rc_ra.eps" 1482339970 30644 ac7d88d2e9f9ac21b050aa2d42466453 ""
+  "graphs/heun/error_by_p.eps" 1482339979 23617 324d8aba5c7d4dd3a67219132cf775d5 ""
+  "graphs/heun/error_by_time.eps" 1482339979 27470 a0047e938f8eebf7fd90c9913b93c7f9 ""
+  "graphs/heun/rc_ra.eps" 1482339979 29576 2b331358a3b7a893c72decda1827192c ""
+  "graphs/runge_kutta/error_by_p.eps" 1482339994 24076 47a950b397e08eb7bda2e7c573f0b97d ""
+  "graphs/runge_kutta/error_by_time.eps" 1482339994 27773 505180d93e2e43e02d331a289c265d75 ""
+  "graphs/runge_kutta/rc_ra.eps" 1482339994 31598 3dcca5947c9ed0e8130dde2d2c6855a8 ""
   (generated)
   "article.dvi"
   "article.log"

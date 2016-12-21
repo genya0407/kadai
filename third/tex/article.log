@@ -1,4 +1,4 @@
-This is e-pTeX, Version 3.14159265-p3.7-160201-2.6 (utf8.euc) (TeX Live 2016) (preloaded format=platex 2016.8.20)  22 DEC 2016 01:58
+This is e-pTeX, Version 3.14159265-p3.7-160201-2.6 (utf8.euc) (TeX Live 2016) (preloaded format=platex 2016.8.20)  22 DEC 2016 02:54
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -157,49 +157,49 @@ LaTeX Info: Redefining \] on input line 2740.
 (./article.aux)
 \openout1 = `article.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
-LaTeX Font Info:    Checking defaults for JY1/mc/m/n on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
-LaTeX Font Info:    Checking defaults for JT1/mc/m/n on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for JY1/mc/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for JT1/mc/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
 \c@lstlisting=\count110
 LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
-(Font)              scaled to size 16.60605pt on input line 45.
+(Font)              scaled to size 16.60605pt on input line 50.
 LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
-(Font)              scaled to size 16.60605pt on input line 45.
+(Font)              scaled to size 16.60605pt on input line 50.
 LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
-(Font)              scaled to size 11.53198pt on input line 45.
+(Font)              scaled to size 11.53198pt on input line 50.
 LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
-(Font)              scaled to size 11.53198pt on input line 45.
+(Font)              scaled to size 11.53198pt on input line 50.
 LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
-(Font)              scaled to size 5.76599pt on input line 45.
+(Font)              scaled to size 5.76599pt on input line 50.
 LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
-(Font)              scaled to size 13.83836pt on input line 47.
+(Font)              scaled to size 13.83836pt on input line 52.
 LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
-(Font)              scaled to size 13.83836pt on input line 47.
+(Font)              scaled to size 13.83836pt on input line 52.
 LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
-(Font)              scaled to size 13.83836pt on input line 47.
+(Font)              scaled to size 13.83836pt on input line 52.
 LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
-(Font)              scaled to size 13.83836pt on input line 47.
+(Font)              scaled to size 13.83836pt on input line 52.
 LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
-(Font)              scaled to size 11.53198pt on input line 48.
+(Font)              scaled to size 11.53198pt on input line 53.
 LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
-(Font)              scaled to size 11.53198pt on input line 48.
+(Font)              scaled to size 11.53198pt on input line 53.
 LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
-(Font)              scaled to size 6.72699pt on input line 52.
+(Font)              scaled to size 6.72699pt on input line 57.
 LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
-(Font)              scaled to size 4.805pt on input line 52.
+(Font)              scaled to size 4.805pt on input line 57.
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2015/06/04 1.6 listings language file
@@ -207,60 +207,63 @@ File: lstlang1.sty 2015/06/04 1.6 listings language file
 (/usr/local/texlive/2016/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2015/06/04 1.6 listings language file
 )
-LaTeX Font Info:    Try loading font information for OML+cmr on input line 54.
+LaTeX Font Info:    Try loading font information for OML+cmr on input line 59.
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/base/omlcmr.fd
 File: omlcmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <10> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 54.
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 59.
 LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <10> not available
-(Font)              Font shape `JT1/gt/m/n' tried instead on input line 54.
+(Font)              Font shape `JT1/gt/m/n' tried instead on input line 59.
 LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
-(Font)              scaled to size 9.60999pt on input line 54.
+(Font)              scaled to size 9.60999pt on input line 59.
 LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <10> not available
-(Font)              Font shape `JY1/gt/m/n' tried instead on input line 54.
+(Font)              Font shape `JY1/gt/m/n' tried instead on input line 59.
 LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
-(Font)              scaled to size 9.60999pt on input line 54.
+(Font)              scaled to size 9.60999pt on input line 59.
  [1
 
 ]
 LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
-(Font)              scaled to size 6.72699pt on input line 98.
+(Font)              scaled to size 6.72699pt on input line 103.
 LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
-(Font)              scaled to size 4.805pt on input line 98.
-
-
-Package amsmath Warning: Cannot use `split' here;
-(amsmath)                trying to recover with `aligned' on input line 108.
-
-[2]
+(Font)              scaled to size 4.805pt on input line 103.
+ [2]
 File: graphs/euler/rc_ra.eps Graphic file (type eps)
- <graphs/euler/rc_ra.eps>
+
+<graphs/euler/rc_ra.eps>
 LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
-(Font)              scaled to size 8.64899pt on input line 124.
+(Font)              scaled to size 8.64899pt on input line 155.
 LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
-(Font)              scaled to size 8.64899pt on input line 124.
+(Font)              scaled to size 8.64899pt on input line 155.
 File: graphs/euler/error_by_time.eps Graphic file (type eps)
- <graphs/euler/error_by_time.eps>
+ <graphs/euler/error_by_time.eps> [3]
 File: graphs/euler/error_by_p.eps Graphic file (type eps)
 
-<graphs/euler/error_by_p.eps> [3]
+<graphs/euler/error_by_p.eps> [4]
 File: graphs/heun/rc_ra.eps Graphic file (type eps)
  <graphs/heun/rc_ra.eps>
 File: graphs/heun/error_by_time.eps Graphic file (type eps)
 
-<graphs/heun/error_by_time.eps> [4]
+<graphs/heun/error_by_time.eps> [5]
 File: graphs/heun/error_by_p.eps Graphic file (type eps)
- <graphs/heun/error_by_p.eps> [5] [6]
-[7] [8] [9] (./article.aux) ) 
+ <graphs/heun/error_by_p.eps> [6]
+File: graphs/runge_kutta/rc_ra.eps Graphic file (type eps)
+
+<graphs/runge_kutta/rc_ra.eps> [7]
+File: graphs/runge_kutta/error_by_time.eps Graphic file (type eps)
+ <graphs/runge_kutta/error_by_time.eps>
+File: graphs/runge_kutta/error_by_p.eps Graphic file (type eps)
+
+<graphs/runge_kutta/error_by_p.eps> [8] [9] [10] [11] [12] (./article.aux) ) 
 Here is how much of TeX's memory you used:
- 2816 strings out of 493683
- 36856 string characters out of 6149658
- 125884 words of memory out of 5000000
- 6379 multiletter control sequences out of 15000+600000
+ 2826 strings out of 493683
+ 37006 string characters out of 6149658
+ 126926 words of memory out of 5000000
+ 6388 multiletter control sequences out of 15000+600000
  17106 words of font info for 77 fonts, out of 8000000 for 9000
  934 hyphenation exceptions out of 8191
- 32i,13n,51p,233b,1228s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 32i,12n,51p,233b,1228s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on article.dvi (9 pages, 14612 bytes).
+Output written on article.dvi (12 pages, 17088 bytes).
