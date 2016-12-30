@@ -1,0 +1,183 @@
+
+==================== FINAL INTERFACE ====================
+2016-12-30 13:27:06.279586 UTC
+
+interface main@main:Main 8001
+  interface hash: 9f1793e5f6c7b6efc2fcacf8d4f2ed12
+  ABI hash: aae03b9fb8023bd521934b354eb337dc
+  export-list hash: 04bcc4580de0e930eb267b6a17bd0ee6
+  orphan hash: b48d24e451137d01b44ff0c554bd7a62
+  flag hash: 7464fe0deb062f7c5e97af3708c0a599
+  sig of: Nothing
+  used TH splices: False
+  where
+exports:
+  Main.f19
+  Main.f19errorLog
+  Main.main
+module dependencies:
+package dependencies: base-4.9.0.0*
+                      fourth-0.1.0.0@fourth-0.1.0.0-5jTFd9yBlWTDU9nDbbWYxs
+                      ghc-prim-0.5.0.0 integer-gmp-1.0.0.1
+orphans: base-4.9.0.0:GHC.Base base-4.9.0.0:GHC.Float
+family instance modules: base-4.9.0.0:Control.Applicative
+                         base-4.9.0.0:Data.Either base-4.9.0.0:Data.Functor.Const
+                         base-4.9.0.0:Data.Monoid base-4.9.0.0:Data.Type.Equality
+                         base-4.9.0.0:GHC.Generics base-4.9.0.0:GHC.IO.Exception
+                         base-4.9.0.0:GHC.TypeLits
+import  -/  base-4.9.0.0:Control.Monad 7767aebfd53f0b584cef2fe66ad3986c
+import  -/  base-4.9.0.0:Data.Foldable 8aeb682f6c74f97fcf0ace0d608a43ea
+import  -/  base-4.9.0.0:Data.List 49b86831b79b49ce5d4d9416ecba61df
+import  -/  base-4.9.0.0:Data.OldList 0058409f994fb13ae0616e3f1e5b4dae
+import  -/  base-4.9.0.0:GHC.Base 8ed3be81c0707b322f975a84ae1bb816
+import  -/  base-4.9.0.0:GHC.Float 469226b1bc53433e95d0167dec5d0312
+import  -/  base-4.9.0.0:GHC.Num 48f506a8f4ecf06285d0a0706594dcc0
+import  -/  base-4.9.0.0:GHC.Real 08bf4acb5f2508f89d6fbcd57fe232e9
+import  -/  base-4.9.0.0:GHC.Show 952347a6ab730bcb25c0854d8bc6ca51
+import  -/  base-4.9.0.0:Prelude b9bddb97799837fe67a8d00939a5b6c3
+import  -/  base-4.9.0.0:System.IO ad985d7a3fc986e9b9c610fb344d9106
+import  -/  fourth-0.1.0.0@fourth-0.1.0.0-5jTFd9yBlWTDU9nDbbWYxs:Func 980c2570924c45b51fcd16dc1decaccc
+import  -/  fourth-0.1.0.0@fourth-0.1.0.0-5jTFd9yBlWTDU9nDbbWYxs:Seq cecda1fd8722c1e7a32dda3f60583835
+import  -/  ghc-prim-0.5.0.0:GHC.Types 7378e41b7749213c8c88ceb6b0665d4c
+85be3165351287b38cc858a62b12cfa6
+  $s^ ::
+    GHC.Types.Double -> GHC.Integer.Type.Integer -> GHC.Types.Double
+  {- Arity: 2, Strictness: <L,U(U)><S,U>m, Inline: INLINE[0],
+     Unfolding: InlineRule (2, True, False)
+                (\ (w :: GHC.Types.Double) (w1 :: GHC.Integer.Type.Integer) ->
+                 case Main.$w$s^ w w1 of ww { DEFAULT -> GHC.Types.D# ww }) -}
+880181e5f4fd1fd76318366bcc2af750
+  $s^1 :: GHC.Types.Double
+  {- Strictness: x -}
+6e736618aa170db256b4403aa3d9dcee
+  $s^2 :: GHC.Integer.Type.Integer
+  {- HasNoCafRefs, Unfolding: (0) -}
+71e9d5b03beb34a6f0e80ccc13c8e923
+  $seven1 :: GHC.Integer.Type.Integer
+  {- HasNoCafRefs, Unfolding: (2) -}
+d6831ef04cb9301b090dfae6f7bb7ec7
+  $trModule :: GHC.Types.Module
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.Module Main.$trModule2 Main.$trModule1) -}
+847d9fc3b8e6f0b424199f36b4999bb2
+  $trModule1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "Main"#) -}
+24ef6042833e75ffd7aa98b83ecca98d
+  $trModule2 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "main"#) -}
+0ce254267477b9c31ffd82e83fc9e558
+  $w$s^ ::
+    GHC.Types.Double -> GHC.Integer.Type.Integer -> GHC.Prim.Double#
+  {- Arity: 2, Strictness: <L,U(U)><S,U>, Inline: [0],
+     Unfolding: (\ (w :: GHC.Types.Double)
+                   (w1 :: GHC.Integer.Type.Integer) ->
+                 case GHC.Integer.Type.ltInteger# w1 Main.$s^2 of wild { DEFAULT ->
+                 case GHC.Prim.tagToEnum# @ GHC.Types.Bool wild of wild1 {
+                   GHC.Types.False
+                   -> case GHC.Integer.Type.eqInteger#
+                             w1
+                             Main.$s^2 of wild2 { DEFAULT ->
+                      case GHC.Prim.tagToEnum# @ GHC.Types.Bool wild2 of wild3 {
+                        GHC.Types.False
+                        -> case w of ww { GHC.Types.D# ww1 -> Main.$wf ww1 w1 }
+                        GHC.Types.True -> 1.0## } }
+                   GHC.Types.True
+                   -> case Main.$s^1 ret_ty GHC.Prim.Double# of {} } }) -}
+f9248b8827a850c7d28eb6d82de4f77b
+  $wf ::
+    GHC.Prim.Double# -> GHC.Integer.Type.Integer -> GHC.Prim.Double#
+  {- Arity: 2, Strictness: <L,U><S,U>, Inline: [0] -}
+1fb6f72221ff976bdfe93740d2970b26
+  f1 :: GHC.Integer.Type.Integer
+  {- HasNoCafRefs, Unfolding: (19) -}
+9e2247ec5de1d98c082cdd8e2c075c09
+  f19 :: GHC.Types.Double -> GHC.Types.Double
+  {- Arity: 1, Strictness: <L,U(U)>m,
+     Unfolding: InlineRule (1, True, False)
+                (\ (x :: GHC.Types.Double) -> Main.$s^ x Main.f1) -}
+8f49ba40b54c124347b5cf3e30c4e725
+  f19errorLog :: GHC.Float.Floating a => a -> a
+  {- Arity: 2, HasNoCafRefs,
+     Strictness: <S(LLLLLLC(C(S))LLLLLLLLLLLLLLLL),U(1*U,A,A,A,A,A,1*C1(C1(U)),A,A,A,A,A,A,A,A,A,A,A,A,A,A,A,A)><L,U>,
+     Unfolding: (\ @ a
+                   ($dFloating :: GHC.Float.Floating a)
+                   (eta :: a) ->
+                 let {
+                   $dFractional :: GHC.Real.Fractional a
+                   = GHC.Float.$p1Floating @ a $dFloating
+                 } in
+                 let {
+                   $dNum :: GHC.Num.Num a = GHC.Real.$p1Fractional @ a $dFractional
+                 } in
+                 GHC.Float.logBase
+                   @ a
+                   $dFloating
+                   (GHC.Num.fromInteger @ a $dNum Main.$seven1)
+                   (GHC.Num.abs
+                      @ a
+                      $dNum
+                      (GHC.Real./
+                         @ a
+                         $dFractional
+                         (GHC.Num.-
+                            @ a
+                            $dNum
+                            eta
+                            (GHC.Real.fromRational @ a $dFractional Main.f19errorLog1))
+                         (GHC.Real.fromRational @ a $dFractional Main.f19errorLog1)))) -}
+f783883feec07bf76f302bf490238380
+  f19errorLog1 :: GHC.Real.Ratio GHC.Integer.Type.Integer
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Real.:%
+                   @ GHC.Integer.Type.Integer
+                   Main.f19errorLog3
+                   Main.f19errorLog2) -}
+2594729dfb681cbf97f4dbadb66cb67d
+  f19errorLog2 :: GHC.Integer.Type.Integer
+  {- HasNoCafRefs, Unfolding: (20) -}
+2b40b1abc54977868e8da6e47ee6bf37
+  f19errorLog3 :: GHC.Integer.Type.Integer
+  {- HasNoCafRefs, Unfolding: (1) -}
+df2578e5fd3ba7cb256c4bb5c889f1fa
+  main :: GHC.Types.IO ()
+  {- Arity: 1,
+     Unfolding: InlineRule (0, True, True)
+                Main.main1 `cast` (Sym (GHC.Types.N:IO[0] <()>_R)) -}
+9303b258a39d51481cb4c1da1efd35d0
+  main1 ::
+    GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
+  {- Arity: 1, Unfolding: (Main.main2 Main.$s^2) -}
+a0645b9494471bb6fb9ca12c6f51ebb0
+  main2 ::
+    GHC.Integer.Type.Integer
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
+  {- Arity: 2, Strictness: <S,U><S,U> -}
+28a1df0cff7dafd74ed4b38b33b4c51c
+  main3 ::
+    GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
+  {- Arity: 1,
+     Unfolding: (GHC.TopHandler.runMainIO1
+                   @ ()
+                   Main.main1 `cast` (Sym (GHC.Types.N:IO[0] <()>_R))) -}
+"SPEC/Main ^ @ Double @ Integer" [1] forall ($dNum :: GHC.Num.Num
+                                                        GHC.Types.Double)
+                                            ($dIntegral :: GHC.Real.Integral
+                                                             GHC.Integer.Type.Integer)
+  GHC.Real.^ @ GHC.Types.Double
+             @ GHC.Integer.Type.Integer
+             $dNum
+             $dIntegral
+  = Main.$s^
+vectorised variables:
+vectorised tycons:
+vectorised reused tycons:
+parallel variables:
+parallel tycons:
+trusted: safe
+require own pkg trusted: False
+
