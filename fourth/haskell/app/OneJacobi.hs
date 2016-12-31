@@ -1,10 +1,34 @@
 module Main where
 
 import Numeric.LinearAlgebra
+import Control.Monad
 
 main = do
-  print $ p a
+  let 
+    (as, ps) = unzip $ takeWhileInclusive notAccurate $ iterate yield (a, p a)
+    lambda = last as
+    u = foldr (<>) (ident 6) ps
+  print $ u <> (tr' u)
+  print $ u <> lambda <> (tr' u)
 
+type A = Matrix Double
+type P = Matrix Double
+
+-- yield (m, p m)
+yield :: (A, P) -> (A, P)
+yield (m0, p0) = (m1, p1)
+  where
+    m1 = tr' p0 <> m0 <> p0
+    p1 = p m1
+
+notAccurate :: (A, P) -> Bool
+notAccurate (m, _) = 10 ^^ (-8) < (maxElement . (cmap abs) $ notdiag m)
+
+-- 条件を満たさなかった要素も含めるtakeWhile
+takeWhileInclusive :: (a -> Bool) -> [a] -> [a]
+takeWhileInclusive _ [] = []
+takeWhileInclusive cond (x:xs) = x : if cond x then takeWhileInclusive cond xs
+                                               else []
 a :: Matrix Double
 a = matrix 6 [
     2,  3,  4,  5,  6,  7,
@@ -12,9 +36,10 @@ a = matrix 6 [
     4,  9, 13, 14, 15, 16,
     5, 10, 14, 17, 18, 19,
     6, 11, 15, 18, 20, 21,
-    7, 12, 16, 19, 20, 22
+    7, 12, 16, 19, 21, 22
   ]
 
+_upper :: Matrix Double
 _upper = matrix 6 [
     0, 1, 1, 1, 1, 1,
     0, 0, 1, 1, 1, 1,
@@ -24,15 +49,16 @@ _upper = matrix 6 [
     0, 0, 0, 0, 0, 0
   ]
 _lower = matrix 6 $ (reverse . concat . toLists) _upper
+_notdiag = _upper + _lower
 
 upper m = m * _upper
-lower m = m * _lower
+notdiag m = m * _notdiag
 
 p :: Matrix Double -> Matrix Double
 p m = accum (ident 6) (\value _ -> value) modifiers
   where
     uptr = upper m
-    (_p, _q) = maxIndex uptr
+    (_p, _q) = maxIndex $ (cmap abs) uptr
     apq = atIndex m (_p, _q)
     app = atIndex m (_p, _p)
     aqq = atIndex m (_q, _q)
