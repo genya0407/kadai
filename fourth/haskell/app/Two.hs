@@ -4,10 +4,12 @@ import           Control.Monad
 import           Data.List (intersperse)
 import qualified Seq as S
 import qualified Func as F
+import           Types
 
 main :: IO ()
 main = do
-  forM_ [0..30] $ \k -> do
+  putStrLn "k,trapezoidal_seq,trapezoidal_func, simpsons_seq, simpsons_func"
+  forM_ [0..20] $ \k -> do
     let
       n = 2 ^ k
       seqTrapezoidal = S.compositTrapezoidalRule f19 n (0, 1)
