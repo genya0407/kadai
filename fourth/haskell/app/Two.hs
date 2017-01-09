@@ -8,7 +8,7 @@ import           Types
 
 main :: IO ()
 main = do
-  putStrLn "k,trapezoidal_seq,trapezoidal_func, simpsons_seq, simpsons_func"
+  putStrLn "k,trapezoidal_seq,trapezoidal_func,simpsons_seq,simpsons_func"
   forM_ [0..20] $ \k -> do
     let
       n = 2 ^ k

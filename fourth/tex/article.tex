@@ -1,0 +1,89 @@
+\documentclass[11pt]{jsarticle}
+
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{comment}
+\usepackage{listings, jlisting}
+\usepackage{amsmath, amssymb}
+
+\title{電気電子計算工学及演習 課題4}
+\author{三軒家 佑將（さんげんや ゆうすけ） \\ ３回生 \\ 1026-26-5817 \\ a0146089}
+\date{}
+
+\newcommand{\fg}[3]{ % \fg{label}{path}{caption},
+    \begin{figure}
+        \includegraphics[width=0.9\textwidth]{#2}
+        \caption{#3}
+        \label{#1}
+    \end{figure}
+}
+
+\newcommand{\tab}[3]{ % \tab{label}{csv-path}{caption}
+    \begin{table}[htb]
+          \begin{center}
+            %\input{#2}
+            \csvautotabular{#2}
+            \caption{#3}
+            \label{#1}
+          \end{center}
+    \end{table}
+}
+
+\newcommand{\code}[1]{
+    \lstinputlisting{ ../src/#1 }
+}
+
+\newcommand{\fr}[1]{図\ref{#1}}
+\newcommand{\tr}[1]{表\ref{#1}}
+\newcommand{\er}[1]{式(\ref{#1})}
+
+\newcommand{\kb}{{\bf k}}
+\newcommand{\xb}{{\bf x}}
+\newcommand{\fb}{{\bf f}}
+\newcommand{\dtn}{{\rm dt}}
+
+\begin{document}
+\maketitle
+
+\section{プログラムの説明}
+\subsection{概要}
+本レポートにおいては、プログラム言語としてHaskellを採用した。
+行列演算ライブラリとしては、hmatrix(https://hackage.haskell.org/package/hmatrix)を用いた。
+
+また、グラフを描画する際には、Jupyter notebookおよびIRuby kernelを用いた。
+
+プログラムを実行する手順は、以下のとおりである。
+\begin{lstlisting}[language=bash]
+> stack build
+> stack exec 
+\end{lstlisting}
+
+\subsection{各機能・関数の説明}
+プログラムを作成するにあたって、見通しを良くするために、プログラムを複数のファイルに分割している。
+ここでは、各ファイルごとに、そのファイルの担う機能と、そのファイル内にある関数の機能などについて簡単に説明する。
+
+各関数の詳しい使用方法などは、プログラム内のコメントにて示したので、そちらも参照されたい。
+
+% 各ファイルの説明 \subsubsection{}
+
+\section{課題4.1}
+\section{課題4.2}
+\section{課題4.3}
+% 課題の説明
+% \subsection{アルゴリズムの説明}
+\subsection{結果}
+
+\section{考察}
+% 考察（計算方法に関する考察、得られた結果の精度、うまく行かなかったと思われる点、その他、気付いた点や考えたことについて）
+
+\section{付録}
+\subsection{ソースコード}
+ソースコードは別に添付する。
+
+\subsection{出力結果}
+出力結果は、別に添付したファイルoutput.txtに示す。
+
+\section{参考文献}
+\begin{enumerate}
+\item
+\end{enumerate}
+\end{document}
