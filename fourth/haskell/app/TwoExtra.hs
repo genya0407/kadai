@@ -8,15 +8,15 @@ import           Types
 
 main :: IO ()
 main = do
-  putStrLn "k,trapezoidal_seq,trapezoidal_func,simpsons_seq,simpsons_func"
-  forM_ [0..20] $ \k -> do
+  putStrLn "k,trapezoidal_default,trapezoidal_recursive,simpsons_default,simpsons_recursive"
+  forM_ [0..25] $ \k -> do
     let
       n = 2 ^ k
-      seqTrapezoidal = S.compositTrapezoidalRule f19 n (0, 1)
-      funcTrapezoidal = F.compositTrapezoidalRule f19 n (0, 1)
-      seqSimpsons = S.compositSimpsonsRule f19 n (0, 1)
-      funcSimpsons = F.compositSimpsonsRule f19 n (0, 1)
-    putStrLn $ concat $ intersperse "," $ (show k):(map show $ map f19errorLog [seqTrapezoidal, funcTrapezoidal, seqSimpsons, funcSimpsons])
+      defaultTrapezoidal = S.compositTrapezoidalRule f19 n (0, 1)
+      recursiveTrapezoidal = F.compositTrapezoidalRule f19 n (0, 1)
+      defaultSimpsons = S.compositSimpsonsRule f19 n (0, 1)
+      recursiveSimpsons = F.compositSimpsonsRule f19 n (0, 1)
+    putStrLn $ concat $ intersperse "," $ (show k):(map show $ map f19errorLog [defaultTrapezoidal, recursiveTrapezoidal, defaultSimpsons, recursiveSimpsons])
 
 f19errorLog ans = logBase 2 $ abs $ (ans - 0.05) / 0.05
 
