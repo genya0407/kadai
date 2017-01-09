@@ -3,6 +3,29 @@ module Main where
 import Numeric.LinearAlgebra
 import Control.Monad
 
+main = do
+  let
+    -- _vs = [u0, a #> u0, a #> (a #> u0), ...]
+    _vs = iterate (\v -> a #> v ) u0
+
+    -- untilConvergent = [(v1, v2), (v2, v3), .. , (vl, vm), (vm, vn)]
+    -- また、diff (vl, vm) > εであるが、diff (vm, vn) <= εである
+    untilConvergent = takeWhileInclusive (not . convergent) $ zip _vs (tail _vs)
+
+    -- vs1 = [v1, v2, v3, ..., vm]
+    -- vs2 = [v2, v3, v4, ..., vn]
+    (vs1, vs2) = unzip untilConvergent
+    -- vs = [v1, v2, v3, ..., vm, vn]
+    vs = (head vs1):vs2
+
+    -- diffs = [diff (v1, v2), diff (v2, v3), ..., diff (vm, vn)]
+    diffs = map diff untilConvergent
+
+  putStrLn "u1:"
+  print (last vs) -- u1を出力
+  putStrLn "収束判定に用いたスカラ値："
+  print diffs -- 収束判定に用いたスカラ値のリストを出力
+
 -- 問の行列A
 a :: Matrix Double
 a = matrix 6 [
@@ -43,25 +66,3 @@ takeWhileInclusive cond (x:xs) = x : if cond x then takeWhileInclusive cond xs
 convergent :: (Vector Double, Vector Double) -> Bool
 convergent (v1, v2) = diff (v1, v2) <= epsilon
 
-main = do
-  let
-    -- _vs = [u0, a #> u0, a #> (a #> u0), ...]
-    _vs = iterate (\v -> a #> v ) u0
-
-    -- untilConvergent = [(v1, v2), (v2, v3), .. , (vl, vm), (vm, vn)]
-    -- また、diff (vl, vm) > εであるが、diff (vm, vn) <= εである
-    untilConvergent = takeWhileInclusive (not . convergent) $ zip _vs (tail _vs)
-
-    -- vs1 = [v1, v2, v3, ..., vm]
-    -- vs2 = [v2, v3, v4, ..., vn]
-    (vs1, vs2) = unzip untilConvergent
-    -- vs = [v1, v2, v3, ..., vm, vn]
-    vs = (head vs1):vs2
-
-    -- diffs = [diff (v1, v2), diff (v2, v3), ..., diff (vm, vn)]
-    diffs = map diff untilConvergent
-
-  putStrLn "u1:"
-  print (last vs) -- u1を出力
-  putStrLn "収束判定に用いたスカラ値："
-  print diffs -- 収束判定に用いたスカラ値のリストを出力
