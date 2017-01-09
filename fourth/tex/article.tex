@@ -54,23 +54,77 @@
 プログラムを実行する手順は、以下のとおりである。
 \begin{lstlisting}[language=bash]
 > stack build
-> stack exec 
+> stack exec one-power # 課題4.1.1
+> stack exec one-jacobi # 課題4.1.2
+> stack exec two # 課題4.2
+> stack exec three-trapezoidal # 課題4.3
+> stack exec three-simpsons # 課題4.3
 \end{lstlisting}
 
 \subsection{各機能・関数の説明}
 プログラムを作成するにあたって、見通しを良くするために、プログラムを複数のファイルに分割している。
 ここでは、各ファイルごとに、そのファイルの担う機能と、そのファイル内にある関数の機能などについて簡単に説明する。
 
-各関数の詳しい使用方法などは、プログラム内のコメントにて示したので、そちらも参照されたい。
+各関数の詳しい使用方法などは、プログラム内のコメントにて示したので、そちらを参照されたい。
 
-% 各ファイルの説明 \subsubsection{}
+\subsubsection*{app/OnePower.hs}
+課題4.1.1を解くプログラム。
+固有ベクトルと、収束判定に用いたスカラ値の値を出力する。
+
+\subsubsection*{app/OneJacobi.hs}
+課題4.1.2を解くプログラム。
+${\rm U} {\rm U}^{\rm T}$と${\rm U}\Lambda{\rm U}^{\rm T}$を出力する。
+
+\subsubsection*{app/Two.hs}
+課題4.2.1、課題4.2.2を解くプログラム。
+\begin{itemize}
+    \item k
+    \item 複合台形公式による積分結果
+    \item 複合シンプソン公式による積分結果
+\end{itemize}
+をCSVにして標準出力に出力する。
+
+\subsubsection*{app/ThreeTrapezoidal.hs}
+課題4.3を解くプログラム。各定義式から$\pi$を求めるが、そのとき複合台形公式を用いる。
+
+以下の内容がCSV形式で標準出力に出力される。
+\begin{itemize}
+    \item k
+    \item 問の定義式１による$\pi$の計算結果
+    \item 問の定義式２による$\pi$の計算結果
+    \item 問の定義式３による$\pi$の計算結果
+    \item 問の定義式４による$\pi$の計算結果
+\end{itemize}
+
+\subsubsection*{app/ThreeSimpsons.hs}
+課題4.3を解くプログラム。
+app/Threetrapezoidal.hsと同様のことを行なうが、その際、複合台形公式ではなく、複合シンプソン公式を用いる。
+
+\subsubsection*{src/Types.hs}
+本プログラムにて使用する型シノニムを定義したファイル。
+
+\subsubsection*{src/Integrator/Default.hs}
+複合台形公式によって積分計算を行なう関数(compositTrapezoidalRule)と、
+複合シンプソン公式によって積分計算を行なう関数(compositSimpsonsRule)を定義したファイル。
+
+\subsubsection*{src/Three.hs}
+calc関数をexportしており、課題4.3を解くのに使われる。
+
+\subsubsection*{src/Integrator/Recursive.hs}
+src/Integrator/Default.hsと同様の関数をexportしているが、その際のアルゴリズムが、Default.hsのそれとは異なる。
+詳細は考察にて述べる。
+
+\subsubsection*{app/TwoExtra.hs}
+考察に用いるプログラム。
+詳細は考察にて述べる。
+
 
 \section{課題4.1}
-\section{課題4.2}
-\section{課題4.3}
 % 課題の説明
 % \subsection{アルゴリズムの説明}
 \subsection{結果}
+\section{課題4.2}
+\section{課題4.3}
 
 \section{考察}
 % 考察（計算方法に関する考察、得られた結果の精度、うまく行かなかったと思われる点、その他、気付いた点や考えたことについて）
