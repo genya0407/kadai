@@ -16,9 +16,9 @@ main = do
       recursiveTrapezoidal = R.compositTrapezoidalRule f19 n (0, 1)
       defaultSimpsons = D.compositSimpsonsRule f19 n (0, 1)
       recursiveSimpsons = R.compositSimpsonsRule f19 n (0, 1)
-    putStrLn $ concat $ intersperse "," $ (show k):(map show $ map f19errorLog [defaultTrapezoidal, recursiveTrapezoidal, defaultSimpsons, recursiveSimpsons])
+    putStrLn $ concat $ intersperse "," $ (show k):(map (show . logE) [defaultTrapezoidal, recursiveTrapezoidal, defaultSimpsons, recursiveSimpsons])
 
-f19errorLog ans = logBase 2 $ abs $ (ans - 0.05) / 0.05
+logE ans = logBase 2 $ abs $ (ans - 0.05) / 0.05
 
 f19 :: Double -> Double
 f19 x = x ^ 19

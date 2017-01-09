@@ -1,9 +1,9 @@
 # Fdb version 3
-["dvipdf"] 1483979725 "article.dvi" "article.pdf" "article" 1483979725
-  "article.dvi" 1483979725 6068 25189395444d5228c8e195c5ed2b52f4 "latex"
+["dvipdf"] 1483984507 "article.dvi" "article.pdf" "article" 1483984507
+  "article.dvi" 1483984507 13296 dc933a34c87dd3dc5d02dff7aeac57e3 "latex"
   (generated)
   "article.pdf"
-["latex"] 1483979725 "tex/article.tex" "article.dvi" "article" 1483979725
+["latex"] 1483984506 "tex/article.tex" "article.dvi" "article" 1483984507
   "/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/amsfonts.sty" 1359763108 5949 3f3fd50a8cc94c3d4cbf4fc66cd3df1c ""
   "/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/amssymb.sty" 1359763108 13829 94730e64147574077f8ecfea9bb69af4 ""
   "/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/umsa.fd" 1359763108 961 6518c6525a34feb5e8250ffa91731cff ""
@@ -28,8 +28,12 @@
   "/usr/local/texlive/2016/texmf-dist/tex/latex/listings/lstlang1.sty" 1434304428 93445 48e5be20ba2d0a2ca5c4ce7e292a4bbc ""
   "/usr/local/texlive/2016/texmf-dist/tex/latex/listings/lstmisc.sty" 1434304428 77028 c3eb00afb55a32bc13ca8da7f5234377 ""
   "/usr/local/texlive/2016/texmf-dist/tex/platex/jsclasses/jsarticle.cls" 1400831602 55132 1568ea7ebb5ed2b2ea63f45c633eadda ""
-  "article.aux" 1483979725 921 ddfb3f0e2c9ba5fd53c6b1c6ed3310fc ""
-  "tex/article.tex" 1483979723 4945 a53004535629db66ead28a64fea4764c ""
+  "article.aux" 1483984507 1846 25f8106fb85b2ffc77bb0911cf356619 ""
+  "graph/4_1_1.png" 1483980512 29987 582c00766365b51716aa255aa7ddc4f7 ""
+  "graph/4_2.png" 1483984485 50446 3d5243c8b04c225ae84449fcb993ad4e ""
+  "graph/4_3_simpsons.png" 1483983496 57534 f6caadf836a5639707a2a11a703c4bdf ""
+  "graph/4_3_trapezoidal.png" 1483983479 51339 e89d62af545ba6b8f2d048542c7e1b50 ""
+  "tex/article.tex" 1483984134 8777 0297307272711a72a46ae00657cb1136 ""
   (generated)
   "article.dvi"
   "article.aux"

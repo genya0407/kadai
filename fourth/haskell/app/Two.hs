@@ -7,7 +7,7 @@ import           Integrator.Default
 main :: IO ()
 main = do
   putStrLn "k,trapezoidal,simpsons" -- CSVのヘッダ
-  forM_ [0..20] $ \k -> do -- k = 0,1,2 .., 20について、積分を計算する
+  forM_ [0..25] $ \k -> do -- k = 0,1,2 .., 20について、積分を計算する
     let
       n = 2 ^ k
       trapezoidal = compositTrapezoidalRule f19 n (0, 1) -- 複合台形公式で積分を計算
