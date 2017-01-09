@@ -2,8 +2,8 @@ module Main where
 
 import           Control.Monad
 import           Data.List (intersperse)
-import qualified Seq as S
-import qualified Func as F
+import qualified Integrator.Default as D
+import qualified Integrator.Recursive as R
 import           Types
 
 main :: IO ()
@@ -12,10 +12,10 @@ main = do
   forM_ [0..25] $ \k -> do
     let
       n = 2 ^ k
-      defaultTrapezoidal = S.compositTrapezoidalRule f19 n (0, 1)
-      recursiveTrapezoidal = F.compositTrapezoidalRule f19 n (0, 1)
-      defaultSimpsons = S.compositSimpsonsRule f19 n (0, 1)
-      recursiveSimpsons = F.compositSimpsonsRule f19 n (0, 1)
+      defaultTrapezoidal = D.compositTrapezoidalRule f19 n (0, 1)
+      recursiveTrapezoidal = R.compositTrapezoidalRule f19 n (0, 1)
+      defaultSimpsons = D.compositSimpsonsRule f19 n (0, 1)
+      recursiveSimpsons = R.compositSimpsonsRule f19 n (0, 1)
     putStrLn $ concat $ intersperse "," $ (show k):(map show $ map f19errorLog [defaultTrapezoidal, recursiveTrapezoidal, defaultSimpsons, recursiveSimpsons])
 
 f19errorLog ans = logBase 2 $ abs $ (ans - 0.05) / 0.05

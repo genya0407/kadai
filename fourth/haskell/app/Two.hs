@@ -2,7 +2,7 @@ module Main where
 
 import           Control.Monad (forM_)
 import           Data.List (intercalate)
-import qualified Seq as S
+import           Integrator.Default
 
 main :: IO ()
 main = do
@@ -10,8 +10,8 @@ main = do
   forM_ [0..20] $ \k -> do -- k = 0,1,2 .., 20について、積分を計算する
     let
       n = 2 ^ k
-      trapezoidal = S.compositTrapezoidalRule f19 n (0, 1) -- 複合台形公式で積分を計算
-      simpsons = S.compositSimpsonsRule f19 n (0, 1) -- 複合シンプソン公式で積分を計算
+      trapezoidal = compositTrapezoidalRule f19 n (0, 1) -- 複合台形公式で積分を計算
+      simpsons = compositSimpsonsRule f19 n (0, 1) -- 複合シンプソン公式で積分を計算
     -- CSVの行を合成して出力
     putStrLn $ intercalate "," $ (show k):(map (show . logE) [trapezoidal, simpsons])
 

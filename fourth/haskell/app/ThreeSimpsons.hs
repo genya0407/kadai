@@ -1,7 +1,7 @@
 module Main where
 
 import           Three (calc)
-import qualified Seq as S
+import           Integrator.Default (compositSimpsonsRule)
 
 -- 複合シンプソン公式によってπを求める
-main = calc S.compositSimpsonsRule
+main = calc compositSimpsonsRule
