@@ -1,4 +1,4 @@
-This is e-pTeX, Version 3.14159265-p3.7-160201-2.6 (utf8.euc) (TeX Live 2016) (preloaded format=platex 2016.8.20)  10 JAN 2017 02:55
+This is e-pTeX, Version 3.14159265-p3.7-160201-2.6 (utf8.euc) (TeX Live 2016) (preloaded format=platex 2016.8.20)  10 JAN 2017 08:31
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -251,40 +251,42 @@ LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
  [1
 
 ]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 83.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 84.
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 83.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 84.
  [2]
 File: graph/4_1_1.png Graphic file (type bmp)
 
 <graph/4_1_1.png>
 LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
-(Font)              scaled to size 8.64899pt on input line 128.
+(Font)              scaled to size 8.64899pt on input line 129.
 LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
-(Font)              scaled to size 8.64899pt on input line 128.
+(Font)              scaled to size 8.64899pt on input line 129.
  [3]
-Overfull \hbox (19.78368pt too wide) detected at line 152
+Overfull \hbox (19.78368pt too wide) detected at line 154
 \OT1/cmr/m/n/10 UU[] = []
  []
 
 File: graph/4_2.png Graphic file (type bmp)
-<graph/4_2.png> [4]
+<graph/4_2.png> [4] [5]
+File: graph/4_2_extra.png Graphic file (type bmp)
+ <graph/4_2_extra.png>
 File: graph/4_3_trapezoidal.png Graphic file (type bmp)
  <graph/4_3_trapezoidal.png>
+[6]
 File: graph/4_3_simpsons.png Graphic file (type bmp)
- <graph/4_3_simpsons.png>
-[5] [6] [7] (./article.aux) ) 
+ <graph/4_3_simpsons.png> [7] [8] (./article.aux) ) 
 Here is how much of TeX's memory you used:
- 3128 strings out of 493683
- 40498 string characters out of 6149658
- 131383 words of memory out of 5000000
- 6667 multiletter control sequences out of 15000+600000
+ 3133 strings out of 493683
+ 40583 string characters out of 6149658
+ 129391 words of memory out of 5000000
+ 6671 multiletter control sequences out of 15000+600000
  19129 words of font info for 86 fonts, out of 8000000 for 9000
  934 hyphenation exceptions out of 8191
- 32i,7n,51p,212b,1226s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 32i,7n,51p,214b,1226s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on article.dvi (7 pages, 13296 bytes).
+Output written on article.dvi (8 pages, 18744 bytes).
